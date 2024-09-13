@@ -1,0 +1,41 @@
+footer {
+    background-color: var(--footer-background);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+.footer-icons a {
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: var(--primary-color-hover);
+}
+
+
+/* Adicionar ícones de redes sociais para um toque moderno */
+.footer-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-icons a {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #007BFF;
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #0056b3;
+}

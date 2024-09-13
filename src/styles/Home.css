@@ -1,0 +1,17 @@
+.home {
+    min-height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+.home h1 {
+    color: var(--text-color);
+}
+
+.home p {
+    color: var(--text-color);
+}
