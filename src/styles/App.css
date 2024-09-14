@@ -3,6 +3,8 @@ html, body {
   padding: 0;
   height: 100%;
   scroll-behavior: smooth; /* Rolagem suave */
+  /* Transição suave para todas as propriedades relacionadas a cores */
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 .app {
@@ -20,16 +22,93 @@ section {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  /* Transição suave para o background */
+  transition: background-color 0.8s ease;
 }
 
+/* Alternância de cores para cada seção */
 #home {
-  background-color: #f0f0f0;
+  background-color: var(--primary-color); /* Alternando conforme o tema */
+  transition: background-color 0.8s ease;
 }
 
 #about {
-  background-color: #e0e0e0;
+  background-color: var(--accent-color); /* Alternando conforme o tema */
+  transition: background-color 0.8s ease;
 }
 
 #projects {
-  background-color: #d0d0d0;
+  background-color: var(--primary-color); /* Alternando conforme o tema */
+  transition: background-color 0.8s ease;
+}
+
+/* Mantendo as transições suaves para os botões e outros elementos */
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+footer {
+  background-color: var(--footer-background);
+  color: var(--text-color);
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+a {
+  color: var(--text-color);
+  transition: color 0.8s ease;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  transition: color 0.8s ease;
+}
+
+.nav ul li a:hover {
+  color: var(--primary-color);
+  transition: color 0.8s ease;
+}
+
+/* Transição aplicada ao header */
+.header {
+  background-color: var(--background-color); /* Alternância conforme o tema */
+  color: var(--text-color); /* Alterar o texto conforme o tema */
+  transition: background-color 0.8s ease, color 0.8s ease; /* Transição suave */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-color);
+  transition: color 0.8s ease;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+  transition: color 0.8s ease;
+}
+
+.menu-toggle {
+  font-size: 24px;
+  color: var(--text-color);
+  transition: color 0.8s ease;
 }

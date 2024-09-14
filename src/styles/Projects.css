@@ -1,9 +1,14 @@
+/* Projects Section */
 .projects {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #d0d0d0;
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--projects-background); /* Cor alternada conforme o tema */
+}
+
+.projects h1,
+.projects p {
+  color: var(--text-color); /* Texto alternado conforme o tema */
+}

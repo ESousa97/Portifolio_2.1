@@ -1,9 +1,14 @@
+/* About Section */
 .about {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #e0e0e0;
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--about-background); /* Variável de cor da seção */
+}
+
+.about h1,
+.about p {
+  color: var(--text-color); /* Texto alternado conforme o tema */
+}

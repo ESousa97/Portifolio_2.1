@@ -1,17 +1,14 @@
+/* Home Section */
 .home {
-    min-height: 100vh; /* Ocupa 100% da altura da viewport */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-  
-.home h1 {
-    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
+    background-color: var(--home-background); /* Variável de cor da seção */
 }
 
+.home h1,
 .home p {
-    color: var(--text-color);
+    color: var(--text-color); /* Texto alternado conforme o tema */
 }

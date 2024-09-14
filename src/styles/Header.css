@@ -4,14 +4,18 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--background-color); /* Fundo alternado pelo tema */
+    color: var(--text-color); /* Texto alternado pelo tema */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+}
+
+.nav ul li a:hover {
+    color: var(--primary-color); /* Muda conforme o tema claro/escuro */
 }
 
 /* Estilo da logo */
@@ -46,10 +50,6 @@
     color: var(--text-color);
     font-size: 20px;
     transition: color 0.3s;
-}
-
-.nav ul li a:hover {
-    color: var(--primary-color);
 }
 
 /* Botão de alternância de tema */
