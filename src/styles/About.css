@@ -5,10 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--about-background); /* Variável de cor da seção */
 }
 
 .about h1,
 .about p {
-  color: var(--text-color); /* Texto alternado conforme o tema */
+  color: var(--primary-color); /* Texto alternado conforme o tema */
 }

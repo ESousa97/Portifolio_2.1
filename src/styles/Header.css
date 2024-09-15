@@ -4,13 +4,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--background-color); /* Fundo alternado pelo tema */
     color: var(--text-color); /* Texto alternado pelo tema */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
@@ -68,67 +66,4 @@
 
 .theme-toggle:hover {
     color: var(--primary-color);
-}
-
-/* Menu hamburguer (mobile) */
-.menu-toggle {
-    display: none; /* Escondido no desktop por padrão */
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: var(--text-color);
-    padding: 10px;
-    transition: color 0.3s;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.menu-toggle:hover {
-    color: var(--primary-color);
-}
-
-/* Responsividade - Mobile e telas abaixo de 1300px */
-@media (max-width: 1300px) {
-    .menu-toggle {
-        display: block; /* Exibe o botão hamburguer em telas menores */
-    }
-
-    .nav {
-        display: none; /* Esconde o menu padrão em telas menores */
-    }
-
-    .nav.open {
-        display: flex;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: var(--background-color);
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav ul li {
-        margin: 10px 0;
-    }
-
-    /* O ícone de tema dentro do menu hamburguer em telas menores */
-    .theme-toggle {
-        margin-right: 0; /* Remove o espaçamento lateral em telas menores */
-    }
-}
-
-/* Esconder o botão hamburguer em telas maiores que 1300px */
-@media (min-width: 1301px) {
-    .menu-toggle {
-        display: none; /* Não exibir o botão hamburguer em telas maiores */
-    }
 }

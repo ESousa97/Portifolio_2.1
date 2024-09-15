@@ -1,6 +1,6 @@
 footer {
-    background-color: var(--footer-background);
-    color: var(--text-color);
+    background-color: var(--color-gray-one);
+    color: var(--color-gray-seconde);
     padding: 20px;
     text-align: center;
     position: relative;
@@ -9,16 +9,6 @@ footer {
 footer p {
     margin: 0;
 }
-
-.footer-icons a {
-    color: var(--primary-color);
-    transition: color 0.3s;
-}
-
-.footer-icons a:hover {
-    color: var(--primary-color-hover);
-}
-
 
 /* Adicionar ícones de redes sociais para um toque moderno */
 .footer-icons {

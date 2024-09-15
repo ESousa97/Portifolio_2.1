@@ -1,32 +1,33 @@
 /* Modo claro */
 :root {
-    --primary-color: #312b97; /* Azul Escuro */
-    --secondary-color: #E17A34; /* Laranja */
-    --accent-color: #FFF2E3; /* Bege Claro */
-    --background-color: #ffffff;
-    --text-color: #E17A34;
-    --footer-background: #f8f9fa;
+    --color-blue: #C5D3FF;
+    --color-gray-one: #a7a7a7;
+    --color-silver: #ffffff;
+    --color-green: #2ECC71;
+    --color-orange: #A3E4BB;
+    --color-gray-seconde: #3b3b3b;
 }
 
 /* Modo escuro */
 [data-theme="dark"] {
-    --primary-color: #363636; /* Cinza Escuro */
-    --secondary-color: #000000; /* Preto */
-    --accent-color: #858585; /* Verde Neon */
-    --background-color: #363636;
-    --text-color: #FFF2E3;
-    --footer-background: #333;
-}
+    --color-blue: #1c1c1c;
+    --color-gray-one: #0b0b0b;
+    --color-silver: #ffffff;
+    --color-green: #343434;
+    --color-purple: #4d4d4d;
+    --color-orange: #2e2e2e;
+    --color-gray-seconde: #c0c0c0;
+}    
 
 /* Aplicando as cores nas tags */
 body {
-    background-color: var(--background-color);
+    background-color: var(--color-gray-seconde);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: --color-gray-seconde 0.3s ease, color 0.3s ease;
 }
 
 button {
-    background-color: var(--primary-color);
+    background-color: var(--color-gray-seconde);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -35,10 +36,10 @@ button {
 }
 
 button:hover {
-    background-color: var(--primary-color-hover);
+    background-color: var(--color-gray-seconde-hover);
 }
 
 footer {
-    background-color: var(--footer-background);
-    color: var(--text-color);
+    background-color: var(--color-gray-one);
+    color: var(--color-gray-seconde);
 }

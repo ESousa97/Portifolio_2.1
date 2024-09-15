@@ -1,11 +1,31 @@
 /* Home Section */
 .home {
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    min-height: 100vh; /* Garante que a altura da seção seja 100% da viewport */
     justify-content: center;
     align-items: center;
-    background-color: var(--home-background); /* Variável de cor da seção */
+}
+
+.column-left {
+    flex: 1;
+    height: 100vh; /* Garante que as colunas tenham a mesma altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: left;     /* Centraliza o conteúdo horizontalmente */
+    text-align: left;
+    padding-right: 50px;
+}
+
+.column-right {
+    flex: 1;
+    height: 100vh; /* Garante que as colunas tenham a mesma altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: right;     /* Centraliza o conteúdo horizontalmente */
+    text-align: right;
+    padding-left: 50px;
 }
 
 .home h1,
