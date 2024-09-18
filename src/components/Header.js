@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa'; // Ícones para o botão de alternância de tema
 import '../styles/Header.css';
+import '../styles/SmallScreenAdjustments.css';
 
 function Header() {
     const [theme, setTheme] = useState('light');
@@ -29,9 +30,6 @@ function Header() {
 
     return (
         <header className="header">
-            <div className="logo">
-                <h1>My Portfolio</h1>
-            </div>
             <nav className="nav">
                 <ul>
                     <li><a href="#home">Home</a></li>

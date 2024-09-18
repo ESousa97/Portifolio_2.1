@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import './styles/App.css';
+import './styles/SmallScreenAdjustments.css';
 
 function App() {
     return (

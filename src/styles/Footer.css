@@ -27,3 +27,40 @@ footer p {
 .footer-icons a:hover {
     color: #0056b3;
 }
+
+/* Ajustes para telas menores que 400px */
+@media only screen and (max-width: 400px) {
+
+    /* Ajustes para o Footer */
+    footer {
+      padding: 10px;
+      font-size: 10px;
+      text-align: center;
+    }
+  
+    .footer-icons a {
+      font-size: 12px;
+      margin: 0 5px;
+    }
+  }
+  
+  /* Ajustes para telas menores que 240px */
+  @media only screen and (max-width: 240px) {
+  
+    /* Ajustes para o Footer */
+    footer {
+      padding: 5px 0;
+      font-size: 8px;
+      text-align: center;
+    }
+  
+    .footer-icons a {
+      font-size: 10px;
+      margin: 0 3px;
+    }
+  
+    footer p {
+      font-size: 8px;
+    }
+  }
+  

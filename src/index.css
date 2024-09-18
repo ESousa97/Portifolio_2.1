@@ -1,3 +1,6 @@
+/* Adicionando Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 /* Modo claro */
 :root {
     --color-blue: #C5D3FF;
@@ -17,14 +20,16 @@
     --color-purple: #4d4d4d;
     --color-orange: #2e2e2e;
     --color-gray-seconde: #c0c0c0;
-}    
+}
 
-/* Aplicando as cores nas tags */
+/* Aplicando a fonte no body */
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color-gray-seconde);
     color: var(--text-color);
     transition: --color-gray-seconde 0.3s ease, color 0.3s ease;
 }
+
 
 button {
     background-color: var(--color-gray-seconde);

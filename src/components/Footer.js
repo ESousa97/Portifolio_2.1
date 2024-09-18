@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
+import '../styles/SmallScreenAdjustments.css';
 
 function Footer() {
     return (

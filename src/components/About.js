@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/About.css';
+import '../styles/SmallScreenAdjustments.css';
 
 function About() {
     return (

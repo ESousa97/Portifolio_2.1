@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Projects.css';
+import '../styles/SmallScreenAdjustments.css';
 
 function Projects() {
     return (
