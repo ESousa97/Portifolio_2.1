@@ -1,30 +1,30 @@
-/* Adicionando Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Adicionando Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
 /* Modo claro */
 :root {
-    --color-blue: #C5D3FF;
-    --color-gray-one: #a7a7a7;
-    --color-silver: #ffffff;
-    --color-green: #2ECC71;
-    --color-orange: #A3E4BB;
-    --color-gray-seconde: #3b3b3b;
+    --color-blue: #A9C9FF;  /* Azul mais saturado e vivo */
+    --color-gray-one: #b0b0b0;  /* Cinza um pouco mais claro */
+    --color-silver: #f0f0f0;  /* Prata mais brilhante */
+    --color-green: #32D774;  /* Verde com mais vida */
+    --color-orange: #32D774;  /* Laranja mais quente */
+    --color-gray-seconde: #454545;  /* Cinza mais equilibrado */
 }
 
 /* Modo escuro */
 [data-theme="dark"] {
-    --color-blue: #1c1c1c;
-    --color-gray-one: #0b0b0b;
-    --color-silver: #ffffff;
-    --color-green: #343434;
-    --color-purple: #4d4d4d;
-    --color-orange: #2e2e2e;
-    --color-gray-seconde: #c0c0c0;
+    --color-blue: #2A2A2A;  /* Azul escuro mais intenso */
+    --color-gray-one: #1a1a1a;  /* Cinza mais escuro */
+    --color-silver: #f0f0f0;  /* Prata vivo para contraste */
+    --color-green: #4A4A4A;  /* Verde mais escuro e intenso */
+    --color-purple: #5E5E5E;  /* Roxo mais profundo */
+    --color-orange: #383838;  /* Laranja escuro com mais vida */
+    --color-gray-seconde: #d3d3d3;  /* Cinza secundário mais claro */
 }
 
 /* Aplicando a fonte no body */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--color-gray-seconde);
     color: var(--text-color);
     transition: --color-gray-seconde 0.3s ease, color 0.3s ease;
