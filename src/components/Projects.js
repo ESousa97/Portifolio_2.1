@@ -16,7 +16,7 @@ function Projects() {
     "/models/Git.glb",
     "/models/GitHub.glb",
     "/models/Html5.glb", 
-    "/models/Javascript.glb",
+    "/models/JavaScript.glb",
     "/models/Linux.glb",
     "/models/MongoDb.glb",
     "/models/MySql.glb",
