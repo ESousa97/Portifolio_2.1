@@ -9,5 +9,5 @@
 
 .about h1,
 .about p {
-  color: var(--primary-color); /* Texto alternado conforme o tema */
+  color: var(--color-gray-seconde); /* Texto alternado conforme o tema */
 }

@@ -29,5 +29,5 @@
 
 .home h1,
 .home p {
-    color: var(--text-color); /* Texto alternado conforme o tema */
+    color: var(--color-gray-seconde); /* Texto alternado conforme o tema */
 }

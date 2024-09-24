@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    color: var(--text-color); /* Texto alternado pelo tema */
+    color: var(--color-gray-seconde); /* Texto alternado pelo tema */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@
 }
 
 .nav ul li a:hover {
-    color: var(--primary-color); /* Muda conforme o tema claro/escuro */
+    color: var(--color-silver); /* Muda conforme o tema claro/escuro */
 }
 
 /* Estilo da logo */
@@ -45,7 +45,7 @@
 
 .nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--color-gray-seconde);
     font-size: 20px;
     transition: color 0.3s;
 }
@@ -56,7 +56,7 @@
     border: none;
     cursor: pointer;
     font-size: 24px;
-    color: var(--text-color);
+    color: var(--color-gray-seconde);
     padding: 10px;
     transition: color 0.3s;
     margin-right: 20px;
@@ -65,7 +65,7 @@
 }
 
 .theme-toggle:hover {
-    color: var(--primary-color);
+    color: var(--color-silver);
 }
 
 /* Ajustes para telas menores que 400px */
