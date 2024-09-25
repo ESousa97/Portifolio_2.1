@@ -4,7 +4,7 @@
 /* Modo claro */
 :root {
     --color-blue: #A9C9FF;  /* Azul mais saturado e vivo */
-    --color-gray-one: #b0b0b0;  /* Cinza um pouco mais claro */
+    --color-gray-one: #444444;  /* Cinza um pouco mais claro */
     --color-silver: #f0f0f0;  /* Prata mais brilhante */
     --color-green: #32D774;  /* Verde com mais vida */
     --color-orange: #32D774;  /* Laranja mais quente */
@@ -14,7 +14,7 @@
 /* Modo escuro */
 [data-theme="dark"] {
     --color-blue: #2A2A2A;  /* Azul escuro mais intenso */
-    --color-gray-one: #1a1a1a;  /* Cinza mais escuro */
+    --color-gray-one: #d3d3d3;  /* Cinza mais escuro */
     --color-silver: #ffffff;  /* Prata vivo para contraste */
     --color-green: #4A4A4A;  /* Verde mais escuro e intenso */
     --color-purple: #5E5E5E;  /* Roxo mais profundo */

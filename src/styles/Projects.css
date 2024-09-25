@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
   width: 100%;
   background-color: var(--projects-background);
   position: relative;
@@ -20,8 +20,8 @@
 
 /* Modelo 3D */
 .model-viewer {
-  width: 80%;
-  height: 80%;
+  width: 50%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,6 +105,11 @@
   .nav-button svg {
     font-size: 1.5rem; /* Reduz o tamanho da seta em resoluções menores */
   }
+  
+  .projects-container h1 {
+    font-size: 1.0rem;
+    top: 1%; /* Fica no topo da viewport do contêiner */
+  }
 }
 
 @media (max-width: 768px) {
@@ -115,9 +120,14 @@
   .nav-button svg {
     font-size: 1.1rem; /* Diminui ainda mais o tamanho das setas */
   }
+
+  .projects-container h1 {
+    font-size: 0.7rem;
+    top: 1%; /* Fica no topo da viewport do contêiner */
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .nav-button {
     padding: 1px; /* Reduz bastante para telas muito pequenas */
   }
@@ -133,4 +143,9 @@
   .nav-right {
     right: 5%; /* Aproxima os botões laterais em telas pequenas */
   }
+  .projects-container h1 {
+    font-size: 0.5rem;
+    top: 1%; /* Fica no topo da viewport do contêiner */
+  }
+
 }
