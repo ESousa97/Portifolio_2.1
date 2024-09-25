@@ -6,6 +6,7 @@
   height: 100vh;
   width: 100%;
   background-color: var(--projects-background);
+  position: relative;
 }
 
 /* Left Side: Modelo e Botões Laterais */
@@ -37,7 +38,7 @@
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-5%);
+  transform: translateY(-2%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,12 +58,42 @@
 .nav-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-5%) scale(1.1);
 }
 
 .nav-button svg {
   color: var(--color-gray-seconde);
   font-size: 2rem;
+}
+
+/* Right Side: Texto */
+.right-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o restante do conteúdo verticalmente */
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Centralizar o título "My Projects" no topo do contêiner */
+.projects-container h1 {
+  position: absolute;
+  top: 5%; /* Fica no topo da viewport do contêiner */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-gray-seconde);
+  text-align: center;
+  margin: 0;
+  z-index: 10; /* Garante que o título fique acima de todos os elementos */
+}
+
+/* A descrição permanece no layout padrão */
+.project-info p {
+  color: var(--color-gray-seconde);
+  margin-top: 20px;
 }
 
 /* Media Queries para Resoluções Menores */
@@ -88,7 +119,7 @@
 
 @media (max-width: 480px) {
   .nav-button {
-    padding: 4px; /* Reduz bastante para telas muito pequenas */
+    padding: 1px; /* Reduz bastante para telas muito pequenas */
   }
 
   .nav-button svg {
@@ -102,23 +133,4 @@
   .nav-right {
     right: 5%; /* Aproxima os botões laterais em telas pequenas */
   }
-}
-
-/* Right Side: Texto */
-.right-side {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 10%;
-}
-
-.project-info {
-  max-width: 100%;
-}
-
-.project-info h1,
-.project-info p {
-  color: var(--color-gray-seconde);
 }
