@@ -20,6 +20,24 @@ function Projects() {
       url: "https://esdatabase.vercel.app/login",
       description: "Sistema de banco de dados para empresas.",
     },
+    {
+      title: "Meu primeiro portifólio",
+      imgPath: "/Icons/Portifolio.png",
+      url: "https://portifolio-sousadev97.vercel.app/",
+      description: "Esse foi o segundo projeto desenvolvido ao longo da minha carreira."
+    },
+    {
+      title: "Prompt de Comando Windows",
+      imgPath: "/Icons/PromptComandoWindowsIcon.png",
+      url: "https://prompt-comando.vercel.app/",
+      description: "Projeto desenvolvido como parte de estudo da Alura em parceria com o Google."
+    },
+    {
+      title: "Alura Books",
+      imgPath: "/Icons/AluraBooksIcon.png",
+      url: "https://alurabooks-one-zeta.vercel.app/",
+      description: "Projeto desenvolvido como parte de estudo da Alura."
+    },
   ];
 
   const models = useMemo(

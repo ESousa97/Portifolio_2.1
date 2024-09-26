@@ -56,12 +56,6 @@ button:hover {
   background-color: var(--color-blue-hover);
 }
 
-footer {
-  background-color: var(--color-gray-one);
-  color: var(--color-gray-seconde);
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
 a {
   color: var(--color-gray-seconde);
   transition: color 0.4s ease;

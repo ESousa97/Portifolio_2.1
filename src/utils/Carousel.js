@@ -1,36 +1,34 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "../styles/Carousel.css";
 
-function Carousel({ cards }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+const EmblaCarousel = ({ cards }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true, // Loop ativado
+    speed: 6, // Velocidade suave de transição
+    containScroll: "trimSnaps", // Limita o scroll a snaps precisos
+  });
 
-  const handleCardClick = useCallback((url) => {
-    window.open(url, "_blank");
-  }, []);
+  const autoScrollRef = useRef(null);
 
-  const scaleEmblaSlides = useCallback(() => {
+  const autoScroll = useCallback(() => {
     if (!emblaApi) return;
-    const engine = emblaApi.internalEngine();
 
-    if (!engine || !engine.slideNodes) return; // Verifica se engine e slideNodes estão disponíveis
-
-    emblaApi.slidesInView(true).forEach((index) => {
-      const slide = engine.slideNodes[index];
-      const slideScale = 1 - Math.abs(engine.scrollProgress() - index) * 0.5; // Calcula a escala
-      if (slide) {
-        slide.style.transform = `scale(${slideScale})`;
+    autoScrollRef.current = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext(); // Vai para o próximo slide
       }
-    });
+    }, 4000); // Intervalo de 4 segundos para a rotação automática
   }, [emblaApi]);
 
   useEffect(() => {
     if (emblaApi) {
-      emblaApi.on("scroll", scaleEmblaSlides);
-      emblaApi.on("resize", scaleEmblaSlides);
-      scaleEmblaSlides(); // Chama a função logo após a inicialização
+      autoScroll(); // Inicia o auto-scroll quando o emblaApi é inicializado
     }
-  }, [emblaApi, scaleEmblaSlides]);
+    return () => {
+      clearInterval(autoScrollRef.current); // Limpa o intervalo ao desmontar
+    };
+  }, [emblaApi, autoScroll]);
 
   return (
     <div className="embla">
@@ -38,10 +36,19 @@ function Carousel({ cards }) {
         <div className="embla__container">
           {cards.map((item, index) => (
             <div className="embla__slide" key={index}>
-              <div className="carousel-card" onClick={() => handleCardClick(item.url)}>
-                <img src={item.imgPath} alt={item.title} className="carousel-card-image" />
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+              <div
+                className="carousel-card"
+                onClick={() => window.open(item.url, "_blank")}
+                aria-label={`Ver mais sobre ${item.title}`}
+              >
+                <img
+                  src={item.imgPath}
+                  alt={item.title}
+                  className="carousel-card-image"
+                  loading="lazy" // Carregamento otimizado
+                />
+                <h3 className="carousel-card-title">{item.title}</h3>
+                <p className="carousel-card-description">{item.description}</p>
               </div>
             </div>
           ))}
@@ -49,6 +56,6 @@ function Carousel({ cards }) {
       </div>
     </div>
   );
-}
+};
 
-export default Carousel;
+export default EmblaCarousel;

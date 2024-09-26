@@ -1,9 +1,12 @@
 footer {
-    background-color: var(--color-gray-one);
-    color: var(--color-gray-seconde);
-    padding: 20px;
-    text-align: center;
-    position: relative;
+  background-color: hsla(0, 0%, 0%, 0.500); /* Totalmente transparente, com um leve tom de fumaça */
+  color: var(--color-gray-seconde);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(10px) brightness(0.7); /* Desfoque com um leve escurecimento */
+  -webkit-backdrop-filter: blur(10px) brightness(0.7); /* Suporte para Safari */
+  border-top: 1px solid rgb(255, 255, 255); /* Opcional: uma borda suave */
 }
 
 footer p {
