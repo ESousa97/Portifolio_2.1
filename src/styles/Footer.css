@@ -1,69 +1,110 @@
 footer {
-  background-color: hsla(0, 0%, 0%, 0.500); /* Totalmente transparente, com um leve tom de fumaça */
+  background-color: hsla(0, 0%, 0%, 0.500); /* Transparência com tom suave */
   color: var(--color-gray-seconde);
   padding: 20px;
   text-align: center;
   position: relative;
-  backdrop-filter: blur(10px) brightness(0.7); /* Desfoque com um leve escurecimento */
+  backdrop-filter: blur(10px) brightness(0.7); /* Desfoque com escurecimento */
   -webkit-backdrop-filter: blur(10px) brightness(0.7); /* Suporte para Safari */
-  border-top: 1px solid rgb(255, 255, 255); /* Opcional: uma borda suave */
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Borda suave e transparente */
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
+  font-size: 1rem; /* Tamanho de fonte padrão */
 }
 
-/* Adicionar ícones de redes sociais para um toque moderno */
+/* Ícones de redes sociais */
 .footer-icons {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-icons a {
-    margin: 0 10px;
-    font-size: 20px;
-    color: #007BFF;
-    transition: color 0.3s;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #007BFF;
+  transition: color 0.3s ease; /* Transição suave */
 }
 
 .footer-icons a:hover {
-    color: #0056b3;
+  color: #0056b3; /* Cor ao passar o mouse */
 }
 
-/* Ajustes para telas menores que 400px */
-@media only screen and (max-width: 400px) {
+/* Ajustes para telas menores que 1200px */
+@media only screen and (max-width: 1200px) {
+  footer {
+    padding: 15px;
+    font-size: 14px; /* Reduz o tamanho da fonte */
+  }
 
-    /* Ajustes para o Footer */
-    footer {
-      padding: 10px;
-      font-size: 10px;
-      text-align: center;
-    }
-  
-    .footer-icons a {
-      font-size: 12px;
-      margin: 0 5px;
-    }
+  .footer-icons a {
+    font-size: 18px; /* Reduz ligeiramente o tamanho dos ícones */
+    margin: 0 8px;
   }
-  
-  /* Ajustes para telas menores que 240px */
-  @media only screen and (max-width: 240px) {
-  
-    /* Ajustes para o Footer */
-    footer {
-      padding: 5px 0;
-      font-size: 8px;
-      text-align: center;
-    }
-  
-    .footer-icons a {
-      font-size: 10px;
-      margin: 0 3px;
-    }
-  
-    footer p {
-      font-size: 8px;
-    }
+}
+
+/* Ajustes para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  footer {
+    padding: 10px;
+    font-size: 12px; /* Fonte menor */
   }
-  
+
+  .footer-icons a {
+    font-size: 16px; /* Ícones menores */
+    margin: 0 6px;
+  }
+}
+
+/* Ajustes para telas menores que 480px */
+@media only screen and (max-width: 480px) {
+  footer {
+    padding: 5px;
+    font-size: 10px; /* Fonte menor para dispositivos móveis */
+  }
+
+  .footer-icons a {
+    font-size: 14px; /* Ícones ainda menores */
+    margin: 0 5px;
+  }
+
+  footer p {
+    font-size: 10px; /* Texto menor */
+  }
+}
+
+/* Ajustes para telas menores que 320px */
+@media only screen and (max-width: 320px) {
+  footer {
+    padding: 3px;
+    font-size: 9px; /* Fonte ainda menor */
+  }
+
+  .footer-icons a {
+    font-size: 12px; /* Ícones compactos */
+    margin: 0 4px;
+  }
+
+  footer p {
+    font-size: 9px; /* Texto reduzido */
+  }
+}
+
+/* Ajustes para telas menores que 240px */
+@media only screen and (max-width: 240px) {
+  footer {
+    padding: 2px;
+    font-size: 8px; /* Fonte mínima para dispositivos muito pequenos */
+  }
+
+  .footer-icons a {
+    font-size: 10px; /* Ícones menores */
+    margin: 0 3px;
+  }
+
+  footer p {
+    font-size: 8px; /* Texto mínimo */
+  }
+}

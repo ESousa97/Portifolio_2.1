@@ -79,7 +79,7 @@
 /* Centralizar o título "My Projects" no topo do contêiner */
 .projects-container h1 {
   position: absolute;
-  top: 5%; /* Fica no topo da viewport do contêiner */
+  top: 10%; /* Fica no topo da viewport do contêiner */
   left: 50%;
   transform: translateX(-50%); /* Centraliza horizontalmente */
   font-size: 1.5rem;

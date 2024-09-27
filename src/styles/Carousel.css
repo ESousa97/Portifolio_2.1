@@ -1,11 +1,11 @@
 .embla {
   overflow: hidden;
   width: 100%;
-  padding: 2rem 0; /* Espaçamento ao redor do carrossel */
+  padding: 2rem 0;
 }
 
 .embla__viewport {
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 }
 
@@ -16,39 +16,41 @@
 }
 
 .embla__slide {
-  flex: 0 0 auto; /* Ajusta a largura do slide */
-  height: 45vh; /* Altura fixa dos slides */
-  width: 40vh; /* Largura fixa dos slides */
+  flex: 0 0 auto;
+  height: 45vh;
+  width: 40vh;
   position: relative;
-  transition: transform 0.5s ease; /* Transição suave */
+  overflow: visible; /* Permite que o card cresça sem ser cortado */
+  transition: transform 0.5s ease;
 }
 
 .carousel-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Garante que o conteúdo fique no topo */
-  height: 85%; /* Garante que o card ocupe toda a altura do slide */
+  justify-content: flex-start;
+  height: 85%;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.2); /* Transparência */
-  backdrop-filter: blur(10px); /* Efeito de desfoque */
-  -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   cursor: pointer;
-  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
 }
 
 .carousel-card:hover {
-  transform: translateY(-5px); /* Efeito de hover sutil */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Suave expansão ao invés de translateY */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
 }
 
 .carousel-card-image {
   width: 100%;
   height: 20vh;
-  object-fit: cover; /* Ajusta a imagem dentro da área */
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
   transition: opacity 0.3s ease;
@@ -57,26 +59,161 @@
 .carousel-card-title {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: var(--color-gray-seconde); /* Título em branco para melhor contraste com o fundo */
+  color: var(--color-gray-seconde);
   text-align: center;
-  white-space: nowrap; /* Impede que o título quebre em várias linhas */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adiciona "..." quando o título é muito longo */
+  text-overflow: ellipsis;
 }
 
 .carousel-card-description {
   font-size: 1rem;
-  color: var(--color-gray-one); /* Descrição em branco para contraste */
+  color: var(--color-gray-one);
   text-align: center;
-  overflow: hidden; /* Esconde o texto extra, se necessário */
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
 
+@media (max-width: 1200px) {
+  .embla {
+    padding: 1.5rem 0; /* Reduz o espaçamento ao redor do carrossel */
+  }
+
+  .embla__slide {
+    width: 50%; /* Reduz a largura do slide para ocupar menos espaço */
+    height: 30vh; /* Reduz a altura para ser mais compacta */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transições suaves */
+  }
+
+  .carousel-card {
+    padding: 0.8rem;
+    height: 90%; /* Mantém o card compacto, mas ocupando o slide */
+    background: rgba(255, 255, 255, 0.2); /* Transparência leve */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .carousel-card-image {
+    width: 100%;
+    height: 12vh; /* Reduz a altura da imagem proporcionalmente */
+    object-fit: cover; /* Mantém o aspecto da imagem */
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+  }
+
+  .carousel-card-title {
+    font-size: 1rem; /* Reduz o tamanho do título */
+    margin-bottom: 0.3rem;
+    text-align: center;
+  }
+
+  .carousel-card-description {
+    font-size: 0.8rem; /* Reduz o tamanho da descrição */
+    text-align: center;
+    max-height: 2.5rem; /* Limita a altura para garantir que tudo caiba */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+}
+
 @media (max-width: 768px) {
   .embla__slide {
-    width: 80%; /* Ajusta para dispositivos móveis */
-    height: 400px; /* Mantém a altura consistente */
+    width: 75%; /* Ajusta para tablets e dispositivos móveis */
+    height: 25vh; /* Mantém a altura reduzida */
+  }
+
+  .carousel-card {
+    padding: 0.6rem;
+    height: 85%; /* Ajuste para garantir que o card ocupe o espaço */
+  }
+
+  .carousel-card-image {
+    height: 10vh; /* Reduz ainda mais a altura da imagem */
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-card-title {
+    font-size: 0.9rem;
+  }
+
+  .carousel-card-description {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .embla__slide {
+    width: 60%; /* Ocupa quase toda a tela */
+    height: 30vh; /* Altura mais compacta para dispositivos móveis menores */
+  }
+
+  .carousel-card {
+    padding: 0.4rem;
+    height: 80%; /* Reduz a altura do card proporcionalmente */
+  }
+
+  .carousel-card-image {
+    height: 12vh; /* Mantém a imagem visível, mas menor */
+  }
+
+  .carousel-card-title {
+    font-size: 0.7rem;
+  }
+
+  .carousel-card-description {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .embla__slide {
+    width: 50%; /* Preenche quase toda a tela */
+    height: 22vh; /* Altura mínima para smartphones compactos */
+  }
+
+  .carousel-card {
+    padding: 0.2rem;
+    height: 86%; /* Mantém o card com proporção */
+  }
+
+  .carousel-card-image {
+    height: 10vh; /* Tamanho mínimo da imagem */
+  }
+
+  .carousel-card-title {
+    font-size: 0.5rem; /* Reduz o tamanho do título */
+  }
+
+  .carousel-card-description {
+    font-size: 0.3rem; /* Reduz o tamanho da descrição */
+  }
+}
+
+@media (max-width: 240px) {
+  .embla__slide {
+    width: 50%; /* Preenche quase toda a tela */
+    height: 22vh; /* Altura mínima para smartphones compactos */
+  }
+
+  .carousel-card {
+    padding: 0.3rem;
+    height: 86%; /* Mantém o card com proporção */
+  }
+
+  .carousel-card-image {
+    height: 10vh; /* Tamanho mínimo da imagem */
+  }
+
+  .carousel-card-title {
+    font-size: 0.4rem; /* Reduz o tamanho do título */
+  }
+
+  .carousel-card-description {
+    font-size: 0.0rem; /* Reduz o tamanho da descrição */
   }
 }
