@@ -34,11 +34,11 @@ function ThreeDViewer({ currentIndex, models }) {
     directionalLight.position.set(0, 1, 2);
     scene.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     scene.add(ambientLight);
 
     const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-    hemisphereLight.position.set(0, 200, 0);
+    hemisphereLight.position.set(0, 1000, 0);
     scene.add(hemisphereLight);
 
     // Carregar o modelo GLTF
@@ -52,7 +52,7 @@ function ThreeDViewer({ currentIndex, models }) {
         models[index],
         (gltf) => {
           model = gltf.scene;
-          model.scale.set(0.7, 0.7, 1);
+          model.scale.set(0.6, 0.6, 1.5);
 
           // Centralizar o modelo no seu próprio eixo
           const box = new THREE.Box3().setFromObject(model);

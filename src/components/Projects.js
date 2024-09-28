@@ -37,27 +37,28 @@ function Projects() {
     },
   ];
 
-  return (
-    <>
-      {/* ModelNavigator renderizado fora do container principal */}
-      <ModelNavigator />
-
-      {/* Conteúdo principal do projeto */}
-      <div className="projects-container">
-        <div className="left-text">
-          {/* Podemos deixar o espaço em branco ou adicionar outra coisa, já que o ModelNavigator não está mais aqui */}
-        </div>
-        <div className="right-text">
-          <div className="project-info">
-            <h1>My Projects</h1>
-            <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>
+    return (
+      <>
+        {/* App Container que contém .left-side e .projects-container */}
+        <div className="app-container">
+          {/* Componente independente à esquerda */}
+          <div className="left-side">
+            <ModelNavigator />
           </div>
-        </div>
-      </div>
-
-      {/* Carrossel de cards */}
-      <Carousel cards={cards} />
-    </>
+  
+          {/* Conteúdo do Projects */}
+          <div className="projects-container">
+            {/* Texto à direita do Projects */}
+              <h1>My Projects</h1>
+              <div className="project-info">
+                <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>
+              </div>
+            </div>
+          </div>
+  
+        {/* Carrossel de cards renderizado fora do app-container */}
+          <Carousel cards={cards} />
+      </>
   );
 }
 

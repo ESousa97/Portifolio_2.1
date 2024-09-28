@@ -1,64 +1,84 @@
 /* Projects Container */
 .projects-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50vh;
-  width: 100%;
+  position: relative; /* Define como contêiner de referência */
+  top: 0; /* Alinha ao topo do contêiner pai */
+  width: 70vw; /* Ocupar o espaço restante da tela */
+  height: auto; /* Ajusta ao conteúdo */
+  margin: 0; /* Remove margens indesejadas */
+  padding: 7%; /* Espaçamento interno */
   background-color: var(--projects-background);
-  position: relative;
+  box-sizing: border-box; /* Inclui padding no tamanho total */
+  z-index: 10; /* Garante que o contêiner esteja acima de outros */
 }
 
 /* Right Side: Texto */
 .right-text {
-  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: right; /* Centraliza o restante do conteúdo verticalmente */
+  justify-content: flex-start; /* Alinha o texto ao início */
   align-items: flex-start;
+  width: 100%; /* Ocupar toda a largura do .projects-container */
+  height: 100%; /* Ocupar toda a altura do .projects-container */
 }
 
-/* Centralizar o título "My Projects" no topo do contêiner */
+/* Centralizar e posicionar o título "My Projects" */
 .projects-container h1 {
-  position: absolute;
-  top: 10%; /* Fica no topo da viewport do contêiner */
-  left: 50%;
-  transform: translateX(-50%); /* Centraliza horizontalmente */
-  font-size: 1.5rem;
+  position: relative; /* Permite posicionamento relativo dentro do .projects-container */
+  top: 0; /* Alinha ao topo do contêiner */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Centraliza o texto horizontalmente */
+  font-size: 2rem; /* Tamanho do texto */
   font-weight: bold;
   color: var(--color-gray-seconde);
   text-align: center;
-  margin: 0;
-  z-index: 10; /* Garante que o título fique acima de todos os elementos */
+  margin: 0; /* Remove margens padrão */
+  padding-top: 10px; /* Espaçamento adicional no topo */
+  width: fit-content; /* Ajusta a largura para ocupar o mínimo necessário */
+  z-index: 10; /* Mantém o título acima de outros elementos */
 }
 
-/* A descrição permanece no layout padrão */
+/* Ajuste da descrição (parágrafo) */
 .project-info p {
+  position: static; /* Permite posicionamento absoluto dentro do contêiner */
+  top: 100%; /* Sempre a 40% do topo do contêiner */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-10%); /* Centraliza o texto */
+  font-size: 1rem; /* Tamanho do texto */
+  line-height: 1.5; /* Espaçamento entre as linhas */
   color: var(--color-gray-seconde);
-  margin-top: 20px;
+  width: 120%; /* Define a largura para ajustar o texto */
+  text-align: center; /* Centraliza o texto */
+  margin: 0; /* Remove margens padrão */
+  z-index: 10; /* Garante que o parágrafo esteja acima de outros elementos */
 }
 
 /* Media Queries para Resoluções Menores */
 @media (max-width: 1024px) {
-  
   .projects-container h1 {
-    font-size: 1.0rem;
-    top: 1%; /* Fica no topo da viewport do contêiner */
+    font-size: 1.5rem; /* Ajusta o tamanho do título */
+  }
+
+  .project-info p {
+    font-size: 0.9rem; /* Ajusta o tamanho do parágrafo */
   }
 }
 
 @media (max-width: 768px) {
-
   .projects-container h1 {
-    font-size: 0.7rem;
-    top: 1%; /* Fica no topo da viewport do contêiner */
+    font-size: 1.2rem; /* Ajusta o tamanho do título */
+  }
+
+  .project-info p {
+    font-size: 0.8rem; /* Ajusta o tamanho do parágrafo */
   }
 }
 
 @media (max-width: 400px) {
   .projects-container h1 {
-    font-size: 0.5rem;
-    top: 1%; /* Fica no topo da viewport do contêiner */
+    font-size: 1rem; /* Ajusta o tamanho do título */
   }
 
+  .project-info p {
+    font-size: 0.7rem; /* Ajusta o tamanho do parágrafo */
+  }
 }

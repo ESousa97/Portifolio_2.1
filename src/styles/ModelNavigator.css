@@ -1,38 +1,47 @@
-/* ModelNavigator.css */
+/* App Container */
+.app-container {
+  display: flex; /* Define um layout flex para alinhar .left-side e .projects-container */
+  flex-direction: row; /* Alinha os elementos na horizontal */
+  justify-content: flex-start; /* Alinha ao início da linha */
+  align-items: flex-start; /* Alinha todos os elementos ao topo */
+  width: 100%; /* Ocupar toda a largura */
+  height: auto; /* Define a altura de acordo com o conteúdo */
+  position: relative; /* Define como contêiner de referência */
+}
 
 /* Left Side: Modelo e Botões Laterais */
 .left-side {
-  position: fixed; /* Fixa o componente no lado esquerdo da tela */
-  top: 0; /* Alinha ao topo */
-  left: 0; /* Alinha na extrema esquerda */
-  width: 30vw; /* Largura definida para ocupar 20% da viewport */
-  height: 50vh; /* Altura para ocupar toda a viewport */
+  position: relative; /* Posiciona de forma relativa dentro do contêiner pai */
+  top: 0; /* Alinha ao topo do contêiner pai */
+  left: 0; /* Alinha à extrema esquerda */
+  width: 30vw; /* Define a largura do componente */
+  height: 65vh; /* Define a altura do componente */
   display: flex;
-  flex-direction: column; /* Alinha elementos em coluna */
-  justify-content: flex-start; /* Alinhamento dos elementos no topo */
-  align-items: center; /* Centraliza os elementos horizontalmente */
-  padding: 2% 5%; /* Espaçamento interno */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25% 10%;
   box-sizing: border-box; /* Inclui o padding no tamanho total */
-  z-index: 10; /* Certifica-se de que o componente fique acima dos outros */
+  z-index: 12; /* Mantém o componente acima de outros */
 }
 
 /* Modelo 3D */
 .model-viewer {
-  width: 120%; /* Largura máxima para ocupar todo o espaço */
-  height: 70vh; /* Altura definida para o contêiner */
+  width: 100%; /* Largura máxima para ocupar todo o espaço */
+  height: 25vh; /* Ajuste a altura para controlar a posição */
   display: flex;
   justify-content: center; /* Centraliza o modelo */
   align-items: center; /* Centraliza o modelo */
   overflow: hidden; /* Evita transbordamento */
+  margin-bottom: 5px; /* Espaçamento inferior entre o modelo e os botões */
 }
-
 
 /* Container para os botões abaixo do modelo */
 .buttons-container {
   width: 100%; /* Ocupa toda a largura do contêiner esquerdo */
   display: flex;
   justify-content: space-between; /* Espaço entre os botões */
-  margin-top: 10px; /* Espaçamento superior entre o modelo e os botões */
+  margin-top: 5px; /* Ajuste o espaçamento superior para aproximar os botões */
 }
 
 /* Botões de Navegação Laterais */
@@ -48,12 +57,14 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Efeito hover para os botões */
 .nav-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transform: scale(1.1);
 }
 
+/* Define a cor e tamanho do ícone SVG dentro dos botões */
 .nav-button svg {
   color: var(--color-gray-seconde); /* Define a cor do ícone */
   font-size: 1.5rem; /* Tamanho do ícone */
@@ -62,42 +73,84 @@
 /* Ajustes para resoluções menores */
 @media (max-width: 1024px) {
   .left-side {
-    width: 30vw; /* Aumenta a largura para 30% da tela */
+    width: 65vw; /* Aumenta a largura para 30% da tela */
   }
 
   .nav-button {
-    padding: 8px; /* Reduz o padding */
+    padding: 6px; /* Reduz o padding */
   }
 
   .nav-button svg {
-    font-size: 1.2rem; /* Reduz o tamanho do ícone */
+    font-size: 1rem; /* Reduz o tamanho do ícone */
   }
 }
 
 @media (max-width: 768px) {
   .left-side {
-    width: 40vw; /* Aumenta a largura para 40% da tela */
+    width: 60vw; /* Aumenta a largura para 40% da tela */
   }
 
   .nav-button {
-    padding: 6px; /* Reduz ainda mais o padding */
+    padding: 4px; /* Reduz ainda mais o padding */
   }
 
   .nav-button svg {
-    font-size: 1rem; /* Diminui o tamanho do ícone */
+    font-size: 0.8rem; /* Diminui o tamanho do ícone */
   }
 }
 
 @media (max-width: 480px) {
   .left-side {
-    width: 60vw; /* Aumenta a largura para 60% da tela */
+    width: 55vw; /* Aumenta a largura para 50% da tela */
   }
 
   .nav-button {
-    padding: 4px; /* Padding mínimo para dispositivos pequenos */
+    padding: 2px; /* Padding mínimo para dispositivos pequenos */
   }
 
   .nav-button svg {
-    font-size: 0.8rem; /* Reduz ainda mais o tamanho do ícone */
+    font-size: 0.6rem; /* Reduz ainda mais o tamanho do ícone */
+  }
+}
+
+@media (max-width: 360px) {
+  .left-side {
+    width: 45vw; /* Aumenta a largura para 60% da tela */
+  }
+
+  .nav-button {
+    padding: 1px; /* Reduz o padding */
+  }
+
+  .nav-button svg {
+    font-size: 0.5rem; /* Tamanho menor para os ícones */
+  }
+}
+
+@media (max-width: 320px) {
+  .left-side {
+    width: 35vw; /* Aumenta a largura para 70% da tela */
+  }
+
+  .nav-button {
+    padding: 0.5px; /* Padding mínimo */
+  }
+
+  .nav-button svg {
+    font-size: 0.4rem; /* Reduz o tamanho dos ícones */
+  }
+}
+
+@media (max-width: 240px) {
+  .left-side {
+    width: 30vw; /* Aumenta a largura para 80% da tela */
+  }
+
+  .nav-button {
+    padding: 0.3px; /* Padding mínimo para telas pequenas */
+  }
+
+  .nav-button svg {
+    font-size: 0.3rem; /* Tamanho mínimo dos ícones */
   }
 }
