@@ -1,12 +1,9 @@
-import React, { useMemo, useState } from "react";
-import ThreeDViewer from "../utils/ThreeDViewer.js";
+import React from "react";
 import Carousel from "../utils/Carousel.js";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import ModelNavigator from "../utils/ModelNavigator.js"; // Novo componente
 import "../styles/Projects.css";
 
 function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const cards = [
     {
       title: "Base Dados IMC",
@@ -24,69 +21,33 @@ function Projects() {
       title: "Meu primeiro portifólio",
       imgPath: "/Icons/Portifolio.png",
       url: "https://portifolio-sousadev97.vercel.app/",
-      description: "Esse foi o segundo projeto desenvolvido ao longo da minha carreira."
+      description: "Esse foi o segundo projeto desenvolvido ao longo da minha carreira.",
     },
     {
       title: "Prompt de Comando Windows",
       imgPath: "/Icons/PromptComandoWindowsIcon.png",
       url: "https://prompt-comando.vercel.app/",
-      description: "Projeto desenvolvido como parte de estudo da Alura em parceria com o Google."
+      description: "Projeto desenvolvido como parte de estudo da Alura em parceria com o Google.",
     },
     {
       title: "Alura Books",
       imgPath: "/Icons/AluraBooksIcon.png",
       url: "https://alurabooks-one-zeta.vercel.app/",
-      description: "Projeto desenvolvido como parte de estudo da Alura."
+      description: "Projeto desenvolvido como parte de estudo da Alura.",
     },
   ];
 
-  const models = useMemo(
-    () => [
-      "/models/Api.glb",
-      "/models/BootStrap.glb",
-      "/models/Css3.glb",
-      "/models/Git.glb",
-      "/models/GitHub.glb",
-      "/models/Html5.glb",
-      "/models/JavaScript.glb",
-      "/models/Linux.glb",
-      "/models/MongoDb.glb",
-      "/models/MySql.glb",
-      "/models/NextJs.glb",
-      "/models/NodeJs.glb",
-      "/models/PostgreeSql.glb",
-      "/models/Python.glb",
-      "/models/React.glb",
-      "/models/Sql.glb",
-      "/models/ThreeJs.glb",
-      "/models/TypeScript.glb",
-      "/models/VisualCode.glb",
-    ],
-    []
-  );
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % models.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + models.length) % models.length);
-  };
-
   return (
     <>
-      {/* O conteúdo principal do projeto */}
+      {/* ModelNavigator renderizado fora do container principal */}
+      <ModelNavigator />
+
+      {/* Conteúdo principal do projeto */}
       <div className="projects-container">
-        <div className="left-side">
-          <button onClick={handlePrev} className="nav-button nav-left">
-            <FiArrowLeft size={24} />
-          </button>
-          <ThreeDViewer currentIndex={currentIndex} models={models} />
-          <button onClick={handleNext} className="nav-button nav-right">
-            <FiArrowRight size={24} />
-          </button>
+        <div className="left-text">
+          {/* Podemos deixar o espaço em branco ou adicionar outra coisa, já que o ModelNavigator não está mais aqui */}
         </div>
-        <div className="right-side">
+        <div className="right-text">
           <div className="project-info">
             <h1>My Projects</h1>
             <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>

@@ -9,71 +9,13 @@
   position: relative;
 }
 
-/* Left Side: Modelo e Botões Laterais */
-.left-side {
-  position: relative;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Modelo 3D */
-.model-viewer {
-  width: 50%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Botões de Navegação Laterais */
-.nav-button {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  border-radius: 50%;
-  padding: 15px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-2%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.nav-left {
-  left: 10%;
-}
-
-.nav-right {
-  right: 10%;
-}
-
-.nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-  transform: translateY(-5%) scale(1.1);
-}
-
-.nav-button svg {
-  color: var(--color-gray-seconde);
-  font-size: 2rem;
-}
-
 /* Right Side: Texto */
-.right-side {
-  width: 50%;
+.right-text {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza o restante do conteúdo verticalmente */
+  justify-content: right; /* Centraliza o restante do conteúdo verticalmente */
   align-items: flex-start;
-  padding: 20px;
 }
 
 /* Centralizar o título "My Projects" no topo do contêiner */
@@ -98,13 +40,6 @@
 
 /* Media Queries para Resoluções Menores */
 @media (max-width: 1024px) {
-  .nav-button {
-    padding: 8px; /* Reduz o padding em resoluções menores */
-  }
-
-  .nav-button svg {
-    font-size: 1.5rem; /* Reduz o tamanho da seta em resoluções menores */
-  }
   
   .projects-container h1 {
     font-size: 1.0rem;
@@ -113,13 +48,6 @@
 }
 
 @media (max-width: 768px) {
-  .nav-button {
-    padding: 6px; /* Ainda menor em tablets e dispositivos menores */
-  }
-
-  .nav-button svg {
-    font-size: 1.1rem; /* Diminui ainda mais o tamanho das setas */
-  }
 
   .projects-container h1 {
     font-size: 0.7rem;
@@ -128,21 +56,6 @@
 }
 
 @media (max-width: 400px) {
-  .nav-button {
-    padding: 1px; /* Reduz bastante para telas muito pequenas */
-  }
-
-  .nav-button svg {
-    font-size: 0.7rem; /* Setas ainda menores para dispositivos móveis */
-  }
-
-  .nav-left {
-    left: 5%; /* Aproxima os botões laterais em telas pequenas */
-  }
-
-  .nav-right {
-    right: 5%; /* Aproxima os botões laterais em telas pequenas */
-  }
   .projects-container h1 {
     font-size: 0.5rem;
     top: 1%; /* Fica no topo da viewport do contêiner */

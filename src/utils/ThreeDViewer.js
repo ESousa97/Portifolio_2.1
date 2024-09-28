@@ -1,20 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import "../styles/Projects.css"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import "../styles/Projects.css";
 
 function ThreeDViewer({ currentIndex, models }) {
   const mountRef = useRef(null);
+  const isDraggingRef = useRef(false); 
+  const shouldResetRef = useRef(false); 
+  const initialRotationY = useRef(0); 
+  const rotationSpeed = useRef(0.005); // Reduzir a velocidade para uma rotação mais suave
+  const isResettingRef = useRef(false); 
 
   useEffect(() => {
-    let model;
+    let model, modelGroup;
+
+    // Configuração da cena, câmera e renderizador
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -25,27 +28,45 @@ function ThreeDViewer({ currentIndex, models }) {
       mount.appendChild(renderer.domElement);
     }
 
+    // Configuração da iluminação
     scene.background = null;
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(0, 1, 2);
+    scene.add(directionalLight);
 
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(0, 1, 2).normalize();
-    scene.add(light);
-
-    const ambientLight = new THREE.AmbientLight(0x404040);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
+    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+    hemisphereLight.position.set(0, 200, 0);
+    scene.add(hemisphereLight);
+
+    // Carregar o modelo GLTF
     const loader = new GLTFLoader();
     const loadModel = (index) => {
       if (model) {
-        scene.remove(model);
+        scene.remove(modelGroup);
       }
 
       loader.load(
         models[index],
         (gltf) => {
           model = gltf.scene;
-          model.scale.set(0.7, 0.7, 0.7);
-          scene.add(model);
+          model.scale.set(0.7, 0.7, 1);
+
+          // Centralizar o modelo no seu próprio eixo
+          const box = new THREE.Box3().setFromObject(model);
+          const center = new THREE.Vector3();
+          box.getCenter(center);
+          model.position.sub(center);
+
+          // Cria um grupo para o modelo
+          modelGroup = new THREE.Group();
+          modelGroup.add(model);
+          scene.add(modelGroup);
+
+          // Armazena a rotação inicial do modelo
+          initialRotationY.current = modelGroup.rotation.y;
         },
         undefined,
         (error) => {
@@ -54,36 +75,90 @@ function ThreeDViewer({ currentIndex, models }) {
       );
     };
 
+    // Carregar o modelo inicial
     loadModel(currentIndex);
 
+    // Configuração dos controles OrbitControls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.2; // Aumentar o fator de amortecimento para reduzir o efeito "esticado"
+    controls.enableZoom = false; // Desabilitar zoom para focar apenas em rotação
+    controls.enableRotate = true; 
+    controls.enablePan = false;
+
+    // Ajustes para permitir rotação livre em todos os eixos
+    controls.minPolarAngle = 0; 
+    controls.maxPolarAngle = Math.PI;
+    controls.minAzimuthAngle = -Infinity; 
+    controls.maxAzimuthAngle = Infinity;
+
+    // Permitir que o controle use panning na tela
+    controls.screenSpacePanning = true;
+
+    // Eventos para detectar início e término do arrasto
+    controls.addEventListener("start", () => {
+      isDraggingRef.current = true;
+      shouldResetRef.current = false;
+    });
+
+    controls.addEventListener("end", () => {
+      isDraggingRef.current = false;
+      shouldResetRef.current = true;
+    });
+
+    // Ajustar a tela quando redimensionada
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     };
-
     window.addEventListener("resize", handleResize);
 
+    // Função de animação
     const animate = () => {
       requestAnimationFrame(animate);
-      if (model) model.rotation.y += 0.01;
-      renderer.render(scene, camera);
+
+      if (modelGroup) {
+        if (!isDraggingRef.current && !isResettingRef.current) {
+          modelGroup.rotation.y += rotationSpeed.current; 
+        }
+
+        if (shouldResetRef.current && !isResettingRef.current) {
+          isResettingRef.current = true;
+        }
+
+        if (isResettingRef.current) {
+          const delta = (initialRotationY.current - modelGroup.rotation.y) * 0.05;
+          modelGroup.rotation.y += delta;
+
+          if (Math.abs(modelGroup.rotation.y - initialRotationY.current) < 0.01) {
+            modelGroup.rotation.y = initialRotationY.current;
+            isResettingRef.current = false;
+            shouldResetRef.current = false;
+          }
+        }
+      }
+
+      controls.update(); 
+      renderer.render(scene, camera); 
     };
 
     animate();
 
+    // Limpar recursos ao desmontar o componente
     return () => {
       window.removeEventListener("resize", handleResize);
       if (mount) {
         mount.removeChild(renderer.domElement);
       }
-      if (model) {
-        scene.remove(model);
+      if (modelGroup) {
+        scene.remove(modelGroup);
       }
+      controls.dispose();
     };
   }, [currentIndex, models]);
 
-  return <div ref={mountRef} className="model-viewer" style={{ width: "100%", height: "90%" }} />;
+  return <div ref={mountRef} className="model-viewer" style={{ width: "100%", height: "100%" }} />;
 }
 
 export default ThreeDViewer;
