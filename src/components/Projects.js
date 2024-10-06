@@ -39,26 +39,30 @@ function Projects() {
 
     return (
       <>
-        {/* App Container que contém .left-side e .projects-container */}
-        <div className="app-container">
-          {/* Componente independente à esquerda */}
-          <div className="left-side">
-            <ModelNavigator />
+      {/* App Container que contém .left-side e .projects-container */}
+      <div className="app-container">
+        {/* Componente ModelNavigator posicionado à direita */}
+        <div className="left-side">
+          <ModelNavigator />
+        </div>
+
+        {/* Conteúdo do Projects posicionado à esquerda */}
+        <div className="projects-container">
+          {/* Título centralizado */}
+          <h1>My Projects</h1>
+
+          {/* Descrição abaixo do título e alinhada à esquerda */}
+          <div className="project-info">
+            <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>
           </div>
-  
-          {/* Conteúdo do Projects */}
-          <div className="projects-container">
-            {/* Texto à direita do Projects */}
-              <h1>My Projects</h1>
-              <div className="project-info">
-                <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>
-              </div>
-            </div>
-          </div>
-  
-        {/* Carrossel de cards renderizado fora do app-container */}
-          <Carousel cards={cards} />
-      </>
+        </div>
+      </div>
+
+      {/* Carrossel de cards renderizado abaixo do app-container */}
+      <div className="carousel-container">
+        <Carousel cards={cards} />
+      </div>
+    </>
   );
 }
 

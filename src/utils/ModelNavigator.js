@@ -40,21 +40,21 @@ function ModelNavigator() {
   };
 
   return (
-    <div className="left-side">
-      {/* Container do modelo 3D */}
+    <div className="model-navigator-container">
+      {/* Botão de navegação à esquerda */}
+      <button onClick={handlePrev} className="nav-button nav-left">
+        <FiArrowLeft size={24} />
+      </button>
+
+      {/* Componente de visualização 3D */}
       <div className="model-viewer">
         <ThreeDViewer currentIndex={currentIndex} models={models} />
       </div>
-      
-      {/* Container para os botões abaixo do modelo */}
-      <div className="buttons-container">
-        <button onClick={handlePrev} className="nav-button nav-left">
-          <FiArrowLeft size={24} />
-        </button>
-        <button onClick={handleNext} className="nav-button nav-right">
-          <FiArrowRight size={24} />
-        </button>
-      </div>
+
+      {/* Botão de navegação à direita */}
+      <button onClick={handleNext} className="nav-button nav-right">
+        <FiArrowRight size={24} />
+      </button>
     </div>
   );
 }

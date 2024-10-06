@@ -6,11 +6,12 @@ import "../styles/Projects.css";
 
 function ThreeDViewer({ currentIndex, models }) {
   const mountRef = useRef(null);
-  const isDraggingRef = useRef(false); 
-  const shouldResetRef = useRef(false); 
-  const initialRotationY = useRef(0); 
+  const isDraggingRef = useRef(false);
+  const shouldResetRef = useRef(false);
+  const initialRotationY = useRef(0);
   const rotationSpeed = useRef(0.005); // Reduzir a velocidade para uma rotação mais suave
-  const isResettingRef = useRef(false); 
+  const isResettingRef = useRef(false);
+  const modelGroupRef = useRef(null); // Referência para o grupo do modelo
 
   useEffect(() => {
     let model, modelGroup;
@@ -41,7 +42,7 @@ function ThreeDViewer({ currentIndex, models }) {
     hemisphereLight.position.set(0, 1000, 0);
     scene.add(hemisphereLight);
 
-    // Carregar o modelo GLTF
+    // Função para carregar o modelo GLTF
     const loader = new GLTFLoader();
     const loadModel = (index) => {
       if (model) {
@@ -52,7 +53,9 @@ function ThreeDViewer({ currentIndex, models }) {
         models[index],
         (gltf) => {
           model = gltf.scene;
-          model.scale.set(0.6, 0.6, 1.5);
+
+          // Definir a escala do modelo conforme necessário (ajustado pelo tamanho da tela)
+          adjustModelScale(model);
 
           // Centralizar o modelo no seu próprio eixo
           const box = new THREE.Box3().setFromObject(model);
@@ -63,6 +66,7 @@ function ThreeDViewer({ currentIndex, models }) {
           // Cria um grupo para o modelo
           modelGroup = new THREE.Group();
           modelGroup.add(model);
+          modelGroupRef.current = modelGroup; // Armazenar referência
           scene.add(modelGroup);
 
           // Armazena a rotação inicial do modelo
@@ -75,6 +79,19 @@ function ThreeDViewer({ currentIndex, models }) {
       );
     };
 
+    // Função para ajustar a escala do modelo com base no tamanho da tela
+    const adjustModelScale = (model) => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 768) {
+        model.scale.set(0.5, 0.5, 1); // Escala para telas pequenas (exemplo: 30%)
+      } else if (screenWidth < 1024) {
+        model.scale.set(0.6, 0.6, 1.5); // Escala para telas médias (exemplo: 50%)
+      } else {
+        model.scale.set(0.7, 0.7, 2); // Escala para telas grandes (exemplo: 70%)
+      }
+    };
+
     // Carregar o modelo inicial
     loadModel(currentIndex);
 
@@ -83,13 +100,13 @@ function ThreeDViewer({ currentIndex, models }) {
     controls.enableDamping = true;
     controls.dampingFactor = 0.2; // Aumentar o fator de amortecimento para reduzir o efeito "esticado"
     controls.enableZoom = false; // Desabilitar zoom para focar apenas em rotação
-    controls.enableRotate = true; 
+    controls.enableRotate = true;
     controls.enablePan = false;
 
     // Ajustes para permitir rotação livre em todos os eixos
-    controls.minPolarAngle = 0; 
+    controls.minPolarAngle = 0;
     controls.maxPolarAngle = Math.PI;
-    controls.minAzimuthAngle = -Infinity; 
+    controls.minAzimuthAngle = -Infinity;
     controls.maxAzimuthAngle = Infinity;
 
     // Permitir que o controle use panning na tela
@@ -106,12 +123,18 @@ function ThreeDViewer({ currentIndex, models }) {
       shouldResetRef.current = true;
     });
 
-    // Ajustar a tela quando redimensionada
+    // Função para ajustar o tamanho da tela e a escala do modelo ao redimensionar
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
+
+      // Ajustar a escala do modelo ao redimensionar a tela
+      if (modelGroupRef.current) {
+        adjustModelScale(modelGroupRef.current);
+      }
     };
+
     window.addEventListener("resize", handleResize);
 
     // Função de animação
@@ -120,7 +143,7 @@ function ThreeDViewer({ currentIndex, models }) {
 
       if (modelGroup) {
         if (!isDraggingRef.current && !isResettingRef.current) {
-          modelGroup.rotation.y += rotationSpeed.current; 
+          modelGroup.rotation.y += rotationSpeed.current; // Rotação contínua
         }
 
         if (shouldResetRef.current && !isResettingRef.current) {
@@ -139,8 +162,8 @@ function ThreeDViewer({ currentIndex, models }) {
         }
       }
 
-      controls.update(); 
-      renderer.render(scene, camera); 
+      controls.update(); // Atualiza os controles do OrbitControls
+      renderer.render(scene, camera); // Renderiza a cena
     };
 
     animate();
