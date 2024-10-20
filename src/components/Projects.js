@@ -1,68 +1,155 @@
-import React from "react";
-import Carousel from "../utils/Carousel.js";
-import ModelNavigator from "../utils/ModelNavigator.js"; // Novo componente
+import React, { useState, useEffect } from "react";
+import ModelNavigator from "../utils/ModelNavigator.js";
 import "../styles/Projects.css";
 
+// Obter o token da variável de ambiente
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+
 function Projects() {
-  const cards = [
+  const [projects] = useState([
     {
       title: "Base Dados IMC",
       imgPath: "/Icons/BaseDadosIMC.png",
       url: "https://base-dados-imc.vercel.app/index.html",
-      description: "Base de dados para cálculos de IMC.",
+      description: "A Base Dados IMC foi o primeiro projeto de base de dados desenvolvido por mim. Representa uma importante conquista pessoal no aprendizado de tecnologias web como HTML5, CSS3 e JavaScript. Esta aplicação web foi concebida para fornecer uma plataforma de dados acessível e prática, com uma interface amigável e organizada. A página está disponível em Base Dados IMC e simboliza o início da minha jornada no desenvolvimento web.",
+      createdAt: "01/2023",
+      updatedAt: "08/2024",
     },
     {
-      title: "ES Data Base",
-      imgPath: "/Icons/ESDataBase.png",
-      url: "https://www.esdatabase.com.br/login",
-      description: "Sistema de banco de dados para empresas.",
+      "title": "ES Data Base",
+      "imgPath": "/Icons/ESDataBase.png",
+      "url": "https://www.esdatabase.com.br/login",
+      "description": "A ES Data Base é uma plataforma robusta e altamente escalável, projetada para gerenciar grandes volumes de dados com eficiência e segurança. Focada na gestão de procedimentos técnicos e operacionais, a plataforma oferece uma interface organizada e otimizada para o usuário final. Desenvolvida 100% por mim, desde o front-end até a comunicação com o banco de dados e a implementação de protocolos de segurança avançados, essa solução é ideal para ambientes corporativos de alta demanda.",
+      createdAt: "03/2024",
+      updatedAt: "10/2024"
     },
     {
-      title: "Meu primeiro portifólio",
+      title: "Meu primeiro portfólio",
       imgPath: "/Icons/Portifolio.png",
       url: "https://portifolio-sousadev97.vercel.app/",
-      description: "Esse foi o segundo projeto desenvolvido ao longo da minha carreira.",
+      description: "Esse projeto foi o segundo que desenvolvi ao longo da minha carreira. Lançado em outubro de 2022 e atualizado em julho de 2023, ele serve como uma vitrine do meu crescimento e das minhas habilidades como desenvolvedor. Nele, apresento minhas experiências, certificações e habilidades técnicas de forma organizada e acessível. O portfólio está disponível em Meu portfólio, com links diretos para minhas redes sociais e projetos, bem como uma seção detalhada com meus certificados.",
+      createdAt: "10/2022",
+      updatedAt: "07/2023",
     },
     {
       title: "Prompt de Comando Windows",
       imgPath: "/Icons/PromptComandoWindowsIcon.png",
       url: "https://prompt-comando.vercel.app/",
-      description: "Projeto desenvolvido como parte de estudo da Alura em parceria com o Google.",
+      description: "Esse projeto foi criado para facilitar a busca de comandos do Windows (cmd), fornecendo uma interface simples onde o usuário pode pesquisar e obter explicações rápidas sobre cada comando. O sistema utiliza uma estrutura de dados organizada e uma pesquisa eficiente para melhorar a usabilidade e fornecer resultados precisos.",
+      createdAt: "09/2024",
+      updatedAt: "09/2024",
     },
-    {
-      title: "Alura Books",
-      imgPath: "/Icons/AluraBooksIcon.png",
-      url: "https://alurabooks-one-zeta.vercel.app/",
-      description: "Projeto desenvolvido como parte de estudo da Alura.",
-    },
-  ];
+  ]);
 
-    return (
-      <>
-      {/* App Container que contém .left-side e .projects-container */}
-      <div className="app-container">
-        {/* Componente ModelNavigator posicionado à direita */}
-        <div className="left-side">
-          <ModelNavigator />
-        </div>
+  const [languagesData, setLanguagesData] = useState([]);
+  const [error, setError] = useState(null);
 
-        {/* Conteúdo do Projects posicionado à esquerda */}
-        <div className="projects-container">
-          {/* Título centralizado */}
-          <h1>My Projects</h1>
+  useEffect(() => {
+    async function fetchLanguages() {
+      try {
+        const response = await fetch("https://api.github.com/users/ESousa97/repos", {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+          },
+        });
 
-          {/* Descrição abaixo do título e alinhada à esquerda */}
-          <div className="project-info">
-            <p>Use as setas do teclado ou os botões laterais para navegar entre os modelos.</p>
+        if (!response.ok) {
+          throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+        }
+
+        const repos = await response.json();
+
+        let languages = {};
+
+        for (const repo of repos) {
+          const langResponse = await fetch(repo.languages_url, {
+            headers: {
+              Authorization: `token ${GITHUB_TOKEN}`,
+            },
+          });
+          const repoLanguages = await langResponse.json();
+
+          for (const [lang, value] of Object.entries(repoLanguages)) {
+            languages[lang] = (languages[lang] || 0) + value;
+          }
+        }
+
+        const total = Object.values(languages).reduce((acc, value) => acc + value, 0);
+        const languagePercentages = Object.entries(languages).map(([lang, value]) => ({
+          language: lang,
+          percentage: ((value / total) * 100).toFixed(2), // Exibir até 2 casas decimais
+        }));
+
+        setLanguagesData(languagePercentages);
+      } catch (error) {
+        setError(error.message);
+      }
+    }
+
+    fetchLanguages();
+  }, []);
+
+  return (
+    <div className="projects-wrapper">
+      {/* Centralizado no topo */}
+      <div className="header-content">
+        <h1 className="timeline-title">Projects</h1>
+        <p className="timeline-description">
+          Aqui estão alguns dos meus principais projetos ao longo da minha carreira.
+        </p>
+      </div>
+
+      {/* ModelNavigator (objeto 3D) no início da linha do tempo */}
+      <div className="model-navigator-container">
+        <ModelNavigator />
+      </div>
+
+      {/* Timeline dos projetos */}
+      <div className="projects-list">
+        {projects.map((project, index) => (
+          <div className="project-item" key={index}>
+            <div className="project-image-container">
+              <img
+                src={project.imgPath}
+                alt={project.title}
+                className="project-image"
+              />
+            </div>
+            <div className="project-description">
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                Ver Projeto
+              </a>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* Carrossel de cards renderizado abaixo do app-container */}
-      <div className="carousel-container">
-        <Carousel cards={cards} />
+      {/* Gráfico horizontal com título e porcentagens */}
+      <div className="graph-container">
+        <h2 className="graph-title">Habilidades</h2>
+        <p className="graph-subtitle">Ferramentas que tenho contato diariamente</p>
+
+        <div className="graph">
+         {error ? (
+      <p>{error}</p>
+          ) : (
+            <div className="skills-list">
+              {languagesData.map((language, index) => (
+                <div key={index} className="skill-bar">
+                  <span className="skill-title">{language.language}</span>
+                  <div className="progress-bar">
+                    <div className="progress" style={{ width: `${language.percentage}%` }} />
+                    <span className="percentage">{language.percentage}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+       </div>
       </div>
-    </>
+    </div>
   );
 }
 

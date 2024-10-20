@@ -28,73 +28,36 @@ section {
 
 /* Alternância de cores para cada seção */
 #home {
-  background-color: var(--color-blue); /* Alternando conforme o tema */
+  background: var(--color-primary); /* Alternando conforme o tema */
   transition: background-color 0.4s ease;
 }
 
 #about {
-  background-color: var(--color-orange); /* Alternando conforme o tema */
+  background: var(--color-about); /* Alternando conforme o tema */
   transition: background-color 0.4s ease;
 }
 
 #projects {
-  background-color: var(--color-blue); /* Alternando conforme o tema */
+  background: var(--color-primary); /* Alternando conforme o tema */
   transition: background-color 0.4s ease;
 }
 
 /* Mantendo as transições suaves para os botões e outros elementos */
 button {
-  background-color: var(--color-blue);
-  color: var(--color-silver);
+  background-color: var(--color-primary);
+  color: var(--color-quartenary);
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-button:hover {
-  background-color: var(--color-blue-hover);
-}
-
 a {
-  color: var(--color-gray-seconde);
+  color: var(--color-seconde);
   transition: color 0.4s ease;
 }
 
 nav ul li a {
-  color: var(--color-gray-seconde);
-  transition: color 0.4s ease;
-}
-
-.nav ul li a:hover {
-  color: var(--color-silver);
-  transition: color 0.4s ease;
-}
-
-/* Transição aplicada ao header */
-.header {
-  color: var(--color-gray-seconde); /* Alterar o texto conforme o tema */
-  transition: background-color 0.4s ease, color 0.4s ease; /* Transição suave */
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  color: var(--color-gray-seconde);
-  transition: color 0.4s ease;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.theme-toggle:hover {
-  color: var(--color-silver);
+  color: var(--color-seconde);
   transition: color 0.4s ease;
 }

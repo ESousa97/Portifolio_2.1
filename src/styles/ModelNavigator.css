@@ -71,8 +71,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px; /* Definir largura específica */
-  height: 300px; /* Definir altura específica */
+  width: 15vw; /* Definir largura específica */
+  height: 15vw; /* Definir altura específica */
   position: relative;
   overflow: hidden; /* Esconde qualquer parte do modelo que exceder o contêiner */
 }
@@ -109,26 +109,15 @@ body {
 
 /* Ajuste do botão de navegação à esquerda */
 .nav-left {
-  left: -20px; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
-  top: 50%; /* Centralizar verticalmente */
-  transform: translateY(120%); /* Corrigir alinhamento vertical */
+  left: 30%; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
+  top: 25%; /* Centralizar verticalmente */
+  transform: translateY(100%); /* Corrigir alinhamento vertical */
 }
 
 /* Ajuste do botão de navegação à direita */
 .nav-right {
-  right: -20px; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
-  top: 50%; /* Centralizar verticalmente */
-  transform: translateY(120%); /* Corrigir alinhamento vertical */
+  right: 30%; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
+  top: 25%; /* Centralizar verticalmente */
+  transform: translateY(100%); /* Corrigir alinhamento vertical */
 }
 
-/* Carrossel na parte inferior */
-.carousel-container {
-  width: 100vw;
-  height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1px;
-  padding: 0 1vw;
-  box-sizing: border-box;
-}

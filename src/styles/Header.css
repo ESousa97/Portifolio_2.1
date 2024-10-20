@@ -1,19 +1,19 @@
 /* Estilos globais do menu */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: var(--color-gray-seconde); /* Texto alternado pelo tema */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  font-weight: 700; /* Aumenta a espessura da fonte */
 }
 
 .nav ul li a:hover {
-    color: var(--color-silver); /* Muda conforme o tema claro/escuro */
+    color: var(--color-senary); /* Muda conforme o tema claro/escuro */
 }
 
 /* Estilo da logo */
@@ -45,7 +45,7 @@
 
 .nav ul li a {
     text-decoration: none;
-    color: var(--color-gray-seconde);
+    color: var(--color-header);
     font-size: 20px;
     transition: color 0.3s;
 }
@@ -56,7 +56,7 @@
     border: none;
     cursor: pointer;
     font-size: 24px;
-    color: var(--color-gray-seconde);
+    color: var(--color-header);
     padding: 10px;
     transition: color 0.3s;
     margin-right: 20px;
@@ -65,7 +65,7 @@
 }
 
 .theme-toggle:hover {
-    color: var(--color-silver);
+    color: var(--color-senary);
 }
 
 /* Ajustes para telas menores que 400px */

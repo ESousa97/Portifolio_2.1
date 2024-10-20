@@ -84,11 +84,11 @@ function ThreeDViewer({ currentIndex, models }) {
       const screenWidth = window.innerWidth;
 
       if (screenWidth < 768) {
-        model.scale.set(0.5, 0.5, 1); // Escala para telas pequenas (exemplo: 30%)
+        model.scale.set(0.5, 0.5, 0.5); // Escala uniforme para telas pequenas
       } else if (screenWidth < 1024) {
-        model.scale.set(0.6, 0.6, 1.5); // Escala para telas médias (exemplo: 50%)
+        model.scale.set(0.6, 0.6, 0.6); // Escala uniforme para telas médias
       } else {
-        model.scale.set(0.7, 0.7, 2); // Escala para telas grandes (exemplo: 70%)
+        model.scale.set(0.9, 0.9, 0.9); // Escala uniforme para telas grandes
       }
     };
 
@@ -98,7 +98,7 @@ function ThreeDViewer({ currentIndex, models }) {
     // Configuração dos controles OrbitControls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.2; // Aumentar o fator de amortecimento para reduzir o efeito "esticado"
+    controls.dampingFactor = 1; // Aumentar o fator de amortecimento para reduzir o efeito "esticado"
     controls.enableZoom = false; // Desabilitar zoom para focar apenas em rotação
     controls.enableRotate = true;
     controls.enablePan = false;

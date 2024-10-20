@@ -1,43 +1,78 @@
 /* Adicionando Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
-/* Modo claro */
+/* Definição das cores com gradientes complexos */
 :root {
-    --color-blue: #76a7fc;  /* Azul mais saturado e vivo */
-    --color-gray-one: #444444;  /* Cinza um pouco mais claro */
-    --color-silver: #f0f0f0;  /* Prata mais brilhante */
-    --color-orange: #38fc86;  /* Laranja mais quente */
-    --color-gray-seconde: #454545;  /* Cinza mais equilibrado */
+    --color-primary: #041741; /* Azul base */
+    --color-seconde: #578d00; /* texto branco */
+    --color-seconde-hover: #252525; /* black hover*/
+    --color-hover: #009C7B;
+    --color-button: #325db8;
+    --color-text: #ffffff;
+    --color-text-right: #292929;
+    --color-about: #b9b9b9;
+    --color-about-text: #2b2a2a;
+    --color-titulo-first: #578d00;
+    --color-titulo-seconde: #325db8;
+    --color-titulo-first-right: #578d00;
+    --color-titulo-seconde-right: #325db8;
+    --color-bold: #ffffff;
+    --color-project: #FF6384;
+    --color-header: #ffffff;
+    --color-project-text: #ffffff;
+    --color-rose: #041741;
+    --color-rose-home: #b9b9b9;
+    --color-orange: #ff7300;
+    --color-rose-inverse: #252525;
+    --color-quinary: #fcfcfc; /* Cinza escuro, intermediário */
 }
 
 /* Modo escuro */
 [data-theme="dark"] {
-    --color-blue: #2A2A2A;  /* Azul escuro mais intenso */
-    --color-gray-one: #d3d3d3;  /* Cinza mais escuro */
-    --color-silver: #ffffff;  /* Prata vivo para contraste */
-    --color-green: #4A4A4A;  /* Verde mais escuro e intenso */
-    --color-orange: #383838;  /* Laranja escuro com mais vida */
-    --color-gray-seconde: #d3d3d3;  /* Cinza secundário mais claro */
+    --color-primary: #2b2b2b; /* Cinza escuro */
+    --color-seconde: #747474; /* Preto suave */
+    --color-seconde-hover: #ffffff; /* branco hover*/
+    --color-hover: #008cff;
+    --color-button: #009C7B;
+    --color-text: #d8d8d8;
+    --color-text-right: #f1f1f1;
+    --color-about: #383838;
+    --color-about-text: #ffffffff;
+    --color-titulo-first: #325db8;
+    --color-titulo-seconde: #578d00;
+    --color-titulo-first-right: #505050;
+    --color-titulo-seconde-right: #2b2b2b;
+    --color-bold: #325db8;
+    --color-project: #325db8;
+    --color-header: #ffffff;
+    --color-project-text: #84bb2d;
+    --color-rose: #008cff;
+    --color-rose-home: #383838;
+    --color-orange: #84bb2d;
+    --color-rose-inverse: #383838;
+    --color-quinary: #325db8; /* Preto quase absoluto */
 }
 
-/* Aplicando a fonte no body */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-gray-seconde);
-    color: var(--text-color);
-    transition: --color-gray-seconde 0.3s ease, color 0.3s ease;
+    background-color: var(--color-seconde);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Tailwind CSS utility classes adicionadas */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-button {
-    background-color: var(--color-gray-seconde);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+/* Primary
+Secondary
+Tertiary
+Quaternary
+Quinary
+Senary
+Septenary
+Octonary
+Nonary
+Denary
 
-button:hover {
-    background-color: var(--color-gray-seconde-hover);
-}
+*/

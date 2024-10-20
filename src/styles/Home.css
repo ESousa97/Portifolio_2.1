@@ -3,31 +3,186 @@
     min-height: 100vh; /* Garante que a altura da seção seja 100% da viewport */
     justify-content: center; /* Centraliza as colunas horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 0 5%;
+    background-color: var(--color-background); /* Cor de fundo definida por tema */
+}
+
+.column-right {
+    background: linear-gradient(135deg, var(--color-titulo-first-right) 0%, var(--color-titulo-seconde-right) 100%);
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 5% 8%;
+    border-radius: 30px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
+    transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease-in-out;
+    cursor: pointer;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(30px); /* Inicialmente deslocado para baixo */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Deslocamento inicial para baixo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina em sua posição final */
+    }
+}
+
+.column-right:hover {
+    transform: scale(1.05); /* Aumento de zoom mais suave */
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.25); /* Sombra mais pronunciada no hover */
+}
+
+.column-right h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--color-rose);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: translateY(30px); /* Inicialmente deslocado para baixo */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+}
+
+.column-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column-right ul li {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-right);
+    transition: color 0.6s ease-in-out; /* Transição de cor mais lenta */
+    transform: translateY(30px); /* Inicialmente deslocado para baixo */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+}
+
+.column-right ul li strong {
+    margin-right: 10px;
+    color: var(--color-bold);
+    font-weight: 600;
+}
+
+.column-right ul li::before {
+    content: "\f0e7"; /* Ícone de raio do Font Awesome */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: var(--color-orange);
+    transform: translateY(30px); /* Inicialmente deslocado para baixo */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+}
+
+.cta-button {
+    padding: 14px 30px;
+    color: #fff;
+    background-color: var(--color-button);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease-in-out;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais suave e proeminente */
+    transform: translateY(30px); /* Inicialmente deslocado para baixo */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+}
+
+.cta-button:hover {
+    background-color: var(--color-hover);
+    transform: scale(1.1); /* Aumento maior no hover */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
 }
 
 .column-left {
     flex: 1;
-    height: 100vh; /* Garante que as colunas tenham a mesma altura da viewport */
+    height: 100%;
     display: flex;
-    flex-direction: column; /* Alinha o conteúdo da coluna de cima para baixo */
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: flex-start; /* Alinha o conteúdo à esquerda horizontalmente */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     text-align: left;
-    padding-right: 150px;
+    padding-right: 8%;
+    cursor: default;
+    animation: fadeInLeft 1.2s ease-in-out; /* Animação mais lenta */
 }
 
-.column-right {
-    flex: 1;
-    height: 100vh; /* Garante que as colunas tenham a mesma altura da viewport */
-    display: flex;
-    flex-direction: column; /* Alinha o conteúdo da coluna de cima para baixo */
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: flex-end; /* Alinha o conteúdo à direita horizontalmente */
-    text-align: right;
-    padding-left: 150px;
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Deslocamento maior para uma entrada mais suave */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.home h1,
+/* Estilização moderna do texto */
+.home h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--color-titulo-first);
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    cursor: default;
+    animation: fadeIn 1.5s ease-in-out; /* Entrada mais lenta para o título */
+}
+
 .home p {
-    color: var(--color-gray-seconde); /* Texto alternado conforme o tema */
+    font-size: 1.15rem;
+    line-height: 1.75;
+    text-align: justify;
+    margin-bottom: 20px;
+    color: var(--color-text);
+    max-width: 95%;
+    cursor: default;
+    animation: fadeIn 1.8s ease-in-out; /* Entrada ainda mais lenta */
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Deslocamento vertical mais acentuado */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .home h1 {
+        font-size: 2.5rem;
+    }
+
+    .home p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .column-left {
+        padding-right: 5%;
+    }
 }

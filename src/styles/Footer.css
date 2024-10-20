@@ -1,6 +1,6 @@
 footer {
   background-color: hsla(0, 0%, 0%, 0.500); /* Transparência com tom suave */
-  color: var(--color-gray-seconde);
+  color: var(--color-second);
   padding: 20px;
   text-align: center;
   position: relative;
