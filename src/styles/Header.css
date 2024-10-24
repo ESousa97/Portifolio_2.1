@@ -13,7 +13,7 @@
 }
 
 .nav ul li a:hover {
-    color: var(--color-senary); /* Muda conforme o tema claro/escuro */
+    color: var(--color-header-hover); /* Muda conforme o tema claro/escuro */
 }
 
 /* Estilo da logo */
@@ -65,7 +65,7 @@
 }
 
 .theme-toggle:hover {
-    color: var(--color-senary);
+    color: var(--color-header-hover);
 }
 
 /* Ajustes para telas menores que 400px */

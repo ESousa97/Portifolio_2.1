@@ -1,22 +1,21 @@
-/* About Section */
+/* Seção Sobre */
 .about {
-  min-height: 100vh;
+  min-height: 100vh; /* Define a altura mínima da seção */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 40px; /* Adiciona espaçamento para respiro */
 }
 
 .about-content {
-  max-width: 100%;
   width: 100%;
 }
 
 .about h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   color: var(--color-titulo-seconde);
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Aumenta o espaçamento inferior */
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -24,11 +23,12 @@
 .about-columns {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  gap: 40px; /* Espaçamento entre as colunas */
 }
 
 .about-text {
-  flex: 1;
+  flex: 2; /* Dá mais espaço ao texto */
   font-size: 1.2rem;
   line-height: 1.8;
   color: var(--color-about-text);
@@ -36,43 +36,95 @@
 }
 
 .about-extra {
-  flex: 1;
+  flex: 1; /* Deixa a imagem menor comparada ao texto */
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* Para aplicar efeitos de perspectiva */
+}
+
+.image-card {
+  background: var(--color-titulo-seconde-right);
+  padding: 10px;
+  border-radius: 10%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* Para cortar bordas brilhantes além da imagem */
+  position: relative; /* Para o brilho nas bordas */
+}
+
+/* Brilho ao redor da imagem */
+.image-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(25deg, var(--color-button) 0%, var(--color-orange) 100%); 
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.image-card:hover::before {
+  opacity: 1; /* Brilho aparece ao passar o mouse */
+}
+
+/* Efeito de sombra animada */
+.image-card:hover {
+  transform: translateY(-10px) rotate3d(1, 1, 0, 5deg); /* Eleva e rotaciona a imagem */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.548), 0 0 40px var(--color-titulo-seconde); /* Sombra com efeito colorido */
 }
 
 .about-image {
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 1%; /* Mantém o estilo arredondado */
+  transition: transform 0.3s ease-in-out; /* Animação suave ao hover */
 }
 
-/* Efeito de escala em <strong> */
+/* Efeito de zoom e rotação ao passar o mouse */
+.image-card:hover .about-image {
+  transform: scale(1.1) rotate(5deg); /* Leve zoom e rotação */
+}
+
+/* Efeito de Parallax na rolagem */
+.about-image {
+  will-change: transform; /* Para otimizar o efeito */
+}
+
+/* Efeito de destaque em <strong> no texto */
 .about-text strong {
   display: inline-block;
   position: relative;
   color: var(--color-titulo-seconde);
   font-weight: 900;
   transition: transform 0.3s ease-in-out;
-  cursor: default; /* Remover sensação de texto */
+  cursor: default; /* Remove a sensação de ser clicável */
 }
 
 .about-text strong:hover {
-  transform: scale(1.1); /* Escala ao passar o mouse */
+  transform: scale(1.1); /* Escala ao passar o mouse no texto em negrito */
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .about-columns {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column; /* Organiza em colunas verticais em telas pequenas */
+    align-items: center; /* Centraliza o conteúdo em telas menores */
   }
 
   .about h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .about-text {
-      font-size: 1rem;
+    font-size: 1rem;
+  }
+
+  .image-card {
+    max-width: 100%; /* Ajusta o card para telas pequenas */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da imagem no mobile */
   }
 }

@@ -20,7 +20,6 @@
     border-radius: 30px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
     transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease-in-out;
-    cursor: pointer;
     opacity: 0; /* Inicialmente invisível */
     transform: translateY(30px); /* Inicialmente deslocado para baixo */
     animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
@@ -38,13 +37,12 @@
 }
 
 .column-right:hover {
-    transform: scale(1.05); /* Aumento de zoom mais suave */
-    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.25); /* Sombra mais pronunciada no hover */
+    box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.5); /* Sombra mais suave e pronunciada no hover */
 }
 
 .column-right h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 2%;
     color: var(--color-rose);
     font-weight: 700;
     text-transform: uppercase;
@@ -60,36 +58,45 @@
 }
 
 .column-right ul li {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 1%;
+    display: flex; /* Deixe flex aqui para manter o layout horizontal para o ícone e o texto */
+    align-items: center; /* Alinha o ícone e o título na mesma linha */
     color: var(--color-text-right);
-    transition: color 0.6s ease-in-out; /* Transição de cor mais lenta */
-    transform: translateY(30px); /* Inicialmente deslocado para baixo */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+    transition: color 0.6s ease-in-out;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
+    font-weight: 600;
 }
 
 .column-right ul li strong {
-    margin-right: 10px;
+    display: inline-flex; /* Garante que o ícone e o strong fiquem juntos */
+    margin-right: 5px; /* Adiciona espaçamento entre o ícone e o texto */
     color: var(--color-bold);
     font-weight: 600;
 }
 
-.column-right ul li::before {
+.column-right ul li strong::before {
     content: "\f0e7"; /* Ícone de raio do Font Awesome */
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 1.2rem;
-    margin-right: 10px;
+    margin-right: 5px; /* Espaçamento entre o ícone e o strong */
     color: var(--color-orange);
-    transform: translateY(30px); /* Inicialmente deslocado para baixo */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
 }
 
-.cta-button {
+.column-right ul li div {
+    display: block;
+    margin-left: 25px; /* Recuo para o conteúdo descritivo abaixo do título */
+    margin-top: 5px;
+    text-align: left;
+    word-wrap: break-word; /* Quebra automática de texto se necessário */
+    line-height: 1.5; /* Aumenta o espaçamento entre as linhas */
+}
+
+.cta-button-left {
     padding: 14px 30px;
-    color: #fff;
+    color: var(--color-text);
     background-color: var(--color-button);
     text-transform: uppercase;
     border: none;
@@ -104,10 +111,30 @@
     animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
 }
 
-.cta-button:hover {
+.cta-button-left:hover {
     background-color: var(--color-hover);
-    transform: scale(1.1); /* Aumento maior no hover */
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
+}
+
+.cta-button-right:hover {
+    background-color: var(--color-hover);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
+}
+
+.cta-button-right {
+    padding: 14px 30px;
+    color: var(--color-text);
+    background-color: var(--color-button);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease-in-out;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais suave e proeminente */
+    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
 }
 
 .column-left {
@@ -148,16 +175,54 @@
 }
 
 .home p {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     line-height: 1.75;
     text-align: justify;
     margin-bottom: 20px;
     color: var(--color-text);
-    max-width: 95%;
+    max-width: 100%;
     cursor: default;
     animation: fadeIn 1.8s ease-in-out; /* Entrada ainda mais lenta */
     opacity: 0;
     animation-fill-mode: forwards;
+}
+
+/* Estilos para a imagem flutuante à direita */
+.skills-image {
+    width: 20%; /* Reduzindo um pouco mais a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    float: right; /* Mantém a imagem à direita do conteúdo */
+    margin: 0 0 40px 40px; /* Aumenta a margem esquerda para dar mais espaço ao texto */
+    border-radius: 50%; /* Bordas arredondadas para a imagem */
+    overflow: hidden; /* Garante que a área clicável siga o formato arredondado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra leve */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efeito de zoom ao passar o mouse na imagem */
+.skills-image:hover {
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3); /* Sombra leve */
+}
+
+/* Responsividade - Ajuste a imagem para telas menores */
+@media (max-width: 768px) {
+  .skills-image {
+    float: none; /* Remove o float para centralizar a imagem em telas pequenas */
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem */
+    width: 80px; /* Ajusta o tamanho da imagem em telas menores */
+  }
+}
+
+/* Ajuste no layout do texto para ocupar mais espaço */
+.column-right ul {
+    padding-right: 15px; /* Aumenta o padding à direita para evitar que o texto encoste nas bordas */
+    margin-right: 40px; /* Aumenta a distância do texto da imagem */
+    line-height: 1.8; /* Aumenta o espaçamento entre linhas para melhorar a legibilidade */
+}
+
+.column-right li {
+    font-weight: 400;
 }
 
 @keyframes fadeIn {

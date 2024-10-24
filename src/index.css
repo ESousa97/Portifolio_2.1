@@ -8,7 +8,7 @@
     --color-seconde-hover: #252525; /* black hover*/
     --color-hover: #009C7B;
     --color-button: #325db8;
-    --color-text: #ffffff;
+    --color-text: #b9b9b9;
     --color-text-right: #292929;
     --color-about: #b9b9b9;
     --color-about-text: #2b2a2a;
@@ -19,6 +19,7 @@
     --color-bold: #ffffff;
     --color-project: #FF6384;
     --color-header: #ffffff;
+    --color-header-hover: #325db8;
     --color-project-text: #ffffff;
     --color-rose: #041741;
     --color-rose-home: #b9b9b9;
@@ -45,6 +46,7 @@
     --color-bold: #325db8;
     --color-project: #325db8;
     --color-header: #ffffff;
+    --color-header-hover: #009C7B;
     --color-project-text: #84bb2d;
     --color-rose: #008cff;
     --color-rose-home: #383838;

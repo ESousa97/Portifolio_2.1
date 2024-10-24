@@ -9,32 +9,29 @@ function Home() {
             <div className="column-left">
                 <h1>Bem-vindo ao meu Portfólio</h1>
                 <p>
-                    Sou José Enoque, Analista de Automação de Processos e Desenvolvedor Web Full Stack com 
-                    experiência em diversas tecnologias, como React.js, Next.js, Node.js, TypeScript e PostgreSQL.
-                    Atualmente, atuo na automação de processos e desenvolvimento de soluções web, aplicando 
-                    práticas inovadoras para otimizar sistemas e melhorar a eficiência de empresas.
+                É um prazer tê-lo aqui! Este espaço foi cuidadosamente preparado para compartilhar minha trajetória e algumas das soluções em que venho trabalhando. Cada projeto carrega um pouco da minha dedicação e busca constante por inovação.
                 </p>
                 <p>
-                    Ao longo da minha trajetória, desenvolvi projetos robustos como o EsDataBase, 
-                    utilizando stacks modernas e garantindo escalabilidade e alta performance. Além disso, 
-                    prezo pela proatividade, flexibilidade e uma abordagem focada na resolução de problemas.
+                Explore à vontade, conheça as criações e as ideias que me inspiram. Espero que a experiência seja tão interessante para você quanto foi para mim construir cada um desses trabalhos.
                 </p>
-                <a href="#projects" className="cta-button">Veja Meus Projetos</a>
+                <a href="#projects" className="cta-button-left">Veja Meus Projetos</a>
             </div>
 
-            {/* Coluna Direita - Habilidades e Tecnologias */}
             <div className="column-right">
-                <h2>Habilidades e Tecnologias</h2>
-                <ul>
-                    <li><strong>Front-end:</strong> React.js, Next.js, Material-UI</li>
-                    <li><strong>Back-end:</strong> Node.js, Express, PostgreSQL</li>
-                    <li><strong>Ferramentas:</strong> Git, Vercel, NextAuth</li>
-                    <li><strong>Segurança:</strong> Autenticação com NextAuth, 2FA</li>
-                    <li><strong>Design Responsivo:</strong> UX/UI com Material-UI e CSS3</li>
-                    <li><strong>Soft Skills:</strong> Proatividade, Resiliência, Empatia</li>
-                </ul>
-                <a href="#about" className="cta-button">Saiba Mais</a>
+            <div className="content-wrapper">
+            {/* Imagem adicionada aqui */}
+            <img src="/perfil/BemVindoIcon.png" alt="Ícone representativo" className="skills-image" />
+             <h2>Tecnologias</h2>
+  
+             <ul>
+                <li><strong>Front-end:</strong></li> <li>React.js, Next.js, Material-UI, Axios, Styled Components, DOMPurify, Framer Motion, React Toastify, Sass</li>
+                <li><strong>Back-end:</strong></li><li> PostgreSQL, Node.js, Express.js, @vercel/postgres, CORS, SSL</li>
+                <li><strong>Ferramentas:</strong></li><li> Git, Vercel, NextAuth, Heroku, PgAdmin, MongoCompass</li>
+                <li><strong>Segurança:</strong></li><li> NextAuth, 2FA, OAuth, JWT, CSRF, DOMPurify, SSL, LGPD</li>
+            </ul>
             </div>
+            <a href="#about" className="cta-button-right">Saiba Mais</a>
+        </div>
         </div>
     );
 }
