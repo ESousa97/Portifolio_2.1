@@ -46,7 +46,7 @@
 .nav ul li a {
     text-decoration: none;
     color: var(--color-header);
-    font-size: 20px;
+    font-size: 25px;
     transition: color 0.3s;
 }
 
@@ -55,7 +55,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 30px;
     color: var(--color-header);
     padding: 10px;
     transition: color 0.3s;

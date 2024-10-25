@@ -8,6 +8,14 @@ const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 function Projects() {
   const [projects] = useState([
     {
+      title: "Meu primeiro portfólio",
+      imgPath: "/Icons/Portifolio.png",
+      url: "https://portifolio-sousadev97.vercel.app/",
+      description: "Esse projeto foi o segundo que desenvolvi ao longo da minha carreira. Lançado em outubro de 2022 e atualizado em julho de 2023, ele serve como uma vitrine do meu crescimento e das minhas habilidades como desenvolvedor. Nele, apresento minhas experiências, certificações e habilidades técnicas de forma organizada e acessível. O portfólio está disponível em Meu portfólio, com links diretos para minhas redes sociais e projetos, bem como uma seção detalhada com meus certificados.",
+      createdAt: "10/2022",
+      updatedAt: "07/2023",
+    },
+    {
       title: "Base Dados IMC",
       imgPath: "/Icons/BaseDadosIMC.png",
       url: "https://base-dados-imc.vercel.app/index.html",
@@ -24,14 +32,6 @@ function Projects() {
       updatedAt: "10/2024"
     },
     {
-      title: "Meu primeiro portfólio",
-      imgPath: "/Icons/Portifolio.png",
-      url: "https://portifolio-sousadev97.vercel.app/",
-      description: "Esse projeto foi o segundo que desenvolvi ao longo da minha carreira. Lançado em outubro de 2022 e atualizado em julho de 2023, ele serve como uma vitrine do meu crescimento e das minhas habilidades como desenvolvedor. Nele, apresento minhas experiências, certificações e habilidades técnicas de forma organizada e acessível. O portfólio está disponível em Meu portfólio, com links diretos para minhas redes sociais e projetos, bem como uma seção detalhada com meus certificados.",
-      createdAt: "10/2022",
-      updatedAt: "07/2023",
-    },
-    {
       title: "Prompt de Comando Windows",
       imgPath: "/Icons/PromptComandoWindowsIcon.png",
       url: "https://prompt-comando.vercel.app/",
@@ -42,52 +42,54 @@ function Projects() {
   ]);
 
   const [languagesData, setLanguagesData] = useState([]);
-  const [error, setError] = useState(null);
+const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchLanguages() {
-      try {
-        const response = await fetch("https://api.github.com/users/ESousa97/repos", {
+useEffect(() => {
+  async function fetchLanguages() {
+    try {
+      const response = await fetch("https://api.github.com/users/ESousa97/repos", {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+      }
+
+      const repos = await response.json();
+
+      let languages = {};
+
+      for (const repo of repos) {
+        const langResponse = await fetch(repo.languages_url, {
           headers: {
             Authorization: `token ${GITHUB_TOKEN}`,
           },
         });
+        const repoLanguages = await langResponse.json();
 
-        if (!response.ok) {
-          throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+        for (const [lang, value] of Object.entries(repoLanguages)) {
+          languages[lang] = (languages[lang] || 0) + value;
         }
+      }
 
-        const repos = await response.json();
-
-        let languages = {};
-
-        for (const repo of repos) {
-          const langResponse = await fetch(repo.languages_url, {
-            headers: {
-              Authorization: `token ${GITHUB_TOKEN}`,
-            },
-          });
-          const repoLanguages = await langResponse.json();
-
-          for (const [lang, value] of Object.entries(repoLanguages)) {
-            languages[lang] = (languages[lang] || 0) + value;
-          }
-        }
-
-        const total = Object.values(languages).reduce((acc, value) => acc + value, 0);
-        const languagePercentages = Object.entries(languages).map(([lang, value]) => ({
+      const total = Object.values(languages).reduce((acc, value) => acc + value, 0);
+      const languagePercentages = Object.entries(languages)
+        .map(([lang, value]) => ({
           language: lang,
           percentage: ((value / total) * 100).toFixed(2), // Exibir até 2 casas decimais
-        }));
+        }))
+        .filter(lang => lang.percentage > 0); // Filtrar dados com porcentagem maior que 0
 
-        setLanguagesData(languagePercentages);
-      } catch (error) {
-        setError(error.message);
-      }
+      setLanguagesData(languagePercentages);
+    } catch (error) {
+      setError(error.message);
     }
+  }
 
-    fetchLanguages();
-  }, []);
+  fetchLanguages();
+}, []);
 
   return (
     <div className="projects-wrapper">
@@ -107,22 +109,7 @@ function Projects() {
       {/* Timeline dos projetos */}
       <div className="projects-list">
         {projects.map((project, index) => (
-          <div className="project-item" key={index}>
-            <div className="project-image-container">
-              <img
-                src={project.imgPath}
-                alt={project.title}
-                className="project-image"
-              />
-            </div>
-            <div className="project-description">
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-              <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-link">
-                Ver Projeto
-              </a>
-            </div>
-          </div>
+          <ProjectItem project={project} key={index} />
         ))}
       </div>
 
@@ -132,8 +119,8 @@ function Projects() {
         <p className="graph-subtitle">Ferramentas que tenho contato diariamente</p>
 
         <div className="graph">
-         {error ? (
-      <p>{error}</p>
+          {error ? (
+            <p>{error}</p>
           ) : (
             <div className="skills-list">
               {languagesData.map((language, index) => (
@@ -147,7 +134,38 @@ function Projects() {
               ))}
             </div>
           )}
-       </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Componente ProjectItem para cada projeto
+function ProjectItem({ project }) {
+  return (
+    <div className="project-item">
+      <div className="project-image-container">
+        <img
+          src={project.imgPath}
+          alt={project.title}
+          className="project-image"
+          loading="lazy" // Lazy loading de imagens
+        />
+      </div>
+      <div className="project-description">
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
+        <p><strong>Data de Criação:</strong> {project.createdAt}</p>
+        <p><strong>Última Atualização:</strong> {project.updatedAt}</p>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link"
+          aria-label={`Ver projeto ${project.title}`} // Acessibilidade melhorada
+        >
+          Ver Projeto
+        </a>
       </div>
     </div>
   );

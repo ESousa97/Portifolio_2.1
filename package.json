@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.5",
+    "emailjs-com": "^3.2.0",
     "embla-carousel": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
     "gsap": "^3.12.5",
@@ -19,6 +20,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.6",
     "tailwindcss": "^3.4.14",
     "three": "^0.168.0",
     "web-vitals": "^2.1.4"

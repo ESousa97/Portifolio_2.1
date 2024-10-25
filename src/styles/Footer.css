@@ -1,110 +1,121 @@
+/* Estilos gerais do footer */
 footer {
-  background-color: hsla(0, 0%, 0%, 0.500); /* Transparência com tom suave */
-  color: var(--color-second);
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  backdrop-filter: blur(10px) brightness(0.7); /* Desfoque com escurecimento */
-  -webkit-backdrop-filter: blur(10px) brightness(0.7); /* Suporte para Safari */
-  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Borda suave e transparente */
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-footer p {
-  margin: 0;
-  font-size: 1rem; /* Tamanho de fonte padrão */
-}
-
-/* Ícones de redes sociais */
-.footer-icons {
-  margin-top: 10px;
+.footer-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer-icons a {
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.contact-info h3,
+.message-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.contact-info a {
+  color: #1DA1F2;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos do formulário */
+.message-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-form input,
+.message-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.message-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.message-form button {
+  padding: 10px 20px;
+  background-color: #1DA1F2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos da parte inferior do footer */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-social-icons {
+  margin-top: 15px;
+}
+
+.footer-social-icons a {
+  color: #fff;
   margin: 0 10px;
-  font-size: 20px;
-  color: #007BFF;
-  transition: color 0.3s ease; /* Transição suave */
+  font-size: 24px;
+  transition: color 0.3s ease;
 }
 
-.footer-icons a:hover {
-  color: #0056b3; /* Cor ao passar o mouse */
+.footer-social-icons a:hover {
+  color: #1DA1F2;
 }
 
-/* Ajustes para telas menores que 1200px */
-@media only screen and (max-width: 1200px) {
-  footer {
-    padding: 15px;
-    font-size: 14px; /* Reduz o tamanho da fonte */
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
   }
 
-  .footer-icons a {
-    font-size: 18px; /* Reduz ligeiramente o tamanho dos ícones */
-    margin: 0 8px;
-  }
-}
-
-/* Ajustes para telas menores que 768px */
-@media only screen and (max-width: 768px) {
-  footer {
+  .footer-section {
     padding: 10px;
-    font-size: 12px; /* Fonte menor */
-  }
-
-  .footer-icons a {
-    font-size: 16px; /* Ícones menores */
-    margin: 0 6px;
-  }
-}
-
-/* Ajustes para telas menores que 480px */
-@media only screen and (max-width: 480px) {
-  footer {
-    padding: 5px;
-    font-size: 10px; /* Fonte menor para dispositivos móveis */
-  }
-
-  .footer-icons a {
-    font-size: 14px; /* Ícones ainda menores */
-    margin: 0 5px;
-  }
-
-  footer p {
-    font-size: 10px; /* Texto menor */
-  }
-}
-
-/* Ajustes para telas menores que 320px */
-@media only screen and (max-width: 320px) {
-  footer {
-    padding: 3px;
-    font-size: 9px; /* Fonte ainda menor */
-  }
-
-  .footer-icons a {
-    font-size: 12px; /* Ícones compactos */
-    margin: 0 4px;
-  }
-
-  footer p {
-    font-size: 9px; /* Texto reduzido */
-  }
-}
-
-/* Ajustes para telas menores que 240px */
-@media only screen and (max-width: 240px) {
-  footer {
-    padding: 2px;
-    font-size: 8px; /* Fonte mínima para dispositivos muito pequenos */
-  }
-
-  .footer-icons a {
-    font-size: 10px; /* Ícones menores */
-    margin: 0 3px;
-  }
-
-  footer p {
-    font-size: 8px; /* Texto mínimo */
   }
 }
