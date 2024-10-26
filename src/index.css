@@ -3,7 +3,7 @@
 
 /* Definição das cores com gradientes complexos */
 :root {
-    --color-primary: #041741; /* Azul base */
+    --color-primary: #06215c; /* Azul base */
     --color-seconde: #578d00; /* texto branco */
     --color-seconde-hover: #252525; /* black hover*/
     --color-hover: #009C7B;
@@ -26,6 +26,7 @@
     --color-orange: #ff7300;
     --color-rose-inverse: #252525;
     --color-quinary: #fcfcfc; /* Cinza escuro, intermediário */
+    --color-footer: #244057;
 }
 
 /* Modo escuro */
@@ -53,6 +54,7 @@
     --color-orange: #84bb2d;
     --color-rose-inverse: #383838;
     --color-quinary: #325db8; /* Preto quase absoluto */
+    --color-footer: #1a1919;
 }
 
 body {

@@ -1,10 +1,10 @@
 .home {
     display: flex;
-    min-height: 100vh; /* Garante que a altura da seção seja 100% da viewport */
-    justify-content: center; /* Centraliza as colunas horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
     padding: 0 5%;
-    background-color: var(--color-background); /* Cor de fundo definida por tema */
+    background-color: var(--color-background);
 }
 
 .column-right {
@@ -19,25 +19,11 @@
     padding: 5% 8%;
     border-radius: 30px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
-    transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease-in-out;
-    opacity: 0; /* Inicialmente invisível */
-    transform: translateY(30px); /* Inicialmente deslocado para baixo */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px); /* Deslocamento inicial para baixo */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* Termina em sua posição final */
-    }
+    transform: translateY(30px);
 }
 
 .column-right:hover {
-    box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.5); /* Sombra mais suave e pronunciada no hover */
+    box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.5);
 }
 
 .column-right h2 {
@@ -47,8 +33,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transform: translateY(30px); /* Inicialmente deslocado para baixo */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+    transform: translateY(30px);
 }
 
 .column-right ul {
@@ -60,41 +45,38 @@
 .column-right ul li {
     font-size: 1.2rem;
     margin-bottom: 1%;
-    display: flex; /* Deixe flex aqui para manter o layout horizontal para o ícone e o texto */
-    align-items: center; /* Alinha o ícone e o título na mesma linha */
+    display: flex;
+    align-items: center;
     color: var(--color-text-right);
-    transition: color 0.6s ease-in-out;
-    transform: translateY(30px);
-    animation: fadeInUp 1.5s ease forwards;
     font-weight: 600;
 }
 
 .column-right ul li strong {
-    display: inline-flex; /* Garante que o ícone e o strong fiquem juntos */
-    margin-right: 5px; /* Adiciona espaçamento entre o ícone e o texto */
+    display: inline-flex;
+    margin-right: 5px;
     color: var(--color-bold);
     font-weight: 600;
 }
 
 .column-right ul li strong::before {
-    content: "\f0e7"; /* Ícone de raio do Font Awesome */
+    content: "\f0e7";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 1.2rem;
-    margin-right: 5px; /* Espaçamento entre o ícone e o strong */
+    margin-right: 5px;
     color: var(--color-orange);
 }
 
 .column-right ul li div {
     display: block;
-    margin-left: 25px; /* Recuo para o conteúdo descritivo abaixo do título */
+    margin-left: 25px;
     margin-top: 5px;
     text-align: left;
-    word-wrap: break-word; /* Quebra automática de texto se necessário */
-    line-height: 1.5; /* Aumenta o espaçamento entre as linhas */
+    word-wrap: break-word;
+    line-height: 1.5;
 }
 
-.cta-button-left {
+.cta-button-left, .cta-button-right {
     padding: 14px 30px;
     color: var(--color-text);
     background-color: var(--color-button);
@@ -105,36 +87,13 @@
     font-size: 1.2rem;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease-in-out;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais suave e proeminente */
-    transform: translateY(30px); /* Inicialmente deslocado para baixo */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(30px);
 }
 
-.cta-button-left:hover {
+.cta-button-left:hover, .cta-button-right:hover {
     background-color: var(--color-hover);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
-}
-
-.cta-button-right:hover {
-    background-color: var(--color-hover);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
-}
-
-.cta-button-right {
-    padding: 14px 30px;
-    color: var(--color-text);
-    background-color: var(--color-button);
-    text-transform: uppercase;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease-in-out;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais suave e proeminente */
-    animation: fadeInUp 1.5s ease forwards; /* Animação de entrada */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .column-left {
@@ -147,21 +106,8 @@
     text-align: left;
     padding-right: 8%;
     cursor: default;
-    animation: fadeInLeft 1.2s ease-in-out; /* Animação mais lenta */
 }
 
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px); /* Deslocamento maior para uma entrada mais suave */
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Estilização moderna do texto */
 .home h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
@@ -171,7 +117,6 @@
     letter-spacing: -1px;
     text-transform: uppercase;
     cursor: default;
-    animation: fadeIn 1.5s ease-in-out; /* Entrada mais lenta para o título */
 }
 
 .home p {
@@ -182,58 +127,43 @@
     color: var(--color-text);
     max-width: 100%;
     cursor: default;
-    animation: fadeIn 1.8s ease-in-out; /* Entrada ainda mais lenta */
-    opacity: 0;
-    animation-fill-mode: forwards;
 }
 
 /* Estilos para a imagem flutuante à direita */
 .skills-image {
-    width: 20%; /* Reduzindo um pouco mais a largura da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    float: right; /* Mantém a imagem à direita do conteúdo */
-    margin: 0 0 40px 40px; /* Aumenta a margem esquerda para dar mais espaço ao texto */
-    border-radius: 50%; /* Bordas arredondadas para a imagem */
-    overflow: hidden; /* Garante que a área clicável siga o formato arredondado */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra leve */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 20%;
+    height: auto;
+    float: right;
+    margin: 0 0 40px 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Efeito de zoom ao passar o mouse na imagem */
 .skills-image:hover {
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3); /* Sombra leve */
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsividade - Ajuste a imagem para telas menores */
+/* Responsividade para a imagem */
 @media (max-width: 768px) {
   .skills-image {
-    float: none; /* Remove o float para centralizar a imagem em telas pequenas */
+    float: none;
     display: block;
-    margin: 20px auto; /* Centraliza a imagem */
-    width: 80px; /* Ajusta o tamanho da imagem em telas menores */
+    margin: 20px auto;
+    width: 80px;
   }
 }
 
-/* Ajuste no layout do texto para ocupar mais espaço */
+/* Ajuste no layout do texto */
 .column-right ul {
-    padding-right: 15px; /* Aumenta o padding à direita para evitar que o texto encoste nas bordas */
-    margin-right: 40px; /* Aumenta a distância do texto da imagem */
-    line-height: 1.8; /* Aumenta o espaçamento entre linhas para melhorar a legibilidade */
+    padding-right: 15px;
+    margin-right: 40px;
+    line-height: 1.8;
 }
 
 .column-right li {
     font-weight: 400;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px); /* Deslocamento vertical mais acentuado */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Responsividade para telas menores */

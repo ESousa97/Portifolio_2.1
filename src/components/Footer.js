@@ -67,7 +67,7 @@ function Footer() {
     };
 
     return (
-        <footer>
+        <footer id="footer">
             <div className="footer-container">
                 <div className="footer-content">
                     <div className="footer-section contact-info">
@@ -106,7 +106,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} My Portfolio. Todos os direitos reservados.</p>
+                    <p>&copy; {new Date().getFullYear()} Jose Enoque. Todos os direitos reservados.</p>
                     <div className="footer-social-icons">
                         <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>

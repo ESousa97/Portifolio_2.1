@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
+import DotNavigation from './utils/DotNavigation'; // Novo menu de navegação
 import './styles/App.css';
 import './styles/SmallScreenAdjustments.css';
 
@@ -12,6 +13,7 @@ function App() {
     return (
         <div className="app">
             <Header />
+            <DotNavigation /> {/* Adicione o DotNavigation aqui */}
             <main>
                 <section id="home">
                     <Home />
@@ -23,7 +25,7 @@ function App() {
                     <Projects />
                 </section>
             </main>
-            <Footer />
+            <Footer id="footer" />
         </div>
     );
 }

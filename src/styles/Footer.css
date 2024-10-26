@@ -1,7 +1,7 @@
 /* Estilos gerais do footer */
 footer {
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: var(--color-footer);
+  color: var(--color-text);
   padding: 40px 20px;
   font-family: 'Poppins', sans-serif;
 }
@@ -38,7 +38,7 @@ footer {
 }
 
 .contact-info a {
-  color: #1DA1F2;
+  color: var(--color-button);
   text-decoration: none;
 }
 
@@ -56,11 +56,11 @@ footer {
 .message-form textarea {
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-about);
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #2e2e2e;
-  color: #fff;
+  background-color: var(--color-rose-inverse);
+  color: var(--color-text);
 }
 
 .message-form textarea {
@@ -70,8 +70,8 @@ footer {
 
 .message-form button {
   padding: 10px 20px;
-  background-color: #1DA1F2;
-  color: #fff;
+  background-color: var(--color-hover);
+  color: var(--color-text);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -79,7 +79,7 @@ footer {
 }
 
 .message-form button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-button);
 }
 
 /* Estilos da parte inferior do footer */

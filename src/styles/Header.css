@@ -3,17 +3,19 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 10px 20px;
+  height: 100vh; /* Header ocupa a altura total da tela */
+  width: 55px; /* Define a largura do header ao lado esquerdo */
+  padding: 15% 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Alinha o conteúdo verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
   z-index: 1000;
-  font-weight: 700; /* Aumenta a espessura da fonte */
+  font-weight: 700;
+  transition: transform 0.3s ease-in-out;
 }
 
-.nav ul li a:hover {
-    color: var(--color-header-hover); /* Muda conforme o tema claro/escuro */
+.header.hidden {
+  transform: translateX(-100%); /* Move o header para fora da tela à esquerda */
 }
 
 /* Estilo da logo */
@@ -21,33 +23,50 @@
     margin: 0;
     font-size: 24px;
     font-weight: normal;
+    color: var(--color-orange);
+    text-align: center;
+    writing-mode: vertical-rl; /* Rotaciona o texto verticalmente */
+    transform: rotate(180deg); /* Inverte o texto para leitura de cima para baixo */
+    margin-bottom: 30px;
 }
 
 /* Estilos de navegação */
 .nav {
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
+    flex-direction: column; /* Organiza os itens de navegação verticalmente */
+    gap: 20px;
     align-items: center;
 }
 
 .nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column; /* Organiza os links de navegação em uma coluna */
     align-items: center;
 }
 
 .nav ul li {
-    margin: 0 20px;
+    margin: 20px 0;
 }
 
 .nav ul li a {
     text-decoration: none;
-    color: var(--color-header);
-    font-size: 25px;
-    transition: color 0.3s;
+    color: var(--color-orange);
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav ul li a:hover {
+    color: var(--color-header-hover);
+    transform: scale(1.1); /* Efeito de leve aumento ao passar o mouse */
+}
+
+.nav ul li a svg {
+    font-size: 24px; /* Ajusta o tamanho do ícone */
 }
 
 /* Botão de alternância de tema */
@@ -55,72 +74,31 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 30px;
-    color: var(--color-header);
+    font-size: 24px;
+    color: var(--color-orange);
     padding: 10px;
-    transition: color 0.3s;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    margin-top: auto; /* Empurra o botão para o final do header */
 }
 
 .theme-toggle:hover {
     color: var(--color-header-hover);
+    transform: rotate(20deg); /* Rotação ao passar o mouse */
 }
 
 /* Ajustes para telas menores que 400px */
 @media only screen and (max-width: 400px) {
+    .header {
+      width: 60px;
+      padding: 10px 0;
+    }
 
-    /* Ajustes para o Header */
-    .header {
-      padding: 5px;
-      justify-content: center;
-    }
-  
-    .logo h1 {
-      font-size: 18px; /* Reduz o tamanho do título */
-    }
-  
-    .nav ul li {
-      margin: 0 5px; /* Reduz o espaçamento entre os itens do menu */
-    }
-  
     .nav ul li a {
-      font-size: 14px; /* Reduz o tamanho da fonte dos links do menu */
+      font-size: 18px;
     }
-  
+
     .theme-toggle {
-      font-size: 16px; /* Reduz o tamanho do ícone de alternância de tema */
-      padding: 5px; /* Reduz o padding */
-      margin-right: 5px; /* Reduz o espaçamento à direita */
+      font-size: 20px;
+      padding: 8px;
     }
-  }
-  
-  /* Ajustes para telas menores que 240px */
-  @media only screen and (max-width: 240px) {
-  
-    /* Ajustes para o Header */
-    .header {
-      padding: 2px;
-      flex-direction: column; /* Empilha o conteúdo verticalmente */
-    }
-  
-    .logo h1 {
-      font-size: 16px; /* Tamanho ainda menor para o título */
-    }
-  
-    .nav ul li {
-      margin: 2px 0; /* Reduz o espaçamento vertical */
-    }
-  
-    .nav ul li a {
-      font-size: 12px; /* Reduz o tamanho da fonte dos links */
-    }
-  
-    .theme-toggle {
-      font-size: 12px; /* Reduz ainda mais o tamanho do ícone */
-      padding: 3px; /* Padding mais compacto */
-      margin-right: 0;
-    }
-  }
-  
+}

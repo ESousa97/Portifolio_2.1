@@ -1,0 +1,69 @@
+/* src/components/DotNavigation.css */
+
+.dot-navigation {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+    align-items: center;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
+    opacity: 0; /* Menu inicialmente oculto */
+}
+
+.dot-navigation.visible {
+    opacity: 1; /* Torna o menu visível */
+    transform: translateY(-50%) translateX(0);
+}
+
+.dot-navigation.hidden {
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px); /* Move o menu ligeiramente para fora da tela */
+}
+
+/* Estilos para as bolinhas (dots) inativas */
+.dot-navigation .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-seconde); /* Cor padrão das bolinhas */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ao passar o mouse sobre as bolinhas */
+.dot-navigation .dot:hover {
+    background-color: var(--color-project);
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para os ícones quando a bolinha está ativa */
+.dot-navigation .dot.active {
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    transform: scale(1.3);
+    box-shadow: none;
+}
+
+.dot-navigation .dot.active.icon svg {
+    font-size: 26px;
+    color: var(--color-orange);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.dot-navigation .dot.active.icon:hover svg {
+    transform: rotate(360deg);
+}
+
+.dot-navigation .dot.active:hover {
+    transform: scale(1.35);
+}
