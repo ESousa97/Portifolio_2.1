@@ -1,104 +1,119 @@
 /* Estilos globais do menu */
 .header {
   position: fixed;
-  top: 0;
+  top: 50%; /* Posiciona o header no meio da tela verticalmente */
   left: 0;
-  height: 100vh; /* Header ocupa a altura total da tela */
+  height: auto; /* Ajusta a altura do header ao conteúdo */
   width: 55px; /* Define a largura do header ao lado esquerdo */
   padding: 15% 0;
   display: flex;
-  flex-direction: column; /* Alinha o conteúdo verticalmente */
-  align-items: center; /* Centraliza os itens horizontalmente */
+  flex-direction: column;
+  align-items: center;
   z-index: 1000;
   font-weight: 700;
   transition: transform 0.3s ease-in-out;
+  transform: translateY(-50%); /* Centraliza verticalmente o header na viewport */
 }
 
 .header.hidden {
-  transform: translateX(-100%); /* Move o header para fora da tela à esquerda */
+  transform: translate(-100%, -50%); /* Move o header para fora da tela à esquerda mantendo a centralização vertical */
 }
 
 /* Estilo da logo */
 .logo h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: normal;
-    color: var(--color-orange);
-    text-align: center;
-    writing-mode: vertical-rl; /* Rotaciona o texto verticalmente */
-    transform: rotate(180deg); /* Inverte o texto para leitura de cima para baixo */
-    margin-bottom: 30px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--color-orange);
+  text-align: center;
+  writing-mode: vertical-rl; /* Rotaciona o texto verticalmente */
+  transform: rotate(180deg); /* Inverte o texto para leitura de cima para baixo */
+  margin-bottom: 30px;
 }
 
 /* Estilos de navegação */
 .nav {
-    display: flex;
-    flex-direction: column; /* Organiza os itens de navegação verticalmente */
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Organiza os links de navegação em uma coluna */
-    align-items: center;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav ul li {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .nav ul li a {
-    text-decoration: none;
-    color: var(--color-orange);
-    font-size: 20px;
-    transition: color 0.3s, transform 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 20px;
+  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: var(--color-button);
+  border-radius: 12px;
 }
 
 .nav ul li a:hover {
-    color: var(--color-header-hover);
-    transform: scale(1.1); /* Efeito de leve aumento ao passar o mouse */
+  color: var(--color-header);
+  transform: scale(1.1);
 }
 
+/* Estilização dos ícones */
 .nav ul li a svg {
-    font-size: 24px; /* Ajusta o tamanho do ícone */
+  font-size: 24px;
+  transition: color 0.3s, filter 0.3s;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+  color: inherit;
+}
+
+.nav ul li a:hover svg {
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
 }
 
 /* Botão de alternância de tema */
 .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: var(--color-orange);
-    padding: 10px;
-    transition: color 0.3s, transform 0.3s;
-    margin-top: auto; /* Empurra o botão para o final do header */
+  background: var(--color-button);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-text);
+  padding: 10px;
+  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: auto;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15); /* Sombra minimalista para profundidade */
 }
 
 .theme-toggle:hover {
-    color: var(--color-header-hover);
-    transform: rotate(20deg); /* Rotação ao passar o mouse */
+  color: var(--color-header);
+  transform: rotate(20deg) scale(1.1); /* Aplica rotação e escala juntos */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Sombra levemente mais forte no hover */
 }
 
 /* Ajustes para telas menores que 400px */
 @media only screen and (max-width: 400px) {
-    .header {
-      width: 60px;
-      padding: 10px 0;
-    }
+  .header {
+    width: 60px;
+    padding: 10px 0;
+  }
 
-    .nav ul li a {
-      font-size: 18px;
-    }
+  .nav ul li a {
+    font-size: 18px;
+  }
 
-    .theme-toggle {
-      font-size: 20px;
-      padding: 8px;
-    }
+  .theme-toggle {
+    font-size: 20px;
+    padding: 8px;
+  }
 }

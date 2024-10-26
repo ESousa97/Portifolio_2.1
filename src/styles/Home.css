@@ -26,53 +26,58 @@
     box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.5);
 }
 
+/* Estilização do Título */
 .column-right h2 {
     font-size: 2.5rem;
-    margin-bottom: 2%;
+    margin-bottom: 1.5rem;
     color: var(--color-rose);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transform: translateY(30px);
+    text-align: center;
 }
 
+/* Lista de Tópicos */
 .column-right ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* Estilização de Cada Tópico */
 .column-right ul li {
-    font-size: 1.2rem;
-    margin-bottom: 1%;
-    display: flex;
-    align-items: center;
+    font-size: 1.1rem;
     color: var(--color-text-right);
     font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
-.column-right ul li strong {
-    display: inline-flex;
-    margin-right: 5px;
-    color: var(--color-bold);
-    font-weight: 600;
-}
-
-.column-right ul li strong::before {
-    content: "\f0e7";
+/* Ícone de Tópico */
+.column-right ul li::before {
+    content: "\f0e7"; /* Ícone do Font Awesome */
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    font-size: 1.2rem;
-    margin-right: 5px;
+    font-size: 1rem;
     color: var(--color-orange);
+    margin-right: 8px;
+    display: inline-block;
 }
 
-.column-right ul li div {
-    display: block;
-    margin-left: 25px;
-    margin-top: 5px;
-    text-align: left;
-    word-wrap: break-word;
+/* Título do Tópico */
+.column-right ul li strong {
+    font-weight: 700;
+    color: var(--color-bold);
+    display: inline; /* Exibe o título como texto em linha */
+    margin-right: 5px; /* Espaço entre o título e o texto */
+}
+
+/* Conteúdo do Tópico */
+.column-right ul li span {
+    display: block; /* Quebra o texto para a linha de baixo */
+    margin-left: 20px; /* Indenta o conteúdo */
+    color: var(--color-text-sub);
+    word-break: break-word;
     line-height: 1.5;
 }
 
@@ -122,7 +127,7 @@
 .home p {
     font-size: 1.4rem;
     line-height: 1.75;
-    text-align: justify;
+    text-align: left;
     margin-bottom: 20px;
     color: var(--color-text);
     max-width: 100%;

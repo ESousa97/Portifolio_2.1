@@ -11,7 +11,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
         { x: 0 },
         {
             x: -1000,  // Sai rapidamente para a esquerda
-            duration: 0.6,
+            duration: 0.3,
             ease: "power3.in",
             scrollTrigger: {
                 trigger: titleRef.current,
@@ -27,7 +27,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
         { x: 0 },
         {
             x: -1000,
-            duration: 0.6,
+            duration: 0.3,
             ease: "power3.in",
             scrollTrigger: {
                 trigger: buttonLeftRef.current,
@@ -45,7 +45,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
             { x: 0 },
             {
                 x: -1000,
-                duration: 0.6,
+                duration: 0.3,
                 delay: index * 0.1,  // Leve atraso para criar um efeito em sequência
                 ease: "power3.in",
                 scrollTrigger: {
@@ -64,7 +64,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
         { x: 0 },
         {
             x: 1000,  // Sai rapidamente para a direita
-            duration: 0.6,
+            duration: 0.3,
             ease: "power3.in",
             scrollTrigger: {
                 trigger: columnRightRef.current,
@@ -80,7 +80,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
         { x: 0 },
         {
             x: 1000,
-            duration: 0.6,
+            duration: 0.3,
             ease: "power3.in",
             scrollTrigger: {
                 trigger: buttonRightRef.current,
