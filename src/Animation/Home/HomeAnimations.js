@@ -31,7 +31,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
             ease: "power3.in",
             scrollTrigger: {
                 trigger: buttonLeftRef.current,
-                start: "top 0%",
+                start: "top 20%",
                 end: "top 100%",
                 toggleActions: "play none none reverse",
             },
