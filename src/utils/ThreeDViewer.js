@@ -4,13 +4,10 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import "../styles/Projects.css";
 
-function ThreeDViewer({ currentIndex, models }) {
+function ThreeDViewer({ currentIndex, models, onNavigate }) {
   const mountRef = useRef(null);
   const isDraggingRef = useRef(false);
-  const shouldResetRef = useRef(false);
-  const initialRotationY = useRef(0);
-  const rotationSpeed = useRef(0.005); // Reduzir a velocidade para uma rotação mais suave
-  const isResettingRef = useRef(false);
+  const rotationSpeed = useRef(0.002); // Velocidade de rotação contínua
   const modelGroupRef = useRef(null); // Referência para o grupo do modelo
 
   useEffect(() => {
@@ -53,8 +50,6 @@ function ThreeDViewer({ currentIndex, models }) {
         models[index],
         (gltf) => {
           model = gltf.scene;
-
-          // Definir a escala do modelo conforme necessário (ajustado pelo tamanho da tela)
           adjustModelScale(model);
 
           // Centralizar o modelo no seu próprio eixo
@@ -66,11 +61,8 @@ function ThreeDViewer({ currentIndex, models }) {
           // Cria um grupo para o modelo
           modelGroup = new THREE.Group();
           modelGroup.add(model);
-          modelGroupRef.current = modelGroup; // Armazenar referência
+          modelGroupRef.current = modelGroup;
           scene.add(modelGroup);
-
-          // Armazena a rotação inicial do modelo
-          initialRotationY.current = modelGroup.rotation.y;
         },
         undefined,
         (error) => {
@@ -82,14 +74,8 @@ function ThreeDViewer({ currentIndex, models }) {
     // Função para ajustar a escala do modelo com base no tamanho da tela
     const adjustModelScale = (model) => {
       const screenWidth = window.innerWidth;
-
-      if (screenWidth < 768) {
-        model.scale.set(0.5, 0.5, 0.5); // Escala uniforme para telas pequenas
-      } else if (screenWidth < 1024) {
-        model.scale.set(0.6, 0.6, 0.6); // Escala uniforme para telas médias
-      } else {
-        model.scale.set(0.9, 0.9, 0.9); // Escala uniforme para telas grandes
-      }
+      const scale = screenWidth < 768 ? 0.5 : screenWidth < 1024 ? 0.6 : 0.9;
+      model.scale.set(scale, scale, scale);
     };
 
     // Carregar o modelo inicial
@@ -98,29 +84,21 @@ function ThreeDViewer({ currentIndex, models }) {
     // Configuração dos controles OrbitControls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 1; // Aumentar o fator de amortecimento para reduzir o efeito "esticado"
-    controls.enableZoom = false; // Desabilitar zoom para focar apenas em rotação
+    controls.dampingFactor = 1;
+    controls.enableZoom = false;
     controls.enableRotate = true;
     controls.enablePan = false;
-
-    // Ajustes para permitir rotação livre em todos os eixos
     controls.minPolarAngle = 0;
     controls.maxPolarAngle = Math.PI;
-    controls.minAzimuthAngle = -Infinity;
-    controls.maxAzimuthAngle = Infinity;
-
-    // Permitir que o controle use panning na tela
     controls.screenSpacePanning = true;
 
     // Eventos para detectar início e término do arrasto
     controls.addEventListener("start", () => {
       isDraggingRef.current = true;
-      shouldResetRef.current = false;
     });
 
     controls.addEventListener("end", () => {
       isDraggingRef.current = false;
-      shouldResetRef.current = true;
     });
 
     // Função para ajustar o tamanho da tela e a escala do modelo ao redimensionar
@@ -128,8 +106,6 @@ function ThreeDViewer({ currentIndex, models }) {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-
-      // Ajustar a escala do modelo ao redimensionar a tela
       if (modelGroupRef.current) {
         adjustModelScale(modelGroupRef.current);
       }
@@ -137,33 +113,27 @@ function ThreeDViewer({ currentIndex, models }) {
 
     window.addEventListener("resize", handleResize);
 
+    // Função para controlar a navegação via teclado
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") {
+        onNavigate("next");
+      } else if (e.key === "ArrowLeft") {
+        onNavigate("prev");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
     // Função de animação
     const animate = () => {
       requestAnimationFrame(animate);
 
-      if (modelGroup) {
-        if (!isDraggingRef.current && !isResettingRef.current) {
-          modelGroup.rotation.y += rotationSpeed.current; // Rotação contínua
-        }
-
-        if (shouldResetRef.current && !isResettingRef.current) {
-          isResettingRef.current = true;
-        }
-
-        if (isResettingRef.current) {
-          const delta = (initialRotationY.current - modelGroup.rotation.y) * 0.05;
-          modelGroup.rotation.y += delta;
-
-          if (Math.abs(modelGroup.rotation.y - initialRotationY.current) < 0.01) {
-            modelGroup.rotation.y = initialRotationY.current;
-            isResettingRef.current = false;
-            shouldResetRef.current = false;
-          }
-        }
+      if (modelGroup && !isDraggingRef.current) {
+        modelGroup.rotation.y += rotationSpeed.current;
       }
 
-      controls.update(); // Atualiza os controles do OrbitControls
-      renderer.render(scene, camera); // Renderiza a cena
+      controls.update();
+      renderer.render(scene, camera);
     };
 
     animate();
@@ -171,6 +141,7 @@ function ThreeDViewer({ currentIndex, models }) {
     // Limpar recursos ao desmontar o componente
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyDown);
       if (mount) {
         mount.removeChild(renderer.domElement);
       }
@@ -179,7 +150,7 @@ function ThreeDViewer({ currentIndex, models }) {
       }
       controls.dispose();
     };
-  }, [currentIndex, models]);
+  }, [currentIndex, models, onNavigate]);
 
   return <div ref={mountRef} className="model-viewer" style={{ width: "100%", height: "100%" }} />;
 }

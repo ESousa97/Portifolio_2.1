@@ -1,69 +1,27 @@
-/* Aplicar correção global no body */
+/* Aplicar correção global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Correção global para o corpo */
 body {
-  overflow-x: hidden; /* Remove rolagem horizontal */
-  margin: 0; /* Remove margem padrão */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Container principal */
-.app-container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 40vh;
-  padding: 0 3vw;
-  box-sizing: border-box;
-  margin-bottom: 10vh; /* Espaçamento inferior para o carrossel */
-}
-
-/* Estilo para o .left-side que contém o ModelNavigator */
-.left-side {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* Estilo para o .projects-container */
-.projects-container {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  box-sizing: border-box;
-  padding: 1px;
-}
-
-/* Título dentro do .projects-container */
-.projects-container h1 {
-  width: 100%;
-  text-align: center;
-  margin: 60px 0;
-}
-
-/* Parágrafo dentro do .projects-container */
-.projects-container p {
-  width: 100%;
-  text-align: left;
-  margin-top: auto;
-  font-size: 1rem;
-  padding-bottom: 20px;
-}
-
-/* Estilo para o .model-navigator-container */
 .model-navigator-container {
-  display: flex; /* Layout flex para organizar botões e modelo */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  max-width: 100vw; /* Evita que o contêiner ultrapasse a largura da viewport */
   position: relative;
+  flex-direction: column;
+  overflow-x: hidden; /* Evita overflow horizontal */
 }
 
 /* Container do modelo 3D */
@@ -71,53 +29,87 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15vw; /* Definir largura específica */
-  height: 15vw; /* Definir altura específica */
-  position: relative;
-  overflow: hidden; /* Esconde qualquer parte do modelo que exceder o contêiner */
+  width: 15vw;
+  max-width: 100%;
+  height: 15vw;
+  max-height: 100vh;
+  position: relative; /* Garante posicionamento absoluto dentro deste contêiner */
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-/* Ajustes para os botões de navegação */
-.nav-button {
+/* Dica de navegação */
+.navigation-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.1); /* Tornar um pouco mais opaco */
-  border: 2px solid rgba(255, 255, 255, 0.4); /* Borda mais visível */
-  width: 50px; /* Tornar mais proporcional */
-  height: 50px; /* Altura igual à largura para manter circular */
-  border-radius: 50%; /* Manter formato circular */
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
   cursor: pointer;
-  position: absolute;
-  z-index: 100;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  max-width: 80%;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-/* Efeito hover para melhorar visualmente */
-.nav-button:hover {
-  background-color: rgba(156, 156, 156, 0.5); /* Aumentar opacidade ao passar o mouse */
-  transition: all 0.3 ease-in-out;
+.hint-icon {
+  font-size: 1.5rem;
 }
 
-/* Ajustar tamanho do ícone SVG */
-.nav-button svg {
-  width: 100%; /* Ajustar largura para 50% do botão */
-  height: 100%; /* Ajustar altura para 50% do botão */
-  transform: scale(4);
-  transition: all 0.3s ease-in-out;
+/* Animação para aparecer suavemente */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Ajuste do botão de navegação à esquerda */
-.nav-left {
-  left: 30%; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
-  top: 25%; /* Centralizar verticalmente */
-  transform: translateY(100%); /* Corrigir alinhamento vertical */
+/* Indicador de posição com pontos */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-/* Ajuste do botão de navegação à direita */
-.nav-right {
-  right: 30%; /* Ajustar posicionamento para centralizar em relação ao modelo 3D */
-  top: 25%; /* Centralizar verticalmente */
-  transform: translateY(100%); /* Corrigir alinhamento vertical */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
+.dot.active {
+  background-color: #333;
+}
+
+.dot:hover {
+  background-color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .model-viewer {
+    width: 50vw;
+    height: 50vw;
+    max-width: 100%; /* Garante que o contêiner não ultrapasse os limites */
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}

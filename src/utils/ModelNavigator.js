@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from "react";
+import { FaHandPointer } from "react-icons/fa";
 import ThreeDViewer from "./ThreeDViewer";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import "../styles/ModelNavigator.css";
 
 function ModelNavigator() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showHint, setShowHint] = useState(true);
 
   const models = useMemo(
     () => [
@@ -31,30 +32,42 @@ function ModelNavigator() {
     []
   );
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % models.length);
+  const handleNavigate = (direction) => {
+    if (direction === "next") {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % models.length);
+    } else if (direction === "prev") {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + models.length) % models.length);
+    }
+    setShowHint(false); // Oculta a dica ao navegar
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + models.length) % models.length);
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+    setShowHint(false); // Oculta a dica ao clicar nos pontos
   };
 
   return (
     <div className="model-navigator-container">
-      {/* Botão de navegação à esquerda */}
-      <button onClick={handlePrev} className="nav-button nav-left">
-        <FiArrowLeft size={24} />
-      </button>
-
-      {/* Componente de visualização 3D */}
       <div className="model-viewer">
-        <ThreeDViewer currentIndex={currentIndex} models={models} />
+        <ThreeDViewer currentIndex={currentIndex} models={models} onNavigate={handleNavigate} />
       </div>
 
-      {/* Botão de navegação à direita */}
-      <button onClick={handleNext} className="nav-button nav-right">
-        <FiArrowRight size={24} />
-      </button>
+      <div className="progress-indicator">
+        {models.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentIndex ? "active" : ""}`}
+            onClick={() => handleDotClick(index)}
+          />
+        ))}
+      </div>
+
+      {showHint && (
+        <div className="navigation-hint" onClick={() => setShowHint(false)}>
+          <FaHandPointer className="hint-icon" />
+          <p>Explore usando as setas do teclado, os pontos abaixo ou interagindo com o objeto.</p>
+        </div>
+      )}
     </div>
   );
 }
