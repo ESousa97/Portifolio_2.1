@@ -1,0 +1,55 @@
+/* Layout principal do componente Skills */
+.skills-wrapper {
+  padding: 40px;
+  display: flex;
+  flex-direction: row; /* Exibe o Graph e o ModelNavigator lado a lado */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 40px;
+  background-color: var(--color-about);
+}
+
+/* Estilos para o contêiner do ModelNavigator (lado esquerdo) */
+.model-navigator-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--color-about); /* Cor de fundo sutil */
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.model-navigator-container:hover {
+  transform: scale(1.02); /* Leve aumento no hover */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais profunda no hover */
+}
+
+/* Estilos para o contêiner do Graph (lado direito) */
+.graph-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--color-about);
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.graph-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Adiciona responsividade para telas menores */
+@media (max-width: 768px) {
+  .skills-wrapper {
+    flex-direction: column; /* Alinha os elementos verticalmente em telas menores */
+  }
+}

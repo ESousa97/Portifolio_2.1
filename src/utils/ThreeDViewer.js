@@ -7,8 +7,15 @@ import "../styles/Projects.css";
 function ThreeDViewer({ currentIndex, models, onNavigate }) {
   const mountRef = useRef(null);
   const isDraggingRef = useRef(false);
-  const rotationSpeed = useRef(0.002); // Velocidade de rotação contínua
-  const modelGroupRef = useRef(null); // Referência para o grupo do modelo
+  const rotationSpeed = useRef(0.004);
+  const modelGroupRef = useRef(null);
+  const currentRotation = useRef(0);
+
+  const adjustModelScale = (model) => {
+    const screenWidth = window.innerWidth;
+    const scale = screenWidth < 768 ? 0.5 : screenWidth < 1024 ? 0.6 : 0.9;
+    model.scale.set(scale, scale, scale);
+  };
 
   useEffect(() => {
     let model, modelGroup;
@@ -18,8 +25,16 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Configura o renderizador com WebGL2 para MSAA (antisserrilhamento aprimorado)
+    let renderer;
+    if (window.WebGL2RenderingContext) {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(window.devicePixelRatio); // Melhorar qualidade em telas de alta densidade
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    } else {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
 
     const mount = mountRef.current;
     if (mount) {
@@ -32,14 +47,14 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
     directionalLight.position.set(0, 1, 2);
     scene.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-    hemisphereLight.position.set(0, 1000, 0);
+    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 2);
+    hemisphereLight.position.set(0, 5000, 0);
     scene.add(hemisphereLight);
 
-    // Função para carregar o modelo GLTF
+    // Função para carregar o modelo GLTF e ajustar o material
     const loader = new GLTFLoader();
     const loadModel = (index) => {
       if (model) {
@@ -52,6 +67,22 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
           model = gltf.scene;
           adjustModelScale(model);
 
+          // Ajusta o material para dar o efeito de superfície "molhada"
+          model.traverse((node) => {
+            if (node.isMesh) {
+              node.material = new THREE.MeshPhysicalMaterial({
+                color: node.material.color || new THREE.Color(0xffffff), 
+                roughness: 0.00000000001,
+                transmission: 1,
+                clearcoat: 10, 
+                clearcoatRoughness: 10,
+                reflectivity: 1,
+                envMapIntensity: 10,
+              });
+              node.material.needsUpdate = true;
+            }
+          });
+
           // Centralizar o modelo no seu próprio eixo
           const box = new THREE.Box3().setFromObject(model);
           const center = new THREE.Vector3();
@@ -61,6 +92,7 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
           // Cria um grupo para o modelo
           modelGroup = new THREE.Group();
           modelGroup.add(model);
+          modelGroup.rotation.y = currentRotation.current;
           modelGroupRef.current = modelGroup;
           scene.add(modelGroup);
         },
@@ -71,14 +103,6 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
       );
     };
 
-    // Função para ajustar a escala do modelo com base no tamanho da tela
-    const adjustModelScale = (model) => {
-      const screenWidth = window.innerWidth;
-      const scale = screenWidth < 768 ? 0.5 : screenWidth < 1024 ? 0.6 : 0.9;
-      model.scale.set(scale, scale, scale);
-    };
-
-    // Carregar o modelo inicial
     loadModel(currentIndex);
 
     // Configuração dos controles OrbitControls
@@ -92,7 +116,6 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
     controls.maxPolarAngle = Math.PI;
     controls.screenSpacePanning = true;
 
-    // Eventos para detectar início e término do arrasto
     controls.addEventListener("start", () => {
       isDraggingRef.current = true;
     });
@@ -101,7 +124,6 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
       isDraggingRef.current = false;
     });
 
-    // Função para ajustar o tamanho da tela e a escala do modelo ao redimensionar
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -113,7 +135,6 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
     window.addEventListener("resize", handleResize);
 
-    // Função para controlar a navegação via teclado
     const handleKeyDown = (e) => {
       if (e.key === "ArrowRight") {
         onNavigate("next");
@@ -124,12 +145,12 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // Função de animação
     const animate = () => {
       requestAnimationFrame(animate);
 
       if (modelGroup && !isDraggingRef.current) {
         modelGroup.rotation.y += rotationSpeed.current;
+        currentRotation.current = modelGroup.rotation.y;
       }
 
       controls.update();
@@ -138,7 +159,6 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
     animate();
 
-    // Limpar recursos ao desmontar o componente
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("keydown", handleKeyDown);

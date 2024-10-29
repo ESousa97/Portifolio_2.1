@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
-import DotNavigation from './utils/DotNavigation'; // Novo menu de navegação
+import DotNavigation from './utils/DotNavigation';
+import Skills from './components/Skills';
 import './styles/App.css';
 import './styles/SmallScreenAdjustments.css';
 
@@ -23,6 +24,9 @@ function App() {
                 </section>
                 <section id="projects">
                     <Projects />
+                </section>
+                <section id="skills">
+                    <Skills />
                 </section>
             </main>
             <Footer id="footer" />

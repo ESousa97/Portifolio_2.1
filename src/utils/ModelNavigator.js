@@ -1,11 +1,13 @@
-import React, { useState, useMemo } from "react";
-import { FaHandPointer } from "react-icons/fa";
+// src/components/ModelNavigator.js
+import React, { useState, useMemo, useRef } from "react";
 import ThreeDViewer from "./ThreeDViewer";
+import HintMessage from "../Message/HintMessage.js";
+import ModelNavigatorAnimations from "../Animation/Model/ModelNavigatorAnimations.js"; // Importa a animação
 import "../styles/ModelNavigator.css";
 
 function ModelNavigator() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showHint, setShowHint] = useState(true);
+  const modelNavigatorRef = useRef(null); // Referência para o contêiner principal
 
   const models = useMemo(
     () => [
@@ -38,16 +40,17 @@ function ModelNavigator() {
     } else if (direction === "prev") {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + models.length) % models.length);
     }
-    setShowHint(false); // Oculta a dica ao navegar
   };
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
-    setShowHint(false); // Oculta a dica ao clicar nos pontos
   };
 
   return (
-    <div className="model-navigator-container">
+    <div ref={modelNavigatorRef} className="model-navigator-container">
+      {/* Aplica a animação de entrada ao contêiner do ModelNavigator */}
+      <ModelNavigatorAnimations modelNavigatorRef={modelNavigatorRef} />
+
       <div className="model-viewer">
         <ThreeDViewer currentIndex={currentIndex} models={models} onNavigate={handleNavigate} />
       </div>
@@ -62,12 +65,7 @@ function ModelNavigator() {
         ))}
       </div>
 
-      {showHint && (
-        <div className="navigation-hint" onClick={() => setShowHint(false)}>
-          <FaHandPointer className="hint-icon" />
-          <p>Explore usando as setas do teclado, os pontos abaixo ou interagindo com o objeto.</p>
-        </div>
-      )}
+      <HintMessage />
     </div>
   );
 }
