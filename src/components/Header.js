@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaSun, FaMoon, FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaUser, FaBriefcase, FaEnvelope, FaCogs  } from 'react-icons/fa';
 import '../styles/Header.css';
-import '../styles/SmallScreenAdjustments.css';
 
 function Header() {
     const [theme, setTheme] = useState('light');
@@ -56,9 +55,10 @@ function Header() {
         <header className={`header ${isVisible ? '' : 'hidden'}`}>
             <nav className="nav">
                 <ul>
-                    <li><a href="#home"><FaHome /></a></li>
+                <li><a href="#home"><FaHome /></a></li>
                     <li><a href="#about"><FaUser /></a></li>
                     <li><a href="#projects"><FaBriefcase /></a></li>
+                    <li><a href="#skills"><FaCogs  /></a></li> {/* Ícone de Skills */}
                     <li><a href="#footer"><FaEnvelope /></a></li>
                 </ul>
                 <button className="theme-toggle" onClick={toggleTheme}>

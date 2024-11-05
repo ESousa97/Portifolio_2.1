@@ -1,75 +1,89 @@
+/* Contêiner principal do card */
+/* Contêiner principal do card */
+.graph-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  margin: 20px auto; /* Centraliza o card horizontalmente */
+  background-color: var(--color-skills-graph); /* Ajuste conforme a paleta de cores desejada */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais perceptível */
+  max-width: 800px; /* Limita a largura máxima */
+  width: 100%; /* Para ocupar o espaço disponível */
+  color: #333; /* Cor do texto dentro do card */
+}
+
 /* Título do gráfico */
 .graph-title {
-    font-size: 2.5rem;
-    color: var(--color-titulo-first);
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Subtítulo do gráfico */
-  .graph-subtitle {
-    font-size: 1.2rem;
-    color: var(--color-project-text);
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  
-  /* Gráfico de porcentagem no final */
-  .graph-container {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .graph {
-    width: 80%;
-    background-color: transparent;
-  }
-  
-  .skills-list {
-    width: 100%;
-  }
-  
-  .skill-bar {
-    display: flex;
-    justify-content: space-between; /* Espaçamento entre título e porcentagem */
-    align-items: center;
-    margin-bottom: 30px; /* Aumenta o espaço entre as barras */
-  }
-  
-  .skill-title {
-    font-size: 1.2rem;
-    color: var(--color-titulo-first);
-    flex: 1;
-    margin-right: 15px; /* Reduz o espaço entre o nome e a barra */
-    font-weight: bold;
-  }
-  
-  .progress-bar {
-    position: relative;
-    width: 100%; /* Largura da barra */
-    height: 10px; /* Altura reduzida da barra */
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
-  
-  .progress {
-    height: 100%;
-    background-color: var(--color-project);
-    border-radius: 10px;
-    position: relative;
-    transition: width 0.3s ease-in-out; /* Transição suave para o progresso */
-  }
-  
-  .percentage {
-    position: absolute;
-    right: 0;
-    top: -20px; /* Coloca a porcentagem próxima ao topo, mas mais sutil */
-    font-size: 0.9rem; /* Tamanho da fonte da porcentagem ajustado */
-    color: var(--color-project-text);
-  }
-  
+  font-size: 2.5rem;
+  color: var(--color-skills-title);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Subtítulo do gráfico */
+.graph-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-skills-paragraph);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Gráfico de porcentagem no final */
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.graph {
+  width: 80%;
+  background-color: transparent;
+}
+
+.bar-list {
+  width: 100%;
+}
+
+.bar-bar {
+  display: flex;
+  justify-content: space-between; /* Espaçamento entre título e porcentagem */
+  align-items: center;
+  margin-bottom: 30px; /* Aumenta o espaço entre as barras */
+}
+
+.bar-title {
+  font-size: 1.2rem;
+  color: var(--color-skills-title);
+  flex: 1;
+  margin-right: 15px; /* Reduz o espaço entre o nome e a barra */
+  font-weight: bold;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%; /* Largura da barra */
+  height: 10px; /* Altura reduzida da barra */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--color-skills-bar);
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.3s ease-in-out; /* Transição suave para o progresso */
+}
+
+.percentage {
+  position: absolute;
+  right: 0;
+  top: -20px; /* Coloca a porcentagem próxima ao topo, mas mais sutil */
+  font-size: 0.9rem; /* Tamanho da fonte da porcentagem ajustado */
+  color: var(--color-skills-title);
+}

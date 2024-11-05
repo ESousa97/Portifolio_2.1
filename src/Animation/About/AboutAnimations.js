@@ -1,11 +1,10 @@
-// src/Animation/About/AboutAnimations.js
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
-    // Animação para o título
+    // Animação para o título com efeito de reverso e scrub
     gsap.fromTo(
         titleRef.current,
         { y: 100, opacity: 0 },
@@ -24,29 +23,27 @@ function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
         }
     );
 
-    // Animação para os parágrafos em sequência, com delays ajustados para entrada ordenada
-    paragraphRefs.current.forEach((p, index) => {
-        gsap.fromTo(
-            p,
-            { x: -100, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: p,
-                    start: "top 90%", // Inicia a animação conforme o parágrafo entra na viewport
-                    end: "top 30%", // Mantém a animação enquanto visível e começa a sair conforme rolado
-                    toggleActions: "play reverse play reverse",
-                    scrub: 1,
-                    delay: index * 0.1, // Delay leve para efeito em sequência
-                },
-            }
-        );
-    });
+    // Animação para os parágrafos em sequência com stagger e scrub
+    gsap.fromTo(
+        paragraphRefs.current,
+        { x: -100, opacity: 0 },
+        {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: paragraphRefs.current[0], // Gatilho a partir do primeiro parágrafo
+                start: "top 90%",
+                end: "top 30%",
+                toggleActions: "play reverse play reverse",
+                scrub: 1,
+            },
+            stagger: 0.1, // Efeito em sequência
+        }
+    );
 
-    // Animação para a imagem ou conteúdo extra da segunda coluna
+    // Animação para a imagem ou conteúdo extra com efeito de reverso e scrub
     gsap.fromTo(
         imageRef.current,
         { scale: 0.8, opacity: 0 },

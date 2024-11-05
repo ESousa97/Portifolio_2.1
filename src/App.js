@@ -8,7 +8,6 @@ import Projects from './components/Projects';
 import DotNavigation from './utils/DotNavigation';
 import Skills from './components/Skills';
 import './styles/App.css';
-import './styles/SmallScreenAdjustments.css';
 
 function App() {
     return (

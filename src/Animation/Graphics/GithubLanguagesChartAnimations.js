@@ -1,4 +1,3 @@
-// src/Animation/GithubLanguagesChartAnimations.js
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
@@ -7,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 function GithubLanguagesChartAnimations({ graphContainerRef }) {
   useEffect(() => {
-    // Animação para o gráfico com efeito de cortina abrindo do centro, sincronizado com o scroll
     gsap.fromTo(
       graphContainerRef.current,
       { 
@@ -20,10 +18,10 @@ function GithubLanguagesChartAnimations({ graphContainerRef }) {
         ease: "power2.out",
         scrollTrigger: {
           trigger: graphContainerRef.current,
-          start: "top 80%",           // Inicia um pouco antes do gráfico estar totalmente visível
-          end: "bottom+=20% top",     // Conclui a animação quando o gráfico está 100% visível
+          start: "top 80%",           // Inicia a animação quando 90% do gráfico está visível
+          end: "bottom bottom",       // Conclui a animação quando o final do gráfico atinge o final da viewport
           toggleActions: "play reverse play reverse",
-          scrub: 0.8,                  // Sincroniza com o scroll para um efeito suave e contínuo
+          scrub: 0.8,                 // Mantém a animação sincronizada, mas mais rápida
         },
       }
     );

@@ -1,7 +1,6 @@
 // src/components/ModelNavigator.js
 import React, { useState, useMemo, useRef } from "react";
 import ThreeDViewer from "./ThreeDViewer";
-import HintMessage from "../Message/HintMessage.js";
 import ModelNavigatorAnimations from "../Animation/Model/ModelNavigatorAnimations.js"; // Importa a animação
 import "../styles/ModelNavigator.css";
 
@@ -64,8 +63,6 @@ function ModelNavigator() {
           />
         ))}
       </div>
-
-      <HintMessage />
     </div>
   );
 }

@@ -42,6 +42,11 @@ section {
   transition: background-color 0.4s ease;
 }
 
+#skills {
+  background: var(--color-skills); /* Alternando conforme o tema */
+  transition: background-color 0.4s ease;
+}
+
 /* Mantendo as transições suaves para os botões e outros elementos */
 button {
   background-color: var(--color-primary);

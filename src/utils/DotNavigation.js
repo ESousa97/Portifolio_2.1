@@ -1,6 +1,6 @@
 // src/components/DotNavigation.js
 import React, { useEffect, useState } from 'react';
-import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa'; // Ícones para cada seção
+import { FaHome, FaUser, FaBriefcase, FaEnvelope, FaCogs } from 'react-icons/fa'; // Ícones para cada seção
 import '../styles/DotNavigation.css';
 
 function DotNavigation() {
@@ -64,7 +64,10 @@ function DotNavigation() {
             <a href="#projects" className={`dot ${activeSection === 'projects' ? 'active icon' : ''}`} aria-label="Ir para Projetos">
                 {activeSection === 'projects' ? <FaBriefcase /> : ''}
             </a>
-            <a href="#footer" className={`dot ${activeSection === 'footer' ? 'active icon' : ''}`} aria-label="Ir para Contato">
+            <a href="#skills" className={`dot ${activeSection === 'skills' ? 'active icon' : ''}`} aria-label="Ir para Skills">
+                {activeSection === 'skills' ? <FaCogs /> : ''}
+            </a>
+            <a href="#footer" className={`dot ${activeSection === 'footer' ? 'active icon' : ''}`} aria-label="Ir para Contacts">
                 {activeSection === 'footer' ? <FaEnvelope /> : ''}
             </a>
         </div>

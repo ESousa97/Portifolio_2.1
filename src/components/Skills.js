@@ -1,34 +1,26 @@
-import React, { useRef, useEffect } from "react";
+// src/components/Skills.js
+import React from "react";
 import ModelNavigator from "../utils/ModelNavigator";
 import GithubLanguagesChart from "../Graphics/GithubLanguagesChart";
+import HeaderContentAnimation from "../Animation/Skills/SkillsAnimation";
 import "../styles/Skills.css";
 
 function Skills() {
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const modelNavigatorRef = useRef(null);
-  const graphRef = useRef(null);
-
-  useEffect(() => {
-    // Configura as referências para o componente de animação se necessário
-  }, []);
-
   return (
     <div className="skills-wrapper">
+      {/* Componente de animação para o título e descrição */}
+      <HeaderContentAnimation
+        title="Skills"
+        description="Aqui estão algumas das principais habilidades e ferramentas que utilizo."
+      />
 
-      <div className="header-content">
-        <h1 ref={titleRef} className="timeline-title">Skills</h1>
-        <p ref={descriptionRef} className="timeline-description">
-          Aqui estão algumas das principais habilidades e ferramentas que utilizo.
-        </p>
-      </div>
-
+      {/* Wrapper dos componentes ModelNavigator e GithubLanguagesChart */}
       <div className="skills-content">
-        <div ref={modelNavigatorRef} className="model-navigator-container">
+        <div className="model-navigator-container">
           <ModelNavigator />
         </div>
         
-        <div ref={graphRef} className="graph-container">
+        <div className="graph-container">
           <GithubLanguagesChart />
         </div>
       </div>

@@ -1,55 +1,76 @@
-/* Layout principal do componente Skills */
+/* Layout principal */
 .skills-wrapper {
-  padding: 40px;
   display: flex;
-  flex-direction: row; /* Exibe o Graph e o ModelNavigator lado a lado */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  gap: 40px;
-  background-color: var(--color-about);
+  padding: 40px 80px; /* Adiciona espaço horizontal para aproximar os componentes das bordas */
 }
 
-/* Estilos para o contêiner do ModelNavigator (lado esquerdo) */
+/* Título da seção Skills */
+.timeline-title {
+  font-size: 4.5rem; /* Aumenta o tamanho do título */
+  color: var(--color-titulo-first);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timeline-description {
+  font-size: 1.3rem; /* Aumenta o tamanho da descrição */
+  color: var(--color-titulo-seconde);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Estilo principal para o contêiner de Skills */
+.skills-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Move os elementos para as bordas */
+  align-items: center;
+  gap: 60px; /* Aumenta o espaçamento entre os elementos */
+  width: 100%;
+  max-width: 1600px; /* Aumenta a largura máxima para usar mais espaço horizontal */
+}
+
+/* Contêiner do ModelNavigator (lado esquerdo) */
 .model-navigator-container {
   flex: 1;
+  max-width: 600px; /* Aumenta a largura máxima dos contêineres individuais */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background-color: var(--color-about); /* Cor de fundo sutil */
-  border-radius: 12px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px; /* Adiciona algum padding interno */
 }
 
-.model-navigator-container:hover {
-  transform: scale(1.02); /* Leve aumento no hover */
-  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais profunda no hover */
-}
-
-/* Estilos para o contêiner do Graph (lado direito) */
+/* Contêiner do Graph (lado direito) */
 .graph-container {
   flex: 1;
+  max-width: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: var(--color-about);
-  border-radius: 12px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.graph-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* Adiciona responsividade para telas menores */
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .skills-wrapper {
-    flex-direction: column; /* Alinha os elementos verticalmente em telas menores */
+    padding: 20px; /* Reduz o padding em telas menores */
+  }
+
+  .skills-content {
+    flex-direction: column; /* Empilha os elementos verticalmente em telas menores */
+    align-items: center;
+    gap: 40px; /* Diminui o espaçamento em telas menores */
+  }
+
+  .model-navigator-container,
+  .graph-container {
+    max-width: 100%; /* Ajusta a largura dos contêineres para ocupar o espaço disponível */
   }
 }

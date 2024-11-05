@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from 'react';
 import HomeAnimations from '../Animation/Home/HomeAnimations'; // Importa o módulo de animações para a página inicial
 import '../styles/Home.css'; // Importa os estilos gerais para a página inicial
-import '../styles/SmallScreenAdjustments.css'; // Importa estilos específicos para ajustes em telas pequenas
 
 function Home() {
     // Referências para elementos do DOM
@@ -30,10 +29,10 @@ function Home() {
             {/* Coluna Esquerda */}
             <div className="column-left">
                 <h1 ref={titleRef}>Bem-vindo ao meu Portfólio</h1>
-                <p ref={(el) => (paragraphRefs.current[1] = el)}>
+                <p ref={(el) => (paragraphRefs.current[0] = el)}>
                     É um prazer tê-lo aqui! Este espaço foi cuidadosamente preparado para compartilhar minha trajetória e algumas das soluções em que venho trabalhando. Cada projeto carrega um pouco da minha dedicação e busca constante por inovação.
                 </p>
-                <p ref={(el) => (paragraphRefs.current[2] = el)}>
+                <p ref={(el) => (paragraphRefs.current[1] = el)}>
                     Explore à vontade, conheça as criações e as ideias que me inspiram. Espero que a experiência seja tão interessante para você quanto foi para mim construir cada um desses trabalhos.
                 </p>
                 {/* Botão para navegar para a seção de projetos */}

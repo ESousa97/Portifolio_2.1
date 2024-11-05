@@ -7,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 function ModelNavigatorAnimations({ modelNavigatorRef }) {
   useEffect(() => {
-    // Animação para o contêiner do ModelNavigator, vindo da direita
+    // Animação para o contêiner do ModelNavigator, vindo da esquerda
     gsap.fromTo(
       modelNavigatorRef.current,
-      { x: 200, opacity: 0 }, // Começa fora da tela, à direita
+      { x: -200, opacity: 0 }, // Começa fora da tela, à esquerda
       {
         x: 0,
         opacity: 1,
@@ -18,8 +18,8 @@ function ModelNavigatorAnimations({ modelNavigatorRef }) {
         ease: "power3.out",
         scrollTrigger: {
           trigger: modelNavigatorRef.current,
-          start: "top 95%", // Começa mais cedo, quando está mais próximo do topo
-          end: "top 40%", // Termina mais cedo
+          start: "top 80%", // Começa mais cedo, quando está mais próximo do topo
+          end: "top 0%", // Termina mais cedo
           toggleActions: "play reverse play reverse",
           scrub: 0.5, // Reduzido para resposta mais rápida
         },

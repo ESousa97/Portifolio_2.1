@@ -55,7 +55,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
                 ease: "power3.inOut",
                 scrollTrigger: {
                     trigger: p,
-                    start: "top 50%",
+                    start: "top 20%",
                     end: "top -100%",
                     toggleActions: "none play none reverse",
                     scrub: 1,

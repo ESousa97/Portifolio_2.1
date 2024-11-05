@@ -45,7 +45,7 @@ function GithubLanguagesChart() {
             language: lang,
             percentage: ((value / total) * 100).toFixed(2),
           }))
-          .filter(lang => lang.percentage > 0);
+          .filter(lang => lang.percentage > 1);
 
         setLanguagesData(languagePercentages);
       } catch (error) {
@@ -57,21 +57,20 @@ function GithubLanguagesChart() {
   }, []);
 
   return (
-    <div ref={graphContainerRef} className="graph-container">
-      {/* Aplica a animação de entrada no contêiner do gráfico */}
+    <div ref={graphContainerRef} className="graph-card">
       <GithubLanguagesChartAnimations graphContainerRef={graphContainerRef} />
-
+  
       <h2 className="graph-title">Habilidades</h2>
       <p className="graph-subtitle">Ferramentas que tenho contato diariamente</p>
-
+  
       <div className="graph">
         {error ? (
           <p>{error}</p>
         ) : (
-          <div className="skills-list">
+          <div className="bar-list">
             {languagesData.map((language, index) => (
-              <div key={index} className="skill-bar">
-                <span className="skill-title">{language.language}</span>
+              <div key={index} className="bar-bar">
+                <span className="bar-title">{language.language}</span>
                 <div className="progress-bar">
                   <div className="progress" style={{ width: `${language.percentage}%` }} />
                   <span className="percentage">{language.percentage}%</span>
@@ -82,7 +81,7 @@ function GithubLanguagesChart() {
         )}
       </div>
     </div>
-  );
+  );   
 }
 
 export default GithubLanguagesChart;

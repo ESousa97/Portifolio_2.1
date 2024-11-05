@@ -53,14 +53,14 @@
 
 .nav ul li a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-header-icon);
   font-size: 20px;
   transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px;
-  background: var(--color-button);
+  background: var(--color-header-button);
   border-radius: 12px;
 }
 
@@ -83,11 +83,11 @@
 
 /* Botão de alternância de tema */
 .theme-toggle {
-  background: var(--color-button);
+  background: var(--color-header-button);
   border: none;
   cursor: pointer;
   font-size: 24px;
-  color: var(--color-text);
+  color: var(--color-header-icon);
   padding: 10px;
   transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
   margin-top: auto;

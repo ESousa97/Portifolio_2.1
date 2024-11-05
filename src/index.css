@@ -20,20 +20,30 @@
     --color-project: #FF6384;
     --color-header: #009C7B;
     --color-header-hover: #325db8;
+    --color-header-button: #325db8;
+    --color-header-icon: #ffffff;
     --color-project-text: #ffffff;
     --color-rose: #041741;
     --color-rose-home: #b9b9b9;
     --color-orange: #ff7300;
     --color-rose-inverse: #252525;
-    --color-quinary: #fcfcfc; /* Cinza escuro, intermediário */
-    --color-footer: #244057;
+    --color-quinary: #fcfcfc;
+    --color-skills: #b9b9b9 ;
+    --color-skills-title: #578d00;
+    --color-skills-paragraph: #ffffff;
+    --color-skills-graph: #00184d;
+    --color-skills-bar: #FF6384;
+    --color-footer: #1a1919;
+    --color-dot-menu: #325db8;
+    --color-dot-menu-hover: #009C7B;
+    --color-dot-menu-active: #578d00;
 }
 
 /* Modo escuro */
 [data-theme="dark"] {
-    --color-primary: #2b2b2b; /* Cinza escuro */
-    --color-seconde: #747474; /* Preto suave */
-    --color-seconde-hover: #ffffff; /* branco hover*/
+    --color-primary: #2b2b2b;
+    --color-seconde: #747474;
+    --color-seconde-hover: #ffffff;
     --color-hover: #008cff;
     --color-button: #009C7B;
     --color-text: #d8d8d8;
@@ -46,15 +56,25 @@
     --color-titulo-seconde-right: #2b2b2b;
     --color-bold: #325db8;
     --color-project: #325db8;
-    --color-header: #ff7300;
+    --color-header: #008cff;
     --color-header-hover: #009C7B;
+    --color-header-button: #ffffff;
+    --color-header-icon: #009C7B;
     --color-project-text: #84bb2d;
     --color-rose: #008cff;
     --color-rose-home: #383838;
     --color-orange: #84bb2d;
     --color-rose-inverse: #383838;
-    --color-quinary: #325db8; /* Preto quase absoluto */
-    --color-footer: #1a1919;
+    --color-quinary: #325db8;
+    --color-skills: #383838 ;
+    --color-skills-title: #008cff;
+    --color-skills-paragraph: #aaaaaa;
+    --color-skills-graph: #2b2b2b;
+    --color-skills-bar: #84bb2d;
+    --color-footer: #000000;
+    --color-dot-menu: #ffffffff;
+    --color-dot-menu-hover: #008cff;
+    --color-dot-menu-active: #008cff;
 }
 
 body {
