@@ -109,13 +109,175 @@ footer {
   color: #1DA1F2;
 }
 
-/* Responsividade */
+/* Responsividade para diferentes resoluções */
+
+/* 1600px */
+@media (max-width: 1600px) {
+  .footer-container {
+    max-width: 1400px;
+  }
+  .footer-content {
+    gap: 20px;
+  }
+}
+
+/* 1450px */
+@media (max-width: 1450px) {
+  .footer-container {
+    max-width: 1300px;
+  }
+  .footer-section {
+    padding: 18px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .footer-container {
+    max-width: 1100px;
+  }
+  .footer-content {
+    gap: 15px;
+  }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .footer-container {
+    max-width: 1000px;
+  }
+  .footer-section {
+    padding: 16px;
+  }
+}
+
+/* 960px */
+@media (max-width: 960px) {
+  .footer-section {
+    padding: 15px;
+  }
+  .footer-social-icons a {
+    font-size: 22px;
+    margin: 0 8px;
+  }
+  .contact-info p {
+    font-size: 1rem;
+  }
+}
+
+/* 768px */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
+    align-items: center;
   }
+  .footer-section {
+    min-width: 100%;
+    padding: 15px;
+    text-align: center; /* Centraliza conteúdo em telas pequenas */
+  }
+  .contact-info h3,
+  .message-form h3 {
+    font-size: 1.3rem;
+  }
+  .footer-social-icons a {
+    font-size: 20px;
+    margin: 0 6px;
+  }
+}
 
+/* 560px */
+@media (max-width: 560px) {
+  .contact-info h3,
+  .message-form h3 {
+    font-size: 1.2rem;
+  }
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+  .footer-social-icons a {
+    font-size: 18px;
+    margin: 0 5px; /* Diminui espaçamento entre ícones */
+  }
   .footer-section {
     padding: 10px;
+    text-align: center;
+  }
+  .message-form input,
+  .message-form textarea {
+    padding: 8px;
+  }
+  .message-form button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* 475px */
+@media (max-width: 475px) {
+  footer {
+    padding: 20px 10px;
+  }
+  .footer-section {
+    min-width: 100%;
+    padding: 30px;
+    text-align: center;
+  }
+  .contact-info h3,
+  .message-form h3 {
+    font-size: 1.1rem;
+  }
+  .message-form input,
+  .message-form textarea {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
+  .message-form button {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+  .footer-social-icons a {
+    font-size: 16px;
+    margin: 0 4px;
+  }
+}
+
+/* 350px */
+@media (max-width: 350px) {
+
+  footer {
+    padding: 30px 35px;
+  }
+  .footer-section {
+    min-width: 100%;
+    padding: 50px;
+    text-align: center;
+  }
+  .contact-info h3,
+  .message-form h3 {
+    font-size: 1rem;
+  }
+  .contact-info p {
+    font-size: 0.8rem;
+  }
+  .message-form input,
+  .message-form textarea {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+  .message-form button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  .footer-social-icons a {
+    font-size: 14px;
+    margin: 0 3px;
+  }
+  .footer-section {
+    padding: 8px;
+    text-align: center;
+  }
+  .footer-bottom p {
+    font-size: 0.8rem;
   }
 }

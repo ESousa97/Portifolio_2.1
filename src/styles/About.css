@@ -13,6 +13,7 @@
 
 .about h1 {
   font-size: 3rem;
+  font-weight: bolder;
   text-align: center;
   color: var(--color-titulo-seconde);
   margin-bottom: 30px; /* Aumenta o espaçamento inferior */
@@ -29,7 +30,7 @@
 
 .about-text {
   flex: 2; /* Dá mais espaço ao texto */
-  font-size: 1.2rem;
+  font-size: 1.150rem;
   line-height: 1.8;
   color: var(--color-about-text);
   text-align: justify;
@@ -106,4 +107,270 @@
 
 .about-text strong:hover {
   transform: scale(1.1); /* Escala ao passar o mouse no texto em negrito */
+}
+
+/* Media Query para resolução de 1770px */
+@media (max-width: 1770px) {
+  .about {
+    padding: 30px; /* Reduz o espaçamento para se adaptar ao layout */
+  }
+
+  .about h1 {
+    font-size: 2.5rem; /* Reduz o tamanho do título */
+    margin-bottom: 25px;
+  }
+
+  .about-columns {
+    gap: 30px; /* Diminui o espaçamento entre as colunas */
+  }
+
+  .about-text {
+    font-size: 1.1rem; /* Ajusta o tamanho do texto */
+    line-height: 1.6;
+  }
+
+  .about-extra {
+    flex: 1.2; /* Ajusta o tamanho da imagem em relação ao texto */
+  }
+
+  .image-card {
+    padding: 8px; /* Reduz o padding para se adaptar ao layout */
+    border-radius: 8%; /* Ajusta o arredondamento */
+  }
+
+  .about-image {
+    border-radius: 2%; /* Ajuste adicional no estilo arredondado */
+  }
+
+  /* Ajusta o efeito de sombra para corresponder ao novo layout */
+  .image-card:hover {
+    transform: translateY(-8px) rotate3d(1, 1, 0, 4deg);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5), 0 0 35px var(--color-titulo-seconde);
+  }
+}
+
+/* Media Query para resolução de 1400px */
+@media (max-width: 1400px) {
+  .about {
+    padding: 20px;
+  }
+
+  .about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .about-columns {
+    flex-wrap: wrap; /* Permite que os elementos quebrem linha */
+    gap: 20px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    flex: 1 1 60%; /* Ajusta o tamanho do texto para ocupar mais espaço */
+  }
+
+  .about-extra {
+    flex: 1 1 35%; /* Diminui o tamanho do card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-card {
+    width: 100%; /* Ajusta o tamanho do card */
+    max-width: 250px; /* Limita o tamanho máximo do card */
+    padding: 5px; /* Reduz o padding */
+    border-radius: 5%;
+  }
+
+  .about-image {
+    border-radius: 3%;
+  }
+
+  .image-card:hover {
+    transform: translateY(-4px) rotate3d(1, 1, 0, 2deg);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px var(--color-titulo-seconde);
+  }
+}
+
+/* Media Query para resolução de 1040px */
+@media (max-width: 1040px) {
+  .about {
+    padding: 15px;
+  }
+
+  .about h1 {
+    font-size: 2.2rem; /* Diminui o tamanho do título */
+    margin-bottom: 15px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Empilha as colunas verticalmente */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .about-text {
+    font-size: 1.1rem; /* Reduz o tamanho do texto */
+    line-height: 1.4;
+    flex: 1 1 100%; /* Ocupa toda a largura */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  /* Esconde o card e a imagem completamente */
+  .about-extra, .image-card {
+    display: none;
+  }
+}
+
+/* Media Query para resolução de 850px */
+@media (max-width: 850px) {
+  .about {
+    padding: 10px; /* Reduz ainda mais o padding */
+  }
+
+  .about h1 {
+    font-size: 1.8rem; /* Reduz o tamanho do título */
+    margin-bottom: 10px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Colunas empilhadas verticalmente */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .about-text {
+    font-size: 0.9rem; /* Diminui o tamanho do texto para melhor ajuste */
+    line-height: 1.3;
+    text-align: center; /* Centraliza o texto */
+    padding: 0 5px; /* Adiciona um leve padding lateral para facilitar a leitura */
+  }
+
+  /* Esconde o card e a imagem, se não estiverem escondidos */
+  .about-extra, .image-card {
+    display: none;
+  }
+}
+
+/* Media Query para resolução de 470px */
+@media (max-width: 470px) {
+  .about {
+    padding: 5px; /* Reduz ainda mais o padding */
+  }
+
+  .about h1 {
+    font-size: 1.5rem; /* Diminui o tamanho do título */
+    margin-bottom: 8px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Colunas continuam empilhadas verticalmente */
+    align-items: center;
+    gap: 8px; /* Reduz o espaço entre os elementos */
+  }
+
+  .about-text {
+    font-size: 0.85rem; /* Diminui o tamanho do texto */
+    line-height: 1.2;
+    text-align: center; /* Centraliza o texto */
+    padding: 0 3px; /* Padding lateral mínimo para manter legibilidade */
+  }
+
+  /* Esconde o card e a imagem, se não estiverem escondidos */
+  .about-extra, .image-card {
+    display: none;
+  }
+}
+
+/* Media Query para resolução de 380px */
+@media (max-width: 380px) {
+  .about {
+    padding: 3px; /* Reduz o padding ao mínimo necessário */
+  }
+
+  .about h1 {
+    font-size: 1.3rem; /* Reduz ainda mais o tamanho do título */
+    margin-bottom: 6px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Colunas permanecem empilhadas */
+    align-items: center;
+    gap: 5px; /* Reduz o espaço entre os elementos */
+  }
+
+  .about-text {
+    font-size: 0.8rem; /* Reduz o tamanho do texto */
+    line-height: 1.1;
+    text-align: center; /* Mantém o texto centralizado */
+    padding: 0 2px; /* Padding lateral mínimo */
+  }
+
+  /* Esconde o card e a imagem, se não estiverem escondidos */
+  .about-extra, .image-card {
+    display: none;
+  }
+}
+
+/* Media Query para resolução de 310px */
+@media (max-width: 310px) {
+  .about {
+    padding: 2px; /* Padding mínimo para telas muito pequenas */
+  }
+
+  .about h1 {
+    font-size: 1.1rem; /* Reduz o tamanho do título para caber na tela */
+    margin-bottom: 5px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Colunas empilhadas */
+    align-items: center;
+    gap: 3px; /* Minimiza o espaço entre os elementos */
+  }
+
+  .about-text {
+    font-size: 0.75rem; /* Tamanho do texto menor para se adaptar ao espaço reduzido */
+    line-height: 1.1;
+    text-align: center; /* Texto centralizado */
+    padding: 0 1px; /* Padding lateral mínimo */
+  }
+
+  /* Esconde o card e a imagem, se não estiverem escondidos */
+  .about-extra, .image-card {
+    display: none;
+  }
+}
+
+/* Media Query para resolução de 273px */
+@media (max-width: 273px) {
+  .about {
+    padding: 1px; /* Padding mínimo absoluto para telas muito pequenas */
+  }
+
+  .about h1 {
+    font-size: 1rem; /* Reduz o tamanho do título ao mínimo necessário */
+    margin-bottom: 4px;
+  }
+
+  .about-columns {
+    flex-direction: column; /* Colunas empilhadas verticalmente */
+    align-items: center;
+    gap: 2px; /* Espaçamento mínimo entre elementos */
+  }
+
+  .about-text {
+    font-size: 0.7rem; /* Diminui ainda mais o tamanho do texto */
+    line-height: 1;
+    text-align: center; /* Texto centralizado */
+    padding: 0; /* Remove o padding lateral para maximizar o espaço de texto */
+  }
+
+  /* Esconde o card e a imagem completamente */
+  .about-extra, .image-card {
+    display: none;
+  }
 }

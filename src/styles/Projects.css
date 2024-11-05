@@ -9,7 +9,7 @@
   box-sizing: border-box; /* Inclui padding e bordas no cálculo de largura */
 }
 
-.timeline-title {
+.projects-title {
   font-size: 4rem;
   color: var(--color-titulo-first);
   font-weight: 600;
@@ -17,7 +17,7 @@
   margin-bottom: 20px;
 }
 
-.timeline-description {
+.projects-description {
   font-size: 1.2rem;
   color: var(--color-project-text);
   text-align: center;
@@ -105,4 +105,488 @@
 /* Adiciona overflow-x hidden ao body */
 body {
   overflow-x: hidden;
+}
+
+@media (max-width: 1600px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 20px;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .projects-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  /* Ajuste nos itens de projeto */
+  .project-item {
+    flex-direction: row;
+    min-height: 60vh;
+  }
+
+  /* Ajusta a imagem do projeto sem perder os efeitos */
+  .project-image-container {
+    padding-left: 2%;
+    max-width: 45%;
+  }
+
+  .project-image {
+    width: 100%;
+    transform: rotateY(20deg);
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  .project-image-container:hover .project-image {
+    transform: rotateY(0);
+    filter: brightness(1.1) drop-shadow(0 4px 50px rgba(255, 255, 255, 0.3));
+  }
+
+  /* Ajuste na descrição do projeto */
+  .project-description {
+    padding-left: 30px;
+    font-size: 0.95rem;
+  }
+
+  .project-description h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .project-description p {
+    font-size: 0.9rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 15px;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .projects-description {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  /* Ajuste nos itens de projeto */
+  .project-item {
+    flex-direction: row;
+    min-height: 55vh;
+  }
+
+  /* Ajusta a imagem do projeto sem perder os efeitos */
+  .project-image-container {
+    padding-left: 2%;
+    max-width: 60%;
+  }
+
+  .project-image {
+    width: 100%;
+    transform: rotateY(15deg);
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  .project-image-container:hover .project-image {
+    transform: rotateY(0);
+    filter: brightness(1.1) drop-shadow(0 4px 40px rgba(255, 255, 255, 0.3));
+  }
+
+  /* Ajuste na descrição do projeto */
+  .project-description {
+    padding-left: 25px;
+    font-size: 0.9rem;
+  }
+
+  .project-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .project-description p {
+    font-size: 0.85rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .projects-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  /* Reorganiza o item de projeto para o card acima do texto */
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    margin-bottom: 10%; /* Espaçamento entre os cards */
+  }
+
+  /* Ajusta o container da imagem do projeto */
+  .project-image-container {
+    max-width: 80%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 80%;
+    transform: rotateY(10deg);
+    filter: brightness(1) drop-shadow(0 4px 40px rgba(255, 255, 255, 0.144));
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  /* Centraliza e ajusta a descrição do projeto */
+  .project-description {
+    padding-left: 0;
+    text-align: center;
+    font-size: 1rem;
+    max-width: 100%; /* Limita a largura para centralizar melhor */
+  }
+
+  .project-description h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  .project-description p {
+    font-size: 1rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .projects-description {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Reorganiza o item de projeto para o card acima do texto */
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    margin-bottom: 10%; /* Espaçamento entre os cards */
+  }
+
+  /* Ajusta o container da imagem do projeto */
+  .project-image-container {
+    max-width: 70%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 100%;
+    transform: rotateY(5deg);
+    filter: brightness(1) drop-shadow(0 4px 30px rgba(255, 255, 255, 0.144));
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  /* Centraliza e ajusta a descrição do projeto */
+  .project-description {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    max-width: 90%; /* Limita a largura para centralizar melhor */
+  }
+
+  .project-description h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .project-description p {
+    font-size: 0.9rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .projects-description {
+    font-size: 0.85rem;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  /* Reorganiza o item de projeto para o card acima do texto */
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    margin-bottom: 8%; /* Espaçamento entre os cards */
+  }
+
+  /* Ajusta o container da imagem do projeto */
+  .project-image-container {
+    max-width: 90%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 100%;
+    transform: rotateY(3deg);
+    filter: brightness(1) drop-shadow(0 4px 25px rgba(255, 255, 255, 0.144));
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  /* Centraliza e ajusta a descrição do projeto */
+  .project-description {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    max-width: 80%; /* Limita a largura para centralizar melhor */
+  }
+
+  .project-description h2 {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  .project-description p {
+    font-size: 0.85rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    margin-top: 8px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .projects-description {
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Reorganiza o item de projeto para o card acima do texto */
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-bottom: 10%; /* Espaçamento entre os cards */
+  }
+
+  /* Ajusta o container da imagem do projeto */
+  .project-image-container {
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 100%;
+    transform: none;
+    filter: brightness(1) drop-shadow(0 4px 20px rgba(255, 255, 255, 0.144));
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  /* Centraliza e ajusta a descrição do projeto */
+  .project-description {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    max-width: 90%; /* Limita a largura para centralizar melhor */
+  }
+
+  .project-description h2 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .project-description p {
+    font-size: 0.8rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 430px) {
+  /* Ajuste no padding do container principal */
+  .projects-wrapper {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduz o título e a descrição */
+  .projects-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .projects-description {
+    font-size: 0.75rem;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  /* Reorganiza o item de projeto para o card acima do texto */
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    margin-bottom: 8%; /* Espaçamento entre os cards */
+  }
+
+  /* Ajusta o container da imagem do projeto */
+  .project-image-container {
+    max-width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 95%;
+    transform: none;
+    filter: brightness(1) drop-shadow(0 4px 15px rgba(255, 255, 255, 0.144));
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+
+  /* Centraliza e ajusta a descrição do projeto */
+  .project-description {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.75rem;
+    max-width: 90%; /* Limita a largura para centralizar melhor */
+  }
+
+  .project-description h2 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .project-description p {
+    font-size: 0.75rem;
+  }
+
+  /* Ajusta o link */
+  .project-link {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+    margin-top: 5px;
+    display: inline-block;
+  }
 }

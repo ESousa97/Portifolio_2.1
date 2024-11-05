@@ -57,20 +57,258 @@
   padding: 20px;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
+/* Ajustes para resolução de 1600px ou menos */
+@media (max-width: 1600px) {
   .skills-wrapper {
-    padding: 20px; /* Reduz o padding em telas menores */
+    padding: 30px 60px; /* Reduz o padding para manter o layout compacto */
   }
 
   .skills-content {
-    flex-direction: column; /* Empilha os elementos verticalmente em telas menores */
-    align-items: center;
-    gap: 40px; /* Diminui o espaçamento em telas menores */
+    max-width: 1400px; /* Diminui um pouco a largura máxima */
   }
 
-  .model-navigator-container,
+  .timeline-title {
+    font-size: 4rem; /* Reduz ligeiramente o tamanho do título */
+  }
+
+  .timeline-description {
+    font-size: 1.2rem; /* Ajuste leve no tamanho da descrição */
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 900px; /* Ajusta a largura máxima para o ModelNavigator */
+    overflow: visible; /* Permite que o conteúdo que ultrapassa o contêiner seja exibido */
+    padding: 20px; /* Mantém o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
   .graph-container {
-    max-width: 100%; /* Ajusta a largura dos contêineres para ocupar o espaço disponível */
+    max-width: 900px; /* Ajusta a largura máxima para o Graph */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* Permite que o conteúdo que ultrapassa o contêiner seja exibido */
+  }
+}
+
+/* Ajustes para resolução de 1450px ou menos */
+@media (max-width: 1450px) {
+  .skills-wrapper {
+    padding: 20px 50px; /* Reduz um pouco o padding para manter o layout compacto */
+  }
+
+  .skills-content {
+    max-width: 1300px; /* Diminui um pouco a largura máxima */
+  }
+
+  .timeline-title {
+    font-size: 3.8rem; /* Reduz o tamanho do título */
+  }
+
+  .timeline-description {
+    font-size: 1.1rem; /* Reduz o tamanho da descrição */
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 850px; /* Diminui a largura máxima para o ModelNavigator */
+    overflow: visible; /* Permite que o conteúdo que ultrapassa o contêiner seja exibido */
+    padding: 15px; /* Reduz o padding para economizar espaço */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
+  .graph-container {
+    max-width: 850px; /* Diminui a largura máxima para o Graph */
+    padding: 15px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+/* Ajustes para resolução de 1300px ou menos */
+@media (max-width: 1300px) {
+  .skills-wrapper {
+    padding: 20px 40px; /* Reduz ainda mais o padding para manter o layout compacto */
+  }
+
+  .skills-content {
+    max-width: 1000px; /* Diminui a largura máxima */
+    flex-direction: column; /* Alinha os elementos em coluna */
+    align-items: center; /* Centraliza os elementos */
+    gap: 30px; /* Adiciona um espaço entre os elementos */
+  }
+
+  .timeline-title {
+    font-size: 3.5rem; /* Reduz o tamanho do título */
+    text-align: center; /* Garante que o título esteja centralizado */
+  }
+
+  .timeline-description {
+    font-size: 1rem; /* Reduz o tamanho da descrição */
+    text-align: center;
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 750px; /* Reduz ainda mais a largura máxima para o ModelNavigator */
+    padding: 10px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
+  .graph-container {
+    max-width: 750px; /* Reduz ainda mais a largura máxima para o Graph */
+    padding: 10px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+/* Ajustes para resolução de 1000px ou menos */
+@media (max-width: 1000px) {
+  .skills-wrapper {
+    padding: 15px 30px; /* Reduz o padding para manter o layout mais compacto */
+  }
+
+  .skills-content {
+    max-width: 800px; /* Diminui ainda mais a largura máxima */
+    flex-direction: column; /* Mantém os elementos em coluna */
+    align-items: center; /* Centraliza os elementos */
+    gap: 20px; /* Reduz o espaço entre os elementos */
+  }
+
+  .timeline-title {
+    font-size: 3rem; /* Reduz o tamanho do título */
+    text-align: center; /* Garante que o título esteja centralizado */
+  }
+
+  .timeline-description {
+    font-size: 0.9rem; /* Reduz o tamanho da descrição */
+    text-align: center;
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 700px; /* Reduz a largura máxima para o ModelNavigator */
+    padding: 8px; /* Reduz ainda mais o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
+  .graph-container {
+    max-width: 700px; /* Reduz a largura máxima para o Graph */
+    padding: 8px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+/* Ajustes para resolução de 770px ou menos */
+@media (max-width: 770px) {
+  .skills-wrapper {
+    padding: 10px 20px; /* Reduz ainda mais o padding para economizar espaço */
+  }
+
+  .skills-content {
+    max-width: 100%; /* Usa toda a largura disponível */
+    flex-direction: column; /* Mantém os elementos em coluna */
+    align-items: center; /* Centraliza os elementos */
+    gap: 15px; /* Reduz o espaço entre os elementos */
+  }
+
+  .timeline-title {
+    font-size: 2.5rem; /* Reduz o tamanho do título */
+    text-align: center; /* Garante que o título esteja centralizado */
+  }
+
+  .timeline-description {
+    font-size: 0.8rem; /* Reduz ainda mais o tamanho da descrição */
+    text-align: center;
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 40%; /* Usa 90% da largura da tela para o ModelNavigator */
+    padding: 5px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
+  .graph-container {
+    max-width: 90%; /* Usa 90% da largura da tela para o Graph */
+    padding: 5px; /* Reduz o padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+/* Ajustes para resolução de 768px ou menos */
+@media (max-width: 768px) {
+  .skills-wrapper {
+    padding: 5px 10px; /* Reduz ainda mais o padding para economizar espaço */
+  }
+
+  .skills-content {
+    max-width: 100%; /* Usa toda a largura disponível */
+    flex-direction: column; /* Mantém os elementos em coluna */
+    align-items: center; /* Centraliza os elementos */
+    gap: 10px; /* Reduz o espaço entre os elementos */
+  }
+
+  .timeline-title {
+    font-size: 2rem; /* Reduz o tamanho do título para economizar espaço */
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 10px; /* Reduz a margem inferior */
+  }
+
+  .timeline-description {
+    font-size: 0.75rem; /* Reduz o tamanho da descrição */
+    text-align: center;
+    margin-bottom: 10px; /* Reduz a margem inferior */
+  }
+
+  /* Ajustes específicos para o contêiner do ModelNavigator */
+  .model-navigator-container {
+    max-width: 100%; /* Usa toda a largura disponível */
+    padding: 0; /* Remove padding para economizar espaço */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  /* Ajustes específicos para o contêiner do Graph */
+  .graph-container {
+    max-width: 100%; /* Usa toda a largura disponível */
+    padding: 0; /* Remove padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
   }
 }

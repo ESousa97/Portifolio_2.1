@@ -21,10 +21,10 @@ function Projects() {
       updatedAt: "08/2024",
     },
     {
-      "title": "ES Data Base",
-      "imgPath": "/Projects/EsDataBase.png",
-      "url": "https://www.esdatabase.com.br/login",
-      "description": "A ES Data Base é uma plataforma robusta e altamente escalável, projetada para gerenciar grandes volumes de dados com eficiência e segurança. Focada na gestão de procedimentos técnicos e operacionais, a plataforma oferece uma interface organizada e otimizada para o usuário final. Desenvolvida 100% por mim, desde o front-end até a comunicação com o banco de dados e a implementação de protocolos de segurança avançados, essa solução é ideal para ambientes corporativos de alta demanda.",
+      title: "ES Data Base",
+      imgPath: "/Projects/EsDataBase.png",
+      url: "https://www.esdatabase.com.br/login",
+      description: "A ES Data Base é uma plataforma robusta e altamente escalável, projetada para gerenciar grandes volumes de dados com eficiência e segurança. Focada na gestão de procedimentos técnicos e operacionais, a plataforma oferece uma interface organizada e otimizada para o usuário final. Desenvolvida 100% por mim, desde o front-end até a comunicação com o banco de dados e a implementação de protocolos de segurança avançados, essa solução é ideal para ambientes corporativos de alta demanda.",
       createdAt: "03/2024",
       updatedAt: "10/2024"
     },
@@ -61,8 +61,8 @@ function Projects() {
       />
 
       <div className="header-content">
-        <h1 ref={titleRef} className="timeline-title">Projects</h1>
-        <p ref={descriptionRef} className="timeline-description">
+        <h1 ref={titleRef} className="projects-title">Projects</h1>
+        <p ref={descriptionRef} className="projects-description">
           Aqui estão alguns dos meus principais projetos ao longo da minha carreira.
         </p>
       </div>
