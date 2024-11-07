@@ -1,12 +1,12 @@
 // src/components/ModelNavigator.js
 import React, { useState, useMemo, useRef } from "react";
 import ThreeDViewer from "./ThreeDViewer";
-import ModelNavigatorAnimations from "../Animation/Model/ModelNavigatorAnimations.js"; // Importa a animação
+import ModelNavigatorAnimations from "../Animation/Model/ModelNavigatorAnimations.js";
 import "../styles/ModelNavigator.css";
 
 function ModelNavigator() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const modelNavigatorRef = useRef(null); // Referência para o contêiner principal
+  const modelNavigatorRef = useRef(null);
 
   const models = useMemo(
     () => [
@@ -47,11 +47,15 @@ function ModelNavigator() {
 
   return (
     <div ref={modelNavigatorRef} className="model-navigator-container">
-      {/* Aplica a animação de entrada ao contêiner do ModelNavigator */}
       <ModelNavigatorAnimations modelNavigatorRef={modelNavigatorRef} />
 
       <div className="model-viewer">
-        <ThreeDViewer currentIndex={currentIndex} models={models} onNavigate={handleNavigate} />
+        {/* Passa a largura da tela para o ThreeDViewer para otimizações específicas */}
+        <ThreeDViewer
+          currentIndex={currentIndex}
+          models={models}
+          onNavigate={handleNavigate}
+        />
       </div>
 
       <div className="progress-indicator">

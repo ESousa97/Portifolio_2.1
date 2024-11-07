@@ -202,14 +202,9 @@
     text-align: center;
   }
 
-  /* Ajustes específicos para o contêiner do ModelNavigator */
+  /* Remover o ModelNavigator */
   .model-navigator-container {
-    max-width: 700px; /* Reduz a largura máxima para o ModelNavigator */
-    padding: 8px; /* Reduz ainda mais o padding */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
+    display: none; /* Oculta o ModelNavigator */
   }
 
   /* Ajustes específicos para o contêiner do Graph */
@@ -246,14 +241,9 @@
     text-align: center;
   }
 
-  /* Ajustes específicos para o contêiner do ModelNavigator */
+  /* Remover o ModelNavigator */
   .model-navigator-container {
-    max-width: 40%; /* Usa 90% da largura da tela para o ModelNavigator */
-    padding: 5px; /* Reduz o padding */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
+    display: none; /* Oculta o ModelNavigator */
   }
 
   /* Ajustes específicos para o contêiner do Graph */
@@ -292,14 +282,9 @@
     margin-bottom: 10px; /* Reduz a margem inferior */
   }
 
-  /* Ajustes específicos para o contêiner do ModelNavigator */
+  /* Remover o ModelNavigator */
   .model-navigator-container {
-    max-width: 100%; /* Usa toda a largura disponível */
-    padding: 0; /* Remove padding para economizar espaço */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
+    display: none; /* Oculta o ModelNavigator */
   }
 
   /* Ajustes específicos para o contêiner do Graph */

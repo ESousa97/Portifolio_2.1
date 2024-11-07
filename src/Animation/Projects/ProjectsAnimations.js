@@ -7,85 +7,94 @@ gsap.registerPlugin(ScrollTrigger);
 
 function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, graphTitleRef, skillsRefs }) {
   useEffect(() => {
-    // Animação para o título principal com parallax leve
-    gsap.fromTo(
-      titleRef.current,
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 90%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
-          scrub: 1,
-        },
-      }
-    );
+    const screenWidth = window.innerWidth;
+    const isDesktop = screenWidth > 1000; // Verifica se a tela é maior que 1000px
 
-    // Animação para a descrição principal com fade-in e deslocamento
-    gsap.fromTo(
-      descriptionRef.current,
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: descriptionRef.current,
-          start: "top 90%", 
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
-          scrub: 1,
-        },
-      }
-    );
+    if (isDesktop) {
+      // Animações completas para desktop
+      const animationDuration = 1;
+      const textOffset = 300;
 
-    // Animação para as imagens dos projetos com efeito de fade
-    leftRefs.current.forEach((leftElem, index) => {
-      const rightElem = rightRefs.current[index];
-
-      // Animação da imagem com efeito de fade
+      // Animação para o título principal com parallax leve
       gsap.fromTo(
-        leftElem,
-        { opacity: 0 }, // Inicia com transparência
+        titleRef.current,
+        { y: 100, opacity: 0 },
         {
+          y: 0,
           opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
+          duration: animationDuration,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: leftElem,
+            trigger: titleRef.current,
             start: "top 90%",
-            end: "top 30%",
+            end: "top 20%",
             toggleActions: "play reverse play reverse",
-            scrub: 0.8,
+            scrub: 1,
           },
         }
       );
 
-      // Animação agressiva para o texto
+      // Animação para a descrição principal
       gsap.fromTo(
-        rightElem,
-        { x: 300, opacity: 0 }, // Aumenta o deslocamento inicial para um efeito mais forte
+        descriptionRef.current,
+        { y: 100, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          duration: 0.6, // Duração menor para entrada mais rápida
-          ease: "power4.out", // Efeito mais agressivo
+          duration: animationDuration,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: rightElem,
+            trigger: descriptionRef.current,
             start: "top 90%",
-            end: "top 30%",
+            end: "top 20%",
             toggleActions: "play reverse play reverse",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
-    });
+
+      // Animações para as imagens dos projetos
+      leftRefs.current.forEach((leftElem, index) => {
+        const rightElem = rightRefs.current[index];
+
+        gsap.fromTo(
+          leftElem,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: animationDuration + 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: leftElem,
+              start: "top 90%",
+              end: "top 30%",
+              toggleActions: "play reverse play reverse",
+              scrub: 0.8,
+            },
+          }
+        );
+
+        gsap.fromTo(
+          rightElem,
+          { x: textOffset, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: rightElem,
+              start: "top 90%",
+              end: "top 30%",
+              toggleActions: "play reverse play reverse",
+              scrub: 0.8,
+            },
+          }
+        );
+      });
+    }
+
+    // Nenhuma animação é aplicada se a largura da tela for menor ou igual a 1000px
   }, [titleRef, descriptionRef, leftRefs, rightRefs, graphTitleRef, skillsRefs]);
 
   return null;

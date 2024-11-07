@@ -7,22 +7,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 function ModelNavigatorAnimations({ modelNavigatorRef }) {
   useEffect(() => {
-    // Animação para o contêiner do ModelNavigator, vindo da esquerda
+    const isDesktop = window.innerWidth > 768; // Verifica se a tela é maior que 768px
+
+    // Ajustes para dispositivos móveis
+    const animationDuration = isDesktop ? 0.6 : 0.3; // Duração mais curta para dispositivos móveis
+    const animationDistance = isDesktop ? -200 : 0; // Remove o deslocamento em dispositivos móveis
+
+    // Animação para o contêiner do ModelNavigator
     gsap.fromTo(
       modelNavigatorRef.current,
-      { x: -200, opacity: 0 }, // Começa fora da tela, à esquerda
+      { x: isDesktop ? animationDistance : 0, opacity: 0 }, // Sem deslocamento em mobile
       {
         x: 0,
         opacity: 1,
-        duration: 0.6,
+        duration: animationDuration,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: modelNavigatorRef.current,
-          start: "top 80%", // Começa mais cedo, quando está mais próximo do topo
-          end: "top 0%", // Termina mais cedo
-          toggleActions: "play reverse play reverse",
-          scrub: 0.5, // Reduzido para resposta mais rápida
-        },
+        scrollTrigger: isDesktop
+          ? {
+              trigger: modelNavigatorRef.current,
+              start: "top 80%",
+              end: "top 0%",
+              toggleActions: "play reverse play reverse",
+              scrub: 0.5,
+            }
+          : null, // Remove ScrollTrigger em dispositivos móveis
       }
     );
   }, [modelNavigatorRef]);
