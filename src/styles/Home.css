@@ -1,693 +1,514 @@
+/* src/styles/Home.css
+   Estilos profissionais para a página inicial do portfólio,
+   com foco em responsividade e interatividade.
+*/
+
 .home {
-    display: flex;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5% 5% 5%;
-    background-color: var(--color-background);
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5% 5% 5%;
+  background-color: var(--color-background);
 }
 
 .column-right {
-    background: linear-gradient(135deg, var(--color-titulo-first-right) 0%, var(--color-titulo-seconde-right) 100%);
-    flex: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    padding: 5% 8%;
-    border-radius: 30px;
-    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
+  background: linear-gradient(135deg, var(--color-titulo-first-right) 0%, var(--color-titulo-seconde-right) 100%);
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 5% 8%;
+  border-radius: 30px;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
 }
 
-/* Estilização do Título */
+/* Estilização do título da coluna direita */
 .column-right h2 {
-    font-size: 3.5rem;
-    margin-bottom: 3rem;
-    color: var(--color-rose);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  color: var(--color-rose);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
-/* Lista de Tópicos */
+/* Lista de tecnologias */
 .column-right ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Estilização de Cada Tópico */
 .column-right ul li {
-    font-size: 1.1rem;
-    color: var(--color-text-right);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--color-text-right);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-/* Ícone de Tópico */
 .column-right ul li::before {
-    content: "\f0e7"; /* Ícone do Font Awesome */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    color: var(--color-orange);
-    margin-right: 8px;
-    display: inline-block;
+  content: "\f0e7"; /* Ícone do Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: var(--color-orange);
+  margin-right: 8px;
+  display: inline-block;
 }
 
-/* Título do Tópico */
 .column-right ul li strong {
-    font-weight: 700;
-    color: var(--color-bold);
-    display: inline; /* Exibe o título como texto em linha */
-    margin-right: 5px; /* Espaço entre o título e o texto */
+  font-weight: 700;
+  color: var(--color-bold);
+  margin-right: 5px;
 }
 
-/* Conteúdo do Tópico */
 .column-right ul li span {
-    display: block; /* Quebra o texto para a linha de baixo */
-    margin-left: 20px; /* Indenta o conteúdo */
-    color: var(--color-text-sub);
-    word-break: break-word;
-    line-height: 1.5;
+  display: block;
+  margin-left: 20px;
+  color: var(--color-text-sub);
+  word-break: break-word;
+  line-height: 1.5;
 }
 
-.cta-button-left, .cta-button-right {
-    padding: 14px 30px;
-    color: var(--color-text);
-    background-color: var(--color-button);
-    text-transform: uppercase;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-    transform: translateY(30px);
+/* Botões de chamada para ação */
+.cta-button-left,
+.cta-button-right {
+  padding: 14px 30px;
+  color: var(--color-text);
+  background-color: var(--color-button);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(30px);
 }
 
-.cta-button-left:hover, .cta-button-right:hover {
-    background-color: var(--color-hover);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
+.cta-button-left:hover,
+.cta-button-right:hover {
+  background-color: var(--color-hover);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
 }
 
+/* Novo container para agrupar os botões */
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Estilização da coluna esquerda */
 .column-left {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    padding-right: 8%;
-    cursor: default;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-right: 8%;
+  cursor: default;
 }
 
 .home h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    color: var(--color-titulo-first);
-    font-weight: 700;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    cursor: default;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--color-titulo-first);
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  cursor: default;
 }
 
 .home p {
-    font-size: 1.4rem;
-    line-height: 1.75;
-    text-align: left;
-    margin-bottom: 20px;
-    color: var(--color-text);
-    max-width: 100%;
-    cursor: default;
+  font-size: 1.4rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  max-width: 100%;
+  cursor: default;
 }
 
-/* Estilos para a imagem flutuante à direita */
+/* Estilização da imagem com efeitos */
 .skills-image {
-    width: 20%;
-    height: auto;
-    float: right;
-    margin: 0 0 40px 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave e menor */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
-    border: 3px solid rgba(255, 255, 255, 0.4); /* Borda sutil ao redor da imagem */
+  width: 20%;
+  height: auto;
+  float: right;
+  margin: 0 0 40px 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  border: 3px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Efeito de zoom e brilho ao passar o mouse na imagem */
 .skills-image:hover {
-    transform: scale(1.09); /* Leve aumento no hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra mais profunda no hover */
-    border: 3px solid rgba(255, 255, 255, 0.6); /* Realce da borda com mais opacidade */
+  transform: scale(1.09);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.6);
 }
 
 .element {
-    will-change: transform, opacity;
+  will-change: transform, opacity;
 }
 
-/* Estilos para telas abaixo de 1770px */
+/* Media Queries para responsividade */
+
+/* Telas até 1770px */
 @media (max-width: 1770px) {
-    .home {
-        display: flex;
-        flex-direction: column; /* Coloca as colunas em uma única coluna */
-        align-items: center; /* Centraliza o contêiner principal */
-    }
-
-    .column-left, .column-right {
-        width: 100%; /* Define uma largura menor para centralizar melhor */
-    }
-
-    /* Coluna Esquerda (Texto de Apresentação) */
-    .column-left {
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo da coluna */
-        text-align: center; /* Centraliza o texto */
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px;
-        margin-bottom: 40px; /* Espaçamento entre coluna esquerda e direita */
-    }
-
-    .home h1 {
-        font-size: 2.8rem; /* Aumenta o tamanho do título para destaque */
-        color: var(--color-titulo-first);
-        font-weight: 700;
-        margin-bottom: 20px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .home p {
-        font-size: 1.2rem;
-        max-width: 1000px; /* Limita a largura dos parágrafos */
-        color: var(--color-text);
-        text-align: center;
-    }
-
-    .cta-button-left {
-        font-size: 1rem;
-        padding: 12px 24px;
-        margin-top: 1px;
-        border-radius: 30px;
-        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-
-    /* Coluna Direita (Card de Tecnologias) */
-    .column-right {
-        order: 2;
-        background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo do card */
-        text-align: center; /* Centraliza o texto */
-        padding: 4% 6%; /* Padding interno maior para uma estética mais espaçada */
-        border-radius: 20px;
-        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    }
-
-    .skills-image {
-        width: 120px; /* Ajusta o tamanho da imagem para não sobrecarregar */
-        height: 120px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-    }
-
-    .column-right h2 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-    }
-
-    .column-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left; /* Alinha a lista à esquerda para facilitar a leitura */
-    }
-
-    .column-right ul li {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 15px;
-        color: var(--color-text-right);
-        display: flex;
-        align-items: center;
-    }
-
-    .column-right ul li::before {
-        content: "\f0e7"; /* Ícone do Font Awesome */
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: var(--color-orange);
-        margin-right: 8px;
-    }
-
-    .cta-button-right {
-        font-size: 1rem;
-        padding: 12px 24px;
-        margin-top: 30px;
-        border-radius: 30px;
-        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-}
-
-/* Estilos para telas abaixo de 894px */
-@media (max-width: 894px) {
-    .home {
-        display: flex;
-        flex-direction: column; /* Coloca as colunas em uma única coluna */
-        align-items: center; /* Centraliza o contêiner principal */
-        padding: 5%; /* Padding geral maior para adicionar espaço nas laterais */
-    }
-
-    .column-left, .column-right {
-        width: 100%; /* Usa toda a largura disponível */
-        max-width: 600px; /* Limita a largura máxima para melhor leitura em telas menores */
-    }
-
-    /* Coluna Esquerda (Texto de Apresentação) */
-    .column-left {
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo da coluna */
-        text-align: center; /* Centraliza o texto */
-        padding: 10px;
-        margin-bottom: 30px; /* Espaço entre coluna esquerda e direita */
-    }
-
-    .home h1 {
-        font-size: 2.2rem; /* Reduz o tamanho do título */
-        color: var(--color-titulo-first);
-        font-weight: 700;
-        margin-bottom: 15px; /* Reduz o espaço abaixo do título */
-        line-height: 1.2;
-    }
-
-    .home p {
-        font-size: 1rem; /* Reduz o tamanho da fonte dos parágrafos */
-        line-height: 1.6;
-        max-width: 100%; /* Permite que o texto se ajuste à largura da coluna */
-        color: var(--color-text);
-        margin-bottom: 15px; /* Espaçamento menor entre parágrafos */
-    }
-
-    .cta-button-left {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte do botão */
-        padding: 10px 20px; /* Ajusta o padding do botão */
-        margin-top: 10px; /* Espaço maior acima do botão */
-        border-radius: 25px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-
-    /* Coluna Direita (Card de Tecnologias) */
-    .column-right {
-        order: 2;
-        background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo do card */
-        text-align: center; /* Centraliza o texto */
-        padding: 5% 5%; /* Padding interno ajustado */
-        border-radius: 15px;
-        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
-    }
-
-    .skills-image {
-        width: 100px; /* Reduz o tamanho da imagem */
-        height: 100px;
-        border-radius: 50%;
-        margin-bottom: 15px;
-    }
-
-    .column-right h2 {
-        font-size: 1.8rem; /* Reduz o tamanho do título */
-        margin-bottom: 15px;
-        font-weight: 700;
-    }
-
-    .column-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left; /* Alinha a lista à esquerda para facilitar a leitura */
-    }
-
-    .column-right ul li {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte dos itens da lista */
-        line-height: 1.5;
-        margin-bottom: 10px;
-        color: var(--color-text-right);
-        display: flex;
-        align-items: center;
-    }
-
-    .column-right ul li::before {
-        content: "\f0e7"; /* Ícone do Font Awesome */
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: var(--color-orange);
-        margin-right: 6px; /* Reduz o espaçamento entre o ícone e o texto */
-    }
-
-    .cta-button-right {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte do botão */
-        padding: 10px 20px; /* Ajusta o padding do botão */
-        margin-top: 20px;
-        border-radius: 25px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-}
-
-/* Estilos para telas abaixo de 617px */
-@media (max-width: 617px) {
-    .home {
-        display: flex;
-        flex-direction: column; /* Coloca as colunas em uma única coluna */
-        align-items: center; /* Centraliza o contêiner principal */
-        padding: 5%; /* Padding geral para adicionar espaço nas laterais */
-    }
-
-    .column-left, .column-right {
-        width: 100%; /* Usa toda a largura disponível */
-        max-width: 500px; /* Limita a largura máxima para melhorar a legibilidade em telas menores */
-    }
-
-    /* Coluna Esquerda (Texto de Apresentação) */
-    .column-left {
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo da coluna */
-        text-align: center; /* Centraliza o texto */
-        padding: 8px;
-        margin-bottom: 25px; /* Espaço entre a coluna esquerda e a direita */
-    }
-
-    .home h1 {
-        font-size: 1.8rem; /* Reduz o tamanho do título */
-        color: var(--color-titulo-first);
-        font-weight: 700;
-        margin-bottom: 12px; /* Reduz o espaço abaixo do título */
-        line-height: 1.2;
-    }
-
-    .home p {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte dos parágrafos */
-        line-height: 1.5;
-        max-width: 100%; /* Permite que o texto se ajuste à largura da coluna */
-        color: var(--color-text);
-        margin-bottom: 12px; /* Espaçamento menor entre parágrafos */
-    }
-
-    .cta-button-left {
-        font-size: 0.8rem; /* Reduz o tamanho da fonte do botão */
-        padding: 8px 16px; /* Ajusta o padding do botão */
-        margin-top: 8px; /* Espaço acima do botão */
-        border-radius: 20px;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-
-    /* Coluna Direita (Card de Tecnologias) */
-    .column-right {
-        order: 2;
-        background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo do card */
-        text-align: center; /* Centraliza o texto */
-        padding: 4% 4%; /* Padding interno ajustado */
-        border-radius: 15px;
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
-    }
-
-    .skills-image {
-        width: 80px; /* Reduz o tamanho da imagem */
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 12px;
-    }
-
-    .column-right h2 {
-        font-size: 1.6rem; /* Reduz o tamanho do título */
-        margin-bottom: 12px;
-        font-weight: 700;
-    }
-
-    .column-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left; /* Alinha a lista à esquerda para facilitar a leitura */
-    }
-
-    .column-right ul li {
-        font-size: 0.8rem; /* Reduz o tamanho da fonte dos itens da lista */
-        line-height: 1.4;
-        margin-bottom: 8px;
-        color: var(--color-text-right);
-        display: flex;
-        align-items: center;
-    }
-
-    .column-right ul li::before {
-        content: "\f0e7"; /* Ícone do Font Awesome */
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: var(--color-orange);
-        margin-right: 5px; /* Reduz o espaçamento entre o ícone e o texto */
-    }
-
-    .cta-button-right {
-        font-size: 0.8rem; /* Reduz o tamanho da fonte do botão */
-        padding: 8px 16px; /* Ajusta o padding do botão */
-        margin-top: 15px;
-        border-radius: 20px;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-}
-
-/* Estilos para telas abaixo de 443px */
-@media (max-width: 443px) {
-    .home {
-        display: flex;
-        flex-direction: column; /* Coloca as colunas em uma única coluna */
-        align-items: center; /* Centraliza o contêiner principal */
-        padding: 5%; /* Padding geral para adicionar espaço nas laterais */
-    }
-
-    .column-left, .column-right {
-        width: 100%; /* Usa toda a largura disponível */
-        max-width: 400px; /* Limita a largura máxima para melhor legibilidade em telas menores */
-    }
-
-    /* Coluna Esquerda (Texto de Apresentação) */
-    .column-left {
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo da coluna */
-        text-align: center; /* Centraliza o texto */
-        padding: 5px;
-        margin-bottom: 20px; /* Espaço entre a coluna esquerda e a direita */
-    }
-
-    .home h1 {
-        font-size: 1.6rem; /* Reduz o tamanho do título */
-        color: var(--color-titulo-first);
-        font-weight: 700;
-        margin-bottom: 10px; /* Reduz o espaço abaixo do título */
-        line-height: 1.2;
-    }
-
-    .home p {
-        font-size: 0.85rem; /* Reduz o tamanho da fonte dos parágrafos */
-        line-height: 1.4;
-        max-width: 100%; /* Permite que o texto se ajuste à largura da coluna */
-        color: var(--color-text);
-        margin-bottom: 10px; /* Espaçamento menor entre parágrafos */
-    }
-
-    .cta-button-left {
-        font-size: 0.75rem; /* Reduz o tamanho da fonte do botão */
-        padding: 6px 14px; /* Ajusta o padding do botão */
-        margin-top: 8px; /* Espaço acima do botão */
-        border-radius: 18px;
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-
-    /* Coluna Direita (Card de Tecnologias) */
-    .column-right {
-        order: 2;
-        background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo do card */
-        text-align: center; /* Centraliza o texto */
-        padding: 4% 3%; /* Padding interno ajustado */
-        border-radius: 12px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
-    }
-
-    .skills-image {
-        display: none;
-    }
-
-    .column-right h2 {
-        font-size: 1.4rem; /* Reduz o tamanho do título */
-        margin-bottom: 10px;
-        font-weight: 700;
-    }
-
-    .column-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left; /* Alinha a lista à esquerda para facilitar a leitura */
-    }
-
-    .column-right ul li {
-        font-size: 0.75rem; /* Reduz o tamanho da fonte dos itens da lista */
-        line-height: 1.4;
-        margin-bottom: 8px;
-        color: var(--color-text-right);
-        display: flex;
-        align-items: center;
-    }
-
-    .column-right ul li::before {
-        content: "\f0e7"; /* Ícone do Font Awesome */
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: var(--color-orange);
-        margin-right: 4px; /* Reduz o espaçamento entre o ícone e o texto */
-    }
-
-    .cta-button-right {
-        font-size: 0.75rem; /* Reduz o tamanho da fonte do botão */
-        padding: 6px 14px; /* Ajusta o padding do botão */
-        margin-top: 12px;
-        border-radius: 18px;
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
-    }
-}
-
-/* Estilos para telas abaixo de 377px */
-@media (max-width: 377px) {
-    .home {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2% 4%; /* Reduzi o padding para otimizar o uso da viewport */
-    }
-  
-    .column-left,
-    .column-right {
-      width: 100%;
-      max-width: 350px;
-    }
-  
-    /* Coluna Esquerda (Texto de Apresentação) */
-    .column-left {
-      order: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0; /* Removi o padding */
-      margin-top: 0; /* Removi o espaço superior */
-      margin-bottom: 10px; /* Pequeno espaço entre as colunas */
-    }
-  
-    .home h1 {
-      font-size: 1.4rem;
-      color: var(--color-titulo-first);
-      font-weight: 700;
-      margin-bottom: 4px; /* Menor espaço abaixo do título */
-      line-height: 1.2;
-    }
-  
-    .home p {
-      font-size: 0.7rem; /* Ajustei o tamanho da fonte para legibilidade */
-      line-height: 1.4;
-      color: var(--color-text);
-      margin-bottom: 4px; /* Reduzi o espaço abaixo do parágrafo */
-      max-width: 100%;
-    }
-  
-    .cta-button-left {
-      font-size: 0.7rem; /* Ajustei o tamanho da fonte do botão */
-      padding: 6px 16px; /* Ajustei o padding do botão */
-      margin-top: 5px; /* Ajustei a margem superior */
-      border-radius: 15px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      margin-bottom: 10px; /* Menor espaço inferior */
-    }
-  
-    /* Coluna Direita (Card de Tecnologias) */
-    .column-right {
-      order: 2;
-      background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 3% 3%; /* Reduzi o padding para um layout mais compacto */
-      border-radius: 10px;
-      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
-      margin-top: 0; /* Removi o espaço superior */
-    }
-  
-    .skills-image {
-      display: none; /* Oculta a imagem para economizar espaço */
-    }
-  
-    .column-right h2 {
-      font-size: 1.2rem; /* Ajustei o tamanho do título */
-      margin-bottom: 4px; /* Menor espaço abaixo do título */
-      font-weight: 700;
-    }
-  
-    .column-right ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-  
-    .column-right ul li {
-      font-size: 0.7rem; /* Ajustei o tamanho da fonte para legibilidade */
-      line-height: 1.3;
-      margin-bottom: 4px; /* Menor espaço entre os itens da lista */
-      color: var(--color-text-right);
-      display: flex;
-      align-items: center;
-    }
-  
-    .column-right ul li::before {
-      content: "\f0e7";
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      color: var(--color-orange);
-      margin-right: 3px; /* Reduzi o espaçamento entre o ícone e o texto */
-    }
-  
-    .cta-button-right {
-      font-size: 0.7rem; /* Ajustei o tamanho da fonte do botão */
-      padding: 6px 16px; /* Ajustei o padding do botão */
-      margin-top: 5px; /* Ajustei a margem superior */
-      border-radius: 15px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      margin-bottom: 10px; /* Menor espaço inferior */
-    }
+  .home {
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  .column-left,
+  .column-right {
+    width: 100%;
+  }
+
+  .column-left {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+  }
+
+  .home h1 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+  .home p {
+    font-size: 1.2rem;
+    max-width: 1000px;
+    text-align: center;
+  }
+
+  .cta-button-left {
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .column-right {
+    order: 2;
+    background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
+    align-items: center;
+    text-align: center;
+    padding: 4% 6%;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .skills-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .column-right h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .column-right ul {
+    text-align: left;
+  }
+
+  .column-right ul li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .cta-button-right {
+    font-size: 1rem;
+    padding: 12px 24px;
+    margin-top: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Telas até 894px */
+@media (max-width: 894px) {
+  .home {
+    padding: 5%;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .column-left {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+
+  .home h1 {
+    font-size: 2.2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .cta-button-left {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .column-right {
+    order: 2;
+    padding: 5% 5%;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .skills-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .column-right h2 {
+    font-size: 1.8rem;
+  }
+
+  .column-right ul li {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .cta-button-right {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Telas até 617px */
+@media (max-width: 617px) {
+  .home {
+    padding: 5%;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .column-left {
+    order: 1;
+    padding: 8px;
+    margin-bottom: 25px;
+  }
+
+  .home h1 {
+    font-size: 1.8rem;
+  }
+
+  .home p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button-left {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    margin-top: 8px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+
+  .column-right {
+    order: 2;
+    padding: 4% 4%;
+    border-radius: 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .skills-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .column-right h2 {
+    font-size: 1.6rem;
+  }
+
+  .column-right ul li {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .cta-button-right {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    margin-top: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+
+  /* Ajuste do container dos botões para telas mobile */
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Telas até 443px */
+@media (max-width: 443px) {
+  .home {
+    padding: 5%;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .column-left {
+    order: 1;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+
+  .home h1 {
+    font-size: 1.6rem;
+  }
+
+  .home p {
+    font-size: 0.85rem;
+  }
+
+  .cta-button-left {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    margin-top: 8px;
+    border-radius: 18px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+
+  .column-right {
+    order: 2;
+    padding: 4% 3%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .skills-image {
+    display: none;
+  }
+
+  .column-right h2 {
+    font-size: 1.4rem;
+  }
+
+  .column-right ul li {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .cta-button-right {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    margin-top: 12px;
+    border-radius: 18px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+}
+
+/* Telas até 377px */
+@media (max-width: 377px) {
+  .home {
+    padding: 2% 4%;
+  }
+
+  .column-left,
+  .column-right {
+    max-width: 350px;
+  }
+
+  .column-left {
+    order: 1;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .home h1 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  .home p {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+
+  .cta-button-left {
+    font-size: 0.7rem;
+    padding: 6px 16px;
+    margin-top: 5px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+
+  .column-right {
+    order: 2;
+    padding: 3% 3%;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 0;
+  }
+
+  .skills-image {
+    display: none;
+  }
+
+  .column-right h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  .column-right ul li {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+
+  .cta-button-right {
+    font-size: 0.7rem;
+    padding: 6px 16px;
+    margin-top: 5px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+}

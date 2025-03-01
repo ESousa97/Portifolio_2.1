@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { FaSun, FaMoon, FaHome, FaUser, FaBriefcase, FaEnvelope, FaCogs  } from 'react-icons/fa';
+import React, { useState, useEffect, useCallback } from 'react';
+import { FaSun, FaMoon, FaHome, FaUser, FaBriefcase, FaEnvelope, FaCogs } from 'react-icons/fa';
 import '../styles/Header.css';
 
 function Header() {
     const [theme, setTheme] = useState('light');
-    const [isVisible, setIsVisible] = useState(true); // Estado para controlar a visibilidade do header
-    const [lastScrollPos, setLastScrollPos] = useState(0); // Estado para armazenar a posição anterior do scroll
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollPos, setLastScrollPos] = useState(0);
 
-    // Detectar o tema do navegador
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
@@ -18,47 +17,40 @@ function Header() {
         }
     }, []);
 
-    // Atualizar o tema e salvar no localStorage
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     }, [theme]);
 
-    // Função para alternar tema
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
 
-    // Função para detectar a direção do scroll
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.pageYOffset;
 
-        // Se o usuário rolar para baixo, esconde o header; se rolar para cima, mostra o header
         if (currentScrollPos > lastScrollPos && currentScrollPos > 50) {
             setIsVisible(false);
         } else {
             setIsVisible(true);
         }
 
-        setLastScrollPos(currentScrollPos); // Atualiza a última posição de scroll
-    };
+        setLastScrollPos(currentScrollPos);
+    }, [lastScrollPos]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [lastScrollPos]);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
 
     return (
         <header className={`header ${isVisible ? '' : 'hidden'}`}>
             <nav className="nav">
                 <ul>
-                <li><a href="#home"><FaHome /></a></li>
+                    <li><a href="#home"><FaHome /></a></li>
                     <li><a href="#about"><FaUser /></a></li>
                     <li><a href="#projects"><FaBriefcase /></a></li>
-                    <li><a href="#skills"><FaCogs  /></a></li> {/* Ícone de Skills */}
+                    <li><a href="#skills"><FaCogs /></a></li>
                     <li><a href="#footer"><FaEnvelope /></a></li>
                 </ul>
                 <button className="theme-toggle" onClick={toggleTheme}>

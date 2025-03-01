@@ -66,14 +66,64 @@ function Footer() {
         });
     };
 
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                toast.success('Copiado para a área de transferência!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+            .catch((err) => {
+                toast.error('Erro ao copiar!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+    };
+
     return (
         <footer id="footer">
             <div className="footer-container">
                 <div className="footer-content">
                     <div className="footer-section contact-info">
                         <h3>Entre em contato</h3>
-                        <p><i className="fas fa-envelope"></i> Email: <a href="mailto:sousa3086@outlook.com">sousa3086@outlook.com</a></p>
-                        <p><i className="fas fa-phone-alt"></i> WhatsApp: <a href="https://wa.me/5511958057967" target="_blank" rel="noopener noreferrer">+55 11 5805-7967</a></p>
+                        <p>
+                            <i className="fas fa-envelope"></i> Email:{" "}
+                            <a href="mailto:sousa3086@outlook.com">sousa3086@outlook.com</a>
+                            <span 
+                                onClick={() => copyToClipboard("sousa3086@outlook.com")} 
+                                style={{ cursor: 'pointer', marginLeft: '8px' }}
+                            >
+                                <i className="fas fa-copy"></i>
+                            </span>
+                        </p>
+                        <p>
+                            <i className="fas fa-phone-alt"></i> WhatsApp:{" "}
+                            <a 
+                                href="https://wa.me/5511958057967" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                +55 11 5805-7967
+                            </a>
+                            <span 
+                                onClick={() => copyToClipboard("+55 11 5805-7967")} 
+                                style={{ cursor: 'pointer', marginLeft: '8px' }}
+                            >
+                                <i className="fas fa-copy"></i>
+                            </span>
+                        </p>
                     </div>
                     <div className="footer-section message-form">
                         <h3>Envie uma mensagem</h3>

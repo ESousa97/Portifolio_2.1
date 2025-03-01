@@ -13,7 +13,7 @@ function GithubLanguagesChart() {
   useEffect(() => {
     async function fetchLanguages() {
       try {
-        const response = await fetch("https://api.github.com/users/ESousa97/repos", {
+        const response = await fetch("https://api.github.com/user/repos", {
           headers: {
             Authorization: `token ${GITHUB_TOKEN}`,
           },
