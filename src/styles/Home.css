@@ -12,8 +12,13 @@
   background-color: var(--color-background);
 }
 
+/* Coluna Direita */
 .column-right {
-  background: linear-gradient(135deg, var(--color-titulo-first-right) 0%, var(--color-titulo-seconde-right) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-titulo-first-right) 0%,
+    var(--color-titulo-seconde-right) 100%
+  );
   flex: 1;
   height: 100%;
   display: flex;
@@ -26,7 +31,6 @@
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.74);
 }
 
-/* Estilização do título da coluna direita */
 .column-right h2 {
   font-size: 3.5rem;
   margin-bottom: 3rem;
@@ -75,9 +79,8 @@
   line-height: 1.5;
 }
 
-/* Botões de chamada para ação */
-.cta-button-left,
-.cta-button-right {
+/* Botões de chamada para ação - Estilo Base */
+.cta-button {
   padding: 14px 30px;
   color: var(--color-text);
   background-color: var(--color-button);
@@ -87,25 +90,27 @@
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 20px; /* Espaço superior */
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  transform: translateY(30px);
+  transform: translateY(30px); /* Move o botão para baixo */
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.cta-button-left:hover,
-.cta-button-right:hover {
+.cta-button:hover {
   background-color: var(--color-hover);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Novo container para agrupar os botões */
+/* Container unificado para os botões */
 .button-container {
   display: flex;
   gap: 20px;
   margin-top: 20px;
 }
 
-/* Estilização da coluna esquerda */
+/* Coluna Esquerda */
 .column-left {
   flex: 1;
   height: 100%;
@@ -194,7 +199,7 @@
     text-align: center;
   }
 
-  .cta-button-left {
+  .cta-button {
     font-size: 1rem;
     padding: 12px 24px;
     border-radius: 30px;
@@ -203,7 +208,11 @@
 
   .column-right {
     order: 2;
-    background: linear-gradient(135deg, var(--color-titulo-first-right), var(--color-titulo-seconde-right));
+    background: linear-gradient(
+      135deg,
+      var(--color-titulo-first-right),
+      var(--color-titulo-seconde-right)
+    );
     align-items: center;
     text-align: center;
     padding: 4% 6%;
@@ -230,14 +239,6 @@
   .column-right ul li {
     font-size: 1rem;
     margin-bottom: 15px;
-  }
-
-  .cta-button-right {
-    font-size: 1rem;
-    padding: 12px 24px;
-    margin-top: 30px;
-    border-radius: 30px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -269,7 +270,7 @@
     font-size: 1rem;
   }
 
-  .cta-button-left {
+  .cta-button {
     font-size: 0.9rem;
     padding: 10px 20px;
     margin-top: 10px;
@@ -296,14 +297,6 @@
   .column-right ul li {
     font-size: 0.9rem;
     margin-bottom: 10px;
-  }
-
-  .cta-button-right {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 25px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -333,13 +326,22 @@
     font-size: 0.9rem;
   }
 
-  .cta-button-left {
+  /* Ajuste do container dos botões para telas mobile */
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Menor espaçamento entre botões */
+    margin-top: 15px; /* Ajuste se quiser menos espaço acima */
+  }
+
+  .cta-button {
     font-size: 0.8rem;
     padding: 8px 16px;
-    margin-top: 8px;
+    /* Remove o margin-top e o translate para aproximar os botões */
+    margin-top: 0;
+    transform: none;
     border-radius: 20px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
   }
 
   .column-right {
@@ -361,21 +363,6 @@
   .column-right ul li {
     font-size: 0.8rem;
     margin-bottom: 8px;
-  }
-
-  .cta-button-right {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-    margin-top: 15px;
-    border-radius: 20px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
-  }
-
-  /* Ajuste do container dos botões para telas mobile */
-  .button-container {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -405,13 +392,18 @@
     font-size: 0.85rem;
   }
 
-  .cta-button-left {
+  .button-container {
+    gap: 8px; /* Diminui ainda mais o espaço */
+  }
+
+  .cta-button {
     font-size: 0.75rem;
     padding: 6px 14px;
-    margin-top: 8px;
+    margin-top: 0; /* remove top extra */
+    transform: none; /* remove a distância vertical */
     border-radius: 18px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
+    margin-bottom: 0; /* se quiser reduzir ainda mais */
   }
 
   .column-right {
@@ -432,15 +424,6 @@
   .column-right ul li {
     font-size: 0.75rem;
     margin-bottom: 8px;
-  }
-
-  .cta-button-right {
-    font-size: 0.75rem;
-    padding: 6px 14px;
-    margin-top: 12px;
-    border-radius: 18px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
   }
 }
 
@@ -472,13 +455,19 @@
     margin-bottom: 4px;
   }
 
-  .cta-button-left {
+  .button-container {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .cta-button {
     font-size: 0.7rem;
     padding: 6px 16px;
-    margin-top: 5px;
+    margin-top: 0;
+    transform: none;
     border-radius: 15px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .column-right {
@@ -501,14 +490,5 @@
   .column-right ul li {
     font-size: 0.7rem;
     margin-bottom: 4px;
-  }
-
-  .cta-button-right {
-    font-size: 0.7rem;
-    padding: 6px 16px;
-    margin-top: 5px;
-    border-radius: 15px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
   }
 }

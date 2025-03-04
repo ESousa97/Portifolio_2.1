@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import HomeAnimations from '../Animation/Home/HomeAnimations';
 import '../styles/Home.css';
+import Button from './Button';
 
 function Home() {
   const titleRef = useRef(null);
@@ -22,25 +23,45 @@ function Home() {
     });
   }, []);
 
+  // Dados dos botões para renderização dinâmica
+  const buttons = [
+    {
+      ref: buttonLeftRef,
+      href: '#projects',
+      label: 'Veja Meus Projetos',
+      variant: 'cta-button-left',
+    },
+    {
+      ref: buttonRightRef,
+      href: '#about',
+      label: 'Saiba Mais',
+      variant: 'cta-button-right',
+    },
+  ];
+
   return (
     <div className="home">
       {/* Coluna Esquerda */}
       <div className="column-left">
         <h1 ref={titleRef}>Bem-vindo ao meu Portfólio</h1>
         <p ref={(el) => (paragraphRefs.current[0] = el)}>
-          É um prazer tê-lo aqui! Este espaço foi cuidadosamente preparado para compartilhar minha trajetória e algumas das soluções em que venho trabalhando.
+          É um prazer tê-lo aqui! Este espaço foi cuidadosamente preparado para
+          compartilhar minha trajetória e algumas das soluções em que venho trabalhando.
         </p>
         <p ref={(el) => (paragraphRefs.current[1] = el)}>
           Explore à vontade, conheça as criações e as ideias que me inspiram.
         </p>
         {/* Container unificado para os botões */}
         <div className="button-container">
-          <a ref={buttonLeftRef} href="#projects" className="cta-button-left">
-            Veja Meus Projetos
-          </a>
-          <a ref={buttonRightRef} href="#about" className="cta-button-right">
-            Saiba Mais
-          </a>
+          {buttons.map((btn, index) => (
+            <Button
+              key={index}
+              ref={btn.ref}
+              href={btn.href}
+              label={btn.label}
+              variant={btn.variant}
+            />
+          ))}
         </div>
       </div>
 
@@ -56,16 +77,27 @@ function Home() {
           <h2>Tecnologias</h2>
           <ul>
             <li>
-              <strong>Front-end:</strong> <span>React.js, Next.js, Material-UI, Axios, Styled Components, DOMPurify, Framer Motion, React Toastify, Sass</span>
+              <strong>Front-end:</strong>{' '}
+              <span>
+                React.js, Next.js, Material-UI, Axios, Styled Components, DOMPurify,
+                Framer Motion, React Toastify, Sass
+              </span>
             </li>
             <li>
-              <strong>Back-end:</strong> <span>PostgreSQL, Node.js, Express.js, @vercel/postgres, CORS, SSL</span>
+              <strong>Back-end:</strong>{' '}
+              <span>
+                PostgreSQL, Node.js, Express.js, @vercel/postgres, CORS, SSL
+              </span>
             </li>
             <li>
-              <strong>Ferramentas:</strong> <span>Git, Vercel, NextAuth, Heroku, PgAdmin, MongoCompass</span>
+              <strong>Ferramentas:</strong>{' '}
+              <span>Git, Vercel, NextAuth, Heroku, PgAdmin, MongoCompass</span>
             </li>
             <li>
-              <strong>Segurança:</strong> <span>NextAuth, 2FA, OAuth, JWT, CSRF, DOMPurify, SSL, LGPD</span>
+              <strong>Segurança:</strong>{' '}
+              <span>
+                NextAuth, 2FA, OAuth, JWT, CSRF, DOMPurify, SSL, LGPD
+              </span>
             </li>
           </ul>
         </div>

@@ -55,19 +55,19 @@ function DotNavigation() {
 
     return (
         <div className={`dot-navigation ${isVisible ? 'visible' : 'hidden'}`}>
-            <a href="#home" className={`dot ${activeSection === 'home' ? 'active icon' : ''}`} aria-label="Ir para Home">
+            <a href="#home" className={`dot ${activeSection === 'home' ? 'active icon' : ''}`} aria-label="Ir para Home" title="Ir para Home">
                 {activeSection === 'home' ? <FaHome /> : ''}
             </a>
-            <a href="#about" className={`dot ${activeSection === 'about' ? 'active icon' : ''}`} aria-label="Ir para Sobre">
+            <a href="#about" className={`dot ${activeSection === 'about' ? 'active icon' : ''}`} aria-label="Ir para Sobre" title="Ir para Sobre">
                 {activeSection === 'about' ? <FaUser /> : ''}
             </a>
-            <a href="#projects" className={`dot ${activeSection === 'projects' ? 'active icon' : ''}`} aria-label="Ir para Projetos">
+            <a href="#projects" className={`dot ${activeSection === 'projects' ? 'active icon' : ''}`} aria-label="Ir para Projetos" title="Ir para Projetos">
                 {activeSection === 'projects' ? <FaBriefcase /> : ''}
             </a>
-            <a href="#skills" className={`dot ${activeSection === 'skills' ? 'active icon' : ''}`} aria-label="Ir para Skills">
+            <a href="#skills" className={`dot ${activeSection === 'skills' ? 'active icon' : ''}`} aria-label="Ir para Skills" title="Ir para Skills">
                 {activeSection === 'skills' ? <FaCogs /> : ''}
             </a>
-            <a href="#footer" className={`dot ${activeSection === 'footer' ? 'active icon' : ''}`} aria-label="Ir para Contacts">
+            <a href="#footer" className={`dot ${activeSection === 'footer' ? 'active icon' : ''}`} aria-label="Ir para Contacts" title="Ir para Contacts">
                 {activeSection === 'footer' ? <FaEnvelope /> : ''}
             </a>
         </div>

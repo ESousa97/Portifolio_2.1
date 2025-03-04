@@ -36,7 +36,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
             {
                 x: -animationDistance,
                 opacity: 0,
-                duration: 0.5,
+                duration: 0.3,
                 ease: "power3.inOut",
                 scrollTrigger: {
                     trigger: buttonLeftRef.current,
@@ -93,7 +93,7 @@ function HomeAnimations({ titleRef, paragraphRefs, buttonLeftRef, buttonRightRef
             {
                 x: animationDistance,
                 opacity: 0,
-                duration: 0.5,
+                duration: 0.3,
                 ease: "power3.inOut",
                 scrollTrigger: {
                     trigger: buttonRightRef.current,
