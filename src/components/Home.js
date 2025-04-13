@@ -117,10 +117,10 @@ function Home() {
             </span>
           </li>
           <li>
-            <strong>IA & NLP:</strong>{' '}
-            <span>
-              OpenAI (ChatGPT/GPT-4), Google Gemini, Prompt Engineering, Vetorização semântica, 
-              NLP com spaCy, Análise de Indicadores com IA
+          <strong>IA & NLP:</strong>{' '}
+          <span>
+              OpenAI (GPT-4), Google Gemini, Prompt Engineering, NLP com spaCy, Vetorização semântica, 
+              Automação Cognitiva com IA, Processamento de Texto, PyQt5, ctypes, winreg, WMI, PyWin32, PyAutoGUI, PyGetWindow e PyInstaller.
             </span>
             </li>
           </ul>
