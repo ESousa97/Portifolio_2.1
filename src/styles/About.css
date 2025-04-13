@@ -29,11 +29,15 @@
 }
 
 .about-text {
-  flex: 2; /* Dá mais espaço ao texto */
-  font-size: 1.150rem;
+  flex: 2;
+  font-size: 1.2rem;
   line-height: 1.8;
   color: var(--color-about-text);
-  text-align: justify;
+  letter-spacing: 0.015em;
+  padding: 2rem 2rem 2rem 0;
+  margin: 0 auto;
+  font-weight: 550;
+  transition: color 0.3s ease-in-out;
 }
 
 .about-extra {

@@ -1,78 +1,70 @@
-// src/Animation/About/AboutAnimations.js
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
-    const screenWidth = window.innerWidth;
-    const isDesktop = screenWidth > 1000; // Verifica se a tela é maior que 1000px
+  const isDesktop = window.innerWidth > 1000;
+  if (!isDesktop) return null;
 
-    if (isDesktop) {
-        // Animações completas para desktop
-        const animationDuration = 0.5;
-        const animationScale = 1;
+  const duration = 0.6;
+  const easing = "power3.out";
 
-        // Animação para o título com efeito de reverso e scrub
-        gsap.fromTo(
-            titleRef.current,
-            { y: 100, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: animationDuration,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: "top 80%",
-                    end: "top 20%",
-                    toggleActions: "play reverse play reverse",
-                    scrub: 1,
-                },
-            }
-        );
-
-        // Animação para os parágrafos
-        gsap.fromTo(
-            paragraphRefs.current,
-            { x: -100, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                duration: animationDuration,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: paragraphRefs.current[0],
-                    start: "top 90%",
-                    end: "top 30%",
-                    toggleActions: "play reverse play reverse",
-                    scrub: 1,
-                },
-                stagger: 0.1,
-            }
-        );
-
-        // Animação para a imagem
-        gsap.fromTo(
-            imageRef.current,
-            { scale: 0.8, opacity: 0 },
-            {
-                scale: animationScale,
-                opacity: 1,
-                duration: animationDuration + 0.1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: imageRef.current,
-                    start: "top 85%",
-                    end: "top 50%",
-                    toggleActions: "play reverse play reverse",
-                    scrub: 1,
-                },
-            }
-        );
+  // 🎯 Animação do título (entra antes e suavemente)
+  gsap.fromTo(
+    titleRef.current,
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration,
+      ease: easing,
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 95%", // Inicia mais cedo na rolagem
+        toggleActions: "play none none reverse",
+      },
     }
+  );
 
-    return null;
+  // 🎯 Animação dos parágrafos — cada um entra independente, sem scrub
+  paragraphRefs.current.forEach((el, index) => {
+    gsap.fromTo(
+      el,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: duration + index * 0.1,
+        ease: easing,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 95%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+
+  // 🎯 Animação da imagem da direita (mantém scrub)
+  gsap.fromTo(
+    imageRef.current,
+    { scale: 0.9, opacity: 0 },
+    {
+      scale: 1,
+      opacity: 1,
+      duration,
+      ease: easing,
+      scrollTrigger: {
+        trigger: imageRef.current,
+        start: "top 90%",
+        end: "top 50%",
+        scrub: true,
+      },
+    }
+  );
+
+  return null;
 }
 
 export default AboutAnimations;

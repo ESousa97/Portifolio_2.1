@@ -1,0 +1,51 @@
+.keyboard-hint-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-dot-menu);
+    color: var(--color-bold);
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 9999;
+    animation: fadeIn 0.4s ease-in-out;
+    backdrop-filter: blur(6px);
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .hint-icon {
+    font-size: 1.2rem;
+  }
+  
+  .hint-text {
+    font-weight: 500;
+    color: var(--color-bold);
+  }
+  
+  .hint-close {
+    background: none;
+    border: none;
+    color: var(--color-bold);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 0.4rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    margin-left: auto;
+  }
+  
+  .hint-close:hover {
+    transform: scale(1.3);
+    color: #ff4c4c; /* vermelho suave */
+  }  
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+  

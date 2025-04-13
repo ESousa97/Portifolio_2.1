@@ -38,6 +38,19 @@
   min-height: 70vh;
 }
 
+.project-description p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--color-project-text);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.015em;
+  text-align: justify;
+  text-wrap: pretty;
+  transition: color 0.3s ease-in-out;
+  max-width: 800px;
+}
+
 .project-image-container {
   flex: 1;
   perspective: 1000px;

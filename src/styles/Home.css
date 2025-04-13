@@ -32,7 +32,7 @@
 }
 
 .column-right h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--color-rose);
   font-weight: 700;
@@ -49,10 +49,10 @@
 }
 
 .column-right ul li {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--color-text-right);
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 

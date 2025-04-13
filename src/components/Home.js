@@ -77,27 +77,51 @@ function Home() {
           <h2>Tecnologias</h2>
           <ul>
             <li>
-              <strong>Front-end:</strong>{' '}
-              <span>
-                React.js, Next.js, Material-UI, Axios, Styled Components, DOMPurify,
-                Framer Motion, React Toastify, Sass
-              </span>
-            </li>
-            <li>
-              <strong>Back-end:</strong>{' '}
-              <span>
-                PostgreSQL, Node.js, Express.js, @vercel/postgres, CORS, SSL
-              </span>
-            </li>
-            <li>
-              <strong>Ferramentas:</strong>{' '}
-              <span>Git, Vercel, NextAuth, Heroku, PgAdmin, MongoCompass</span>
-            </li>
-            <li>
-              <strong>Segurança:</strong>{' '}
-              <span>
-                NextAuth, 2FA, OAuth, JWT, CSRF, DOMPurify, SSL, LGPD
-              </span>
+            <strong>Front-end:</strong>{' '}
+            <span>
+              React.js, Next.js, TypeScript, Material UI, TailwindCSS, Framer Motion, Axios, 
+              Styled Components, React Icons, DOMPurify, React Toastify, Sass
+            </span>
+          </li>
+          <li>
+            <strong>Back-end:</strong>{' '}
+            <span>
+              Node.js, Express.js, Sequelize, Mongoose, PostgreSQL, MongoDB, SQLite, 
+              @vercel/postgres, RESTful APIs, CORS, Helmet, HTTPS, JWT, OAuth
+            </span>
+          </li>
+          <li>
+            <strong>Automação & Scripts:</strong>{' '}
+            <span>
+              Python, PowerShell, Shell Script, Batch, Prompt Windows, Automação de Terminais, 
+              Engenharia de Prompts (LLM), Automação de Processos RPA
+            </span>
+          </li>
+          <li>
+            <strong>Infraestrutura & DevOps:</strong>{' '}
+            <span>
+              Docker, AWS (ECS, RDS, ALB, Certificate Manager), GitHub Actions, Vercel, 
+              Render, Heroku, PgAdmin, Mongo Compass, Git CLI
+            </span>
+          </li>
+          <li>
+            <strong>Segurança:</strong>{' '}
+            <span>
+              NextAuth, JWT, OAuth 2.0, 2FA, CSRF, Helmet, DOMPurify, SSL/TLS, LGPD
+            </span>
+          </li>
+          <li>
+            <strong>Banco de Dados:</strong>{' '}
+            <span>
+              PostgreSQL, MongoDB, SQLite, MySQL, Sequelize, Mongoose, SQL Server
+            </span>
+          </li>
+          <li>
+            <strong>IA & NLP:</strong>{' '}
+            <span>
+              OpenAI (ChatGPT/GPT-4), Google Gemini, Prompt Engineering, Vetorização semântica, 
+              NLP com spaCy, Análise de Indicadores com IA
+            </span>
             </li>
           </ul>
         </div>

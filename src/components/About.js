@@ -31,25 +31,25 @@ function About() {
                 <div className="about-columns">
                     {/* Primeira coluna: texto */}
                     <div className="about-text">
-                        <p ref={(el) => setParagraphRef(el, 0)}>
-                            Eu sou <strong>José</strong> <strong>Enoque</strong>, e minha jornada com a tecnologia começou de forma inesperada. Antes de descobrir meu caminho na área, trabalhei como ajudante de pedreiro, estoquista e ajudante de carga e descarga em um supermercado. Foi ali, em meio ao esforço físico e à rotina intensa, que aprendi a importância da resiliência e da dedicação. Essas lições simples, porém profundas, me moldaram e continuam a guiar minha trajetória até hoje.
-                        </p>
-                        <br></br>
-                        <p ref={(el) => setParagraphRef(el, 1)}>
-                            Decidi seguir um novo rumo e mergulhei no universo da tecnologia. Comecei como <strong>estagiário</strong> de <strong>Service Desk</strong> na <strong>Tecnocomp Tecnologia e Serviços</strong>, onde minha curiosidade e vontade de aprender rapidamente me levaram a uma <strong>promoção</strong> para <strong>Técnico de Suporte N2</strong>. Foi uma mudança significativa, onde me desafiei diariamente a resolver problemas complexos com agilidade e eficiência, <strong>sempre</strong> buscando soluções que fizessem a <strong>diferença</strong> para o <strong>cliente</strong>.
-                        </p>
-                        <br></br>
-                        <p ref={(el) => setParagraphRef(el, 2)}>
-                            Atualmente, atuo como <strong>Analista de Automação de Processos</strong> na <strong>Positivo Tecnologia</strong>, onde lidero projetos que têm como objetivo otimizar operações e automatizar processos internos. Cada projeto que encaro é mais do que um desafio técnico — <strong>é</strong> <strong>uma</strong> <strong>chance</strong> de <strong>melhorar</strong> a <strong>forma</strong> como as <strong>pessoas</strong> trabalham e se <strong>comunicam</strong>. O impacto real e positivo que posso gerar é o que me motiva a continuar inovando.
-                        </p>
-                        <br></br>
-                        <p ref={(el) => setParagraphRef(el, 3)}>
-                            Entre os marcos da minha carreira, destaco o <strong>EsDataBase</strong>, um projeto que exigiu de mim criatividade e habilidade técnica para desenvolver uma solução robusta e escalável. Mesmo após sua descontinuação, as lições que aprendi com esse projeto permanecem comigo e moldam minha abordagem como desenvolvedor.
-                        </p>
-                        <br></br>
-                        <p ref={(el) => setParagraphRef(el, 4)}>
-                            Eu acredito que tecnologia é mais do que código — <strong>é</strong> sobre <strong>transformar ideias</strong> em <strong>algo prático</strong>, que melhore a <strong>vida</strong> das <strong>pessoas</strong>. É assim que vejo cada desafio: uma oportunidade de inovar e criar algo de valor. Minha história é marcada por esforço e dedicação, e é isso que levo comigo em cada novo projeto.
-                        </p>
+                    <p ref={(el) => setParagraphRef(el, 0)}>
+                        Eu sou <strong>José Enoque</strong>, e minha jornada na tecnologia nasceu da <strong>resiliência</strong> e da <strong>vontade de vencer</strong>. Antes de entrar na área, trabalhei como <strong>ajudante de pedreiro</strong>, <strong>estoquista</strong> e em <strong>carga e descarga</strong> de supermercado — experiências que me ensinaram na prática o valor da <strong>disciplina</strong>, <strong>força de vontade</strong> e <strong>comprometimento</strong>. Essas raízes humildes moldaram o profissional focado e determinado que sou hoje.
+                    </p>
+                    <br />
+                    <p ref={(el) => setParagraphRef(el, 1)}>
+                        Em 2022, iniciei minha formação em <strong>Engenharia da Computação</strong> e entrei para o mundo da TI como <strong>estagiário de Service Desk</strong>. Pouco tempo depois, fui promovido a <strong>Analista de Suporte N2</strong> pela <strong>Tecnocomp</strong>, onde administrei servidores, automatizei processos técnicos e prestei suporte em ambientes de alta criticidade, sempre buscando <strong>resolver problemas complexos com agilidade</strong> e <strong>entregar soluções práticas</strong>.
+                    </p>
+                    <br />
+                    <p ref={(el) => setParagraphRef(el, 2)}>
+                        Na <strong>Positivo Tecnologia</strong>, evoluí para <strong>Analista de Automação de Processos Pleno</strong> e, mais tarde, para <strong>Analista de Suporte Pleno</strong>, liderando projetos que <strong>automatizam rotinas críticas</strong>, melhoram a performance de infraestrutura e integram <strong>IA generativa</strong> e <strong>engenharia de prompts</strong> para acelerar diagnósticos e eliminar tarefas repetitivas. Meu foco é <strong>entregar eficiência escalável</strong>, com soluções que geram impacto real.
+                    </p>
+                    <br />
+                    <p ref={(el) => setParagraphRef(el, 3)}>
+                        Entre os destaques da minha trajetória está o <strong>EsDataBase</strong>, um projeto completo de automação e visualização de dados, com <strong>back-end em Node.js</strong>, <strong>PostgreSQL</strong>, <strong>Docker</strong>, <strong>AWS</strong> e <strong>front-end em Next.js</strong>. Desenvolvi também ferramentas como o <strong>Automation GUI</strong>, um app modular para padronização de terminais Windows, e o <strong>ExNeural</strong>, sistema de análise de indicadores com <strong>IA e visualização em tempo real</strong>.
+                    </p>
+                    <br />
+                    <p ref={(el) => setParagraphRef(el, 4)}>
+                        Acredito que a <strong>tecnologia é uma ponte</strong> entre ideias e transformação. Minha missão é usar código para <strong>resolver problemas reais</strong>, <strong>melhorar a experiência das pessoas</strong> e <strong>inovar com propósito</strong>. Sigo evoluindo constantemente, me aprofundando em <strong>automação, desenvolvimento full stack, infraestrutura e inteligência artificial</strong> — sempre com os pés no chão, mas o olhar voltado para o futuro.
+                    </p>
                     </div>
 
                     {/* Segunda coluna: imagem ou conteúdo extra */}
