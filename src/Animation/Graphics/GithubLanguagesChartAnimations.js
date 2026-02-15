@@ -14,21 +14,21 @@ function GithubLanguagesChartAnimations({ graphContainerRef }) {
 
     gsap.fromTo(
       graphContainerRef.current,
-      { 
-        clipPath: isDesktop ? "inset(0 50% 0 50%)" : "inset(0 0 0 0)", // Remove o efeito de clipPath em mobile
-        opacity: 0 
+      {
+        clipPath: isDesktop ? 'inset(0 50% 0 50%)' : 'inset(0 0 0 0)', // Remove o efeito de clipPath em mobile
+        opacity: 0,
       },
       {
-        clipPath: "inset(0% 0% 0% 0%)", // Animação de abertura total
+        clipPath: 'inset(0% 0% 0% 0%)', // Animação de abertura total
         opacity: 1,
         duration: animationDuration,
-        ease: "power2.out",
+        ease: 'power2.out',
         scrollTrigger: isDesktop
           ? {
               trigger: graphContainerRef.current,
-              start: "top 80%",
-              end: "bottom bottom",
-              toggleActions: "play reverse play reverse",
+              start: 'top 80%',
+              end: 'bottom bottom',
+              toggleActions: 'play reverse play reverse',
               scrub: 0.8,
             }
           : null, // Remove ScrollTrigger em dispositivos móveis

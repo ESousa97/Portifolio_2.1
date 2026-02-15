@@ -6,7 +6,7 @@
   left: 0;
   height: auto;
   width: 55px;
-  padding: 15% 0;  /* Espaço vertical entre os itens */
+  padding: 15% 0; /* Espaço vertical entre os itens */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,15 +36,18 @@
   align-items: center;
 }
 .nav ul li {
-  margin: 20px 0;  /* Espaçamento vertical entre os itens */
+  margin: 20px 0; /* Espaçamento vertical entre os itens */
 }
 
 /* ===== LINKS DE NAVEGAÇÃO (COM ÍCONES) ===== */
 .nav ul li a {
   text-decoration: none;
   color: var(--color-header-icon);
-  font-size: 20px;  /* Tamanho base do link */
-  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-size: 20px; /* Tamanho base do link */
+  transition:
+    color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +64,9 @@
 .nav ul li a svg {
   /* Tamanho base dos ícones nos links */
   font-size: 24px;
-  transition: color 0.3s, filter 0.3s;
+  transition:
+    color 0.3s,
+    filter 0.3s;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
   color: inherit;
 }
@@ -75,16 +80,19 @@
   background: var(--color-header-button);
   border: none;
   cursor: pointer;
-  font-size: 24px;  /* Tamanho base do ícone interno */
+  font-size: 24px; /* Tamanho base do ícone interno */
   color: var(--color-header-icon);
-  width: 44px;  /* Dimensões fixas para o círculo */
+  width: 44px; /* Dimensões fixas para o círculo */
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;  /* Sem padding extra */
+  padding: 0; /* Sem padding extra */
   line-height: 1;
-  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:
+    color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
   margin-top: auto;
   border-radius: 50%;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -126,7 +134,7 @@
 @media (max-width: 560px) {
   .header {
     width: 26px;
-    padding: 3% 0;  /* Redução do padding */
+    padding: 3% 0; /* Redução do padding */
     font-size: 9px;
   }
   .nav ul li a {

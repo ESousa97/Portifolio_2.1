@@ -1,183 +1,190 @@
 /* Estilos principais da navegação de pontos */
 .dot-navigation {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1000;
-    align-items: center;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0; /* Menu inicialmente oculto */
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+  align-items: center;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  opacity: 0; /* Menu inicialmente oculto */
 }
 
 .dot-navigation.visible {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 .dot-navigation.hidden {
-    opacity: 0;
-    transform: translateY(-50%) translateX(50px);
+  opacity: 0;
+  transform: translateY(-50%) translateX(50px);
 }
 
 /* Estilos para as bolinhas (dots) inativas */
 .dot-navigation .dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: var(--color-header);
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-header);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dot-navigation .dot:hover {
-    background-color: var(--color-header-hover);
-    transform: scale(1.15);
+  background-color: var(--color-header-hover);
+  transform: scale(1.15);
 }
 
 /* Estilos para os dots ativos */
 .dot-navigation .dot.active {
-    background-color: var(--color-header-button);
-    border: 2px solid var(--color-header-button);
-    width: 30px;
-    height: 30px;
-    transform: scale(1.3);
+  background-color: var(--color-header-button);
+  border: 2px solid var(--color-header-button);
+  width: 30px;
+  height: 30px;
+  transform: scale(1.3);
 }
 
 .dot-navigation .dot.active.icon svg {
-    font-size: 18px;
-    color: var(--color-header-icon);
-    transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 18px;
+  color: var(--color-header-icon);
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .dot.active.icon:hover svg {
-    color: var(--color-header);
+  color: var(--color-header);
 }
 
 .dot-navigation .dot.active.icon:hover svg {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .dot-navigation .dot.active:hover {
-    transform: scale(1.35);
+  transform: scale(1.35);
 }
 
 /* Responsividade */
 @media (max-width: 1600px) {
-    .dot-navigation {
-        right: 18px;
-    }
+  .dot-navigation {
+    right: 18px;
+  }
 }
 
 @media (max-width: 1450px) {
-    .dot-navigation {
-        right: 16px;
-    }
+  .dot-navigation {
+    right: 16px;
+  }
 }
 
 @media (max-width: 1280px) {
-    .dot-navigation {
-        right: 14px;
-    }
+  .dot-navigation {
+    right: 14px;
+  }
 }
 
 @media (max-width: 1100px) {
-    .dot-navigation {
-        right: 12px;
-    }
+  .dot-navigation {
+    right: 12px;
+  }
 }
 
 @media (max-width: 960px) {
-    .dot-navigation .dot {
-        width: 12px;
-        height: 12px;
-    }
+  .dot-navigation .dot {
+    width: 12px;
+    height: 12px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 26px;
-        height: 26px;
-    }
+  .dot-navigation .dot.active {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 @media (max-width: 860px) {
-    .dot-navigation .dot {
-        width: 10px;
-        height: 10px;
-    }
+  .dot-navigation .dot {
+    width: 10px;
+    height: 10px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 24px;
-        height: 24px;
-    }
+  .dot-navigation .dot.active {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media (max-width: 780px) {
-    .dot-navigation .dot {
-        width: 10px;
-        height: 10px;
-    }
+  .dot-navigation .dot {
+    width: 10px;
+    height: 10px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 22px;
-        height: 22px;
-    }
+  .dot-navigation .dot.active {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 @media (max-width: 768px) {
-    .dot-navigation {
-        right: 10px;
-    }
+  .dot-navigation {
+    right: 10px;
+  }
 }
 
 @media (max-width: 560px) {
-    .dot-navigation .dot {
-        width: 8px;
-        height: 8px;
-    }
+  .dot-navigation .dot {
+    width: 8px;
+    height: 8px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 20px;
-        height: 20px;
-    }
+  .dot-navigation .dot.active {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 475px) {
-    .dot-navigation {
-        right: 8px;
-        gap: 15px;
-    }
-    
-    .dot-navigation .dot {
-        width: 8px;
-        height: 8px;
-    }
+  .dot-navigation {
+    right: 8px;
+    gap: 15px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 18px;
-        height: 18px;
-    }
+  .dot-navigation .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot-navigation .dot.active {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media (max-width: 350px) {
-    .dot-navigation {
-        right: 5px;
-        gap: 12px;
-    }
+  .dot-navigation {
+    right: 5px;
+    gap: 12px;
+  }
 
-    .dot-navigation .dot {
-        width: 6px;
-        height: 6px;
-    }
+  .dot-navigation .dot {
+    width: 6px;
+    height: 6px;
+  }
 
-    .dot-navigation .dot.active {
-        width: 16px;
-        height: 16px;
-    }
+  .dot-navigation .dot.active {
+    width: 16px;
+    height: 16px;
+  }
 }

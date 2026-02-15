@@ -1,0 +1,8 @@
+# Global ownership
+* @ESousa97
+
+# CI and governance
+.github/* @ESousa97
+
+# Frontend source
+src/* @ESousa97

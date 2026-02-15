@@ -21,13 +21,13 @@ function ModelNavigatorAnimations({ modelNavigatorRef }) {
         x: 0,
         opacity: 1,
         duration: animationDuration,
-        ease: "power3.out",
+        ease: 'power3.out',
         scrollTrigger: isDesktop
           ? {
               trigger: modelNavigatorRef.current,
-              start: "top 80%",
-              end: "top 0%",
-              toggleActions: "play reverse play reverse",
+              start: 'top 80%',
+              end: 'top 0%',
+              toggleActions: 'play reverse play reverse',
               scrub: 0.5,
             }
           : null, // Remove ScrollTrigger em dispositivos móveis

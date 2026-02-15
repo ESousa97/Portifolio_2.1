@@ -1,5 +1,4 @@
 /* Contêiner principal do card */
-/* Contêiner principal do card */
 .graph-card {
   display: flex;
   flex-direction: column;
@@ -11,7 +10,7 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais perceptível */
   max-width: 800px; /* Limita a largura máxima */
   width: 100%; /* Para ocupar o espaço disponível */
-  color: #333; /* Cor do texto dentro do card */
+  color: var(--color-card-text); /* Cor do texto dentro do card */
 }
 
 /* Título do gráfico */

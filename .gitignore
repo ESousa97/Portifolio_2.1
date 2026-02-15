@@ -24,3 +24,18 @@ yarn-error.log*
 
 # .env
 .env
+.env.*.local
+.env.local
+
+# internal assessment reports
+BASELINE.md
+Relatório FINAL.md
+FINAL.md
+
+# misc local artifacts
+.idea/
+.vscode/
+.vscode/settings.json
+*.tmp
+*.bak
+Thumbs.db

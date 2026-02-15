@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import KeyboardHint from "../components/KeyboardHint";
-import "../styles/Projects.css";
+import React, { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import KeyboardHint from '../components/KeyboardHint';
+import '../styles/Projects.css';
 
 function ThreeDViewer({ currentIndex, models, onNavigate }) {
   const mountRef = useRef(null);
@@ -18,8 +18,8 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
     const updateResolution = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
-    window.addEventListener("resize", updateResolution);
-    return () => window.removeEventListener("resize", updateResolution);
+    window.addEventListener('resize', updateResolution);
+    return () => window.removeEventListener('resize', updateResolution);
   }, []);
 
   const adjustModelScale = (model) => {
@@ -45,7 +45,12 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
     let model, modelGroup;
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     camera.position.z = 5;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -99,7 +104,7 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
           scene.add(modelGroup);
         },
         undefined,
-        (error) => console.error("Erro ao carregar o modelo:", error)
+        (error) => console.error('Erro ao carregar o modelo:', error)
       );
     };
 
@@ -115,8 +120,8 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
     controls.maxPolarAngle = Math.PI;
     controls.screenSpacePanning = true;
 
-    controls.addEventListener("start", () => (isDraggingRef.current = true));
-    controls.addEventListener("end", () => (isDraggingRef.current = false));
+    controls.addEventListener('start', () => (isDraggingRef.current = true));
+    controls.addEventListener('end', () => (isDraggingRef.current = false));
 
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -125,14 +130,14 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
       if (modelGroupRef.current) adjustModelScale(modelGroupRef.current);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     const handleKeyDown = (e) => {
-      if (e.key === "ArrowRight") onNavigate("next");
-      else if (e.key === "ArrowLeft") onNavigate("prev");
+      if (e.key === 'ArrowRight') onNavigate('next');
+      else if (e.key === 'ArrowLeft') onNavigate('prev');
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => setIsInView(entry.isIntersecting)),
@@ -156,8 +161,8 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
     return () => {
       observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
       if (mount) mount.removeChild(renderer.domElement);
       if (modelGroup) scene.remove(modelGroup);
       controls.dispose();
@@ -168,7 +173,7 @@ function ThreeDViewer({ currentIndex, models, onNavigate }) {
 
   return (
     <>
-      <div ref={mountRef} className="model-viewer" style={{ width: "100%", height: "100%" }} />
+      <div ref={mountRef} className="model-viewer" />
       <KeyboardHint />
     </>
   );

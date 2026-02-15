@@ -1,7 +1,7 @@
 // src/components/HeaderContentAnimation.js
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,12 +26,12 @@ function HeaderContentAnimation({ title, description }) {
           x: 0,
           opacity: 1,
           duration: animationDuration,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 90%",
-            end: "top 40%",
-            toggleActions: "play reverse play reverse",
+            start: 'top 90%',
+            end: 'top 40%',
+            toggleActions: 'play reverse play reverse',
             scrub: 0.5,
           },
         }
@@ -45,12 +45,12 @@ function HeaderContentAnimation({ title, description }) {
           x: 0,
           opacity: 1,
           duration: animationDuration,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: descriptionRef.current,
-            start: "top 90%",
-            end: "top 40%",
-            toggleActions: "play reverse play reverse",
+            start: 'top 90%',
+            end: 'top 40%',
+            toggleActions: 'play reverse play reverse',
             scrub: 0.5,
           },
         }
@@ -62,8 +62,12 @@ function HeaderContentAnimation({ title, description }) {
 
   return (
     <div className="header-content">
-      <h1 ref={titleRef} className="timeline-title">{title}</h1>
-      <p ref={descriptionRef} className="timeline-description">{description}</p>
+      <h1 ref={titleRef} className="timeline-title">
+        {title}
+      </h1>
+      <p ref={descriptionRef} className="timeline-description">
+        {description}
+      </p>
     </div>
   );
 }

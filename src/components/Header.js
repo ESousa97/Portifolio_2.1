@@ -1,13 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-  FaSun,
-  FaMoon,
-  FaHome,
-  FaUser,
-  FaBriefcase,
-  FaEnvelope,
-  FaCogs
-} from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaUser, FaBriefcase, FaEnvelope, FaCogs } from 'react-icons/fa';
 import '../styles/Header.css';
 
 function Header() {
@@ -31,7 +23,7 @@ function Header() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme((previousTheme) => (previousTheme === 'light' ? 'dark' : 'light'));
   };
 
   const handleScroll = useCallback(() => {
@@ -52,10 +44,7 @@ function Header() {
   }, [handleScroll]);
 
   return (
-    <header
-      className={`header ${isVisible ? '' : 'hidden'}`}
-      style={{ fontFamily: 'Arial, sans-serif' }} // Aplicando fonte Arial
-    >
+    <header className={`header ${isVisible ? '' : 'hidden'}`}>
       <nav className="nav">
         <ul>
           <li>
@@ -84,7 +73,12 @@ function Header() {
             </a>
           </li>
         </ul>
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Alterar tema" title="Alterar tema">
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Alterar tema"
+          title="Alterar tema"
+        >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
         </button>
       </nav>

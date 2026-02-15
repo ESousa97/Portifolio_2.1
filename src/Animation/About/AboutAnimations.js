@@ -8,7 +8,7 @@ function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
   if (!isDesktop) return null;
 
   const duration = 0.6;
-  const easing = "power3.out";
+  const easing = 'power3.out';
 
   // 🎯 Animação do título (entra antes e suavemente)
   gsap.fromTo(
@@ -21,8 +21,8 @@ function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
       ease: easing,
       scrollTrigger: {
         trigger: titleRef.current,
-        start: "top 95%", // Inicia mais cedo na rolagem
-        toggleActions: "play none none reverse",
+        start: 'top 95%', // Inicia mais cedo na rolagem
+        toggleActions: 'play none none reverse',
       },
     }
   );
@@ -39,8 +39,8 @@ function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
         ease: easing,
         scrollTrigger: {
           trigger: el,
-          start: "top 95%",
-          toggleActions: "play none none reverse",
+          start: 'top 95%',
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -57,8 +57,8 @@ function AboutAnimations({ titleRef, paragraphRefs, imageRef }) {
       ease: easing,
       scrollTrigger: {
         trigger: imageRef.current,
-        start: "top 90%",
-        end: "top 50%",
+        start: 'top 90%',
+        end: 'top 50%',
         scrub: true,
       },
     }

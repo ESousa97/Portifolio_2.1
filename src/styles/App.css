@@ -1,10 +1,13 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
   scroll-behavior: smooth; /* Rolagem suave */
   /* Transição suave para todas as propriedades relacionadas a cores */
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 .app {
@@ -54,7 +57,9 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 a {

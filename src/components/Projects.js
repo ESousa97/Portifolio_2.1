@@ -1,15 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
-import ProjectsAnimations from "../Animation/Projects/ProjectsAnimations";
-import "../styles/Projects.css";
+import React, { useState, useRef, useEffect } from 'react';
+import ProjectsAnimations from '../Animation/Projects/ProjectsAnimations';
+import '../styles/Projects.css';
 
 function Projects() {
   const [projects] = useState([
     {
-      title: "Projportfolio",
-      imgPath: "/Projects/projportfolio.png",
-      url: "https://esdatabasev2.vercel.app/components",
-      description: "Apresenta meus trabalhos de forma interativa e responsiva, com múltiplos formatos de visualização, suporte a temas claro/escuro, animações Lottie e consumo dinâmico de APIs — tudo projetado para evidenciar minhas habilidades em React, UI/UX e desenvolvimento full stack."
-    }
+      title: 'Projportfolio',
+      imgPath: '/Projects/projportfolio.png',
+      url: 'https://esdatabasev2.vercel.app/components',
+      description:
+        'Apresenta meus trabalhos de forma interativa e responsiva, com múltiplos formatos de visualização, suporte a temas claro/escuro, animações Lottie e consumo dinâmico de APIs — tudo projetado para evidenciar minhas habilidades em React, UI/UX e desenvolvimento full stack.',
+    },
   ]);
 
   const titleRef = useRef(null);
@@ -35,8 +36,12 @@ function Projects() {
       />
 
       <div className="header-content">
-        <h1 ref={titleRef} className="projects-title">Projetos</h1>
-        <p ref={descriptionRef} className="projects-description">Uma jornada em código: do aprendizado à entrega real. Explore meus projetos em constante evolução no Projportfolio.
+        <h1 ref={titleRef} className="projects-title">
+          Projetos
+        </h1>
+        <p ref={descriptionRef} className="projects-description">
+          Uma jornada em código: do aprendizado à entrega real. Explore meus projetos em constante
+          evolução no Projportfolio.
         </p>
       </div>
 

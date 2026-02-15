@@ -5,7 +5,14 @@ import { useEffect } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, graphTitleRef, skillsRefs }) {
+function ProjectsAnimations({
+  titleRef,
+  descriptionRef,
+  leftRefs,
+  rightRefs,
+  graphTitleRef,
+  skillsRefs,
+}) {
   useEffect(() => {
     const screenWidth = window.innerWidth;
     const isDesktop = screenWidth > 1000; // Verifica se a tela é maior que 1000px
@@ -23,12 +30,12 @@ function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, gra
           y: 0,
           opacity: 1,
           duration: animationDuration,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 90%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
+            start: 'top 90%',
+            end: 'top 20%',
+            toggleActions: 'play reverse play reverse',
             scrub: 1,
           },
         }
@@ -42,12 +49,12 @@ function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, gra
           y: 0,
           opacity: 1,
           duration: animationDuration,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: descriptionRef.current,
-            start: "top 90%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
+            start: 'top 90%',
+            end: 'top 20%',
+            toggleActions: 'play reverse play reverse',
             scrub: 1,
           },
         }
@@ -63,12 +70,12 @@ function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, gra
           {
             opacity: 1,
             duration: animationDuration + 0.5,
-            ease: "power2.out",
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: leftElem,
-              start: "top 90%",
-              end: "top 30%",
-              toggleActions: "play reverse play reverse",
+              start: 'top 90%',
+              end: 'top 30%',
+              toggleActions: 'play reverse play reverse',
               scrub: 0.8,
             },
           }
@@ -81,12 +88,12 @@ function ProjectsAnimations({ titleRef, descriptionRef, leftRefs, rightRefs, gra
             x: 0,
             opacity: 1,
             duration: 0.6,
-            ease: "power4.out",
+            ease: 'power4.out',
             scrollTrigger: {
               trigger: rightElem,
-              start: "top 90%",
-              end: "top 30%",
-              toggleActions: "play reverse play reverse",
+              start: 'top 90%',
+              end: 'top 30%',
+              toggleActions: 'play reverse play reverse',
               scrub: 0.8,
             },
           }

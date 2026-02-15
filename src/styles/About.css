@@ -53,7 +53,9 @@
   padding: 10px;
   border-radius: 10%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   overflow: hidden; /* Para cortar bordas brilhantes além da imagem */
   position: relative; /* Para o brilho nas bordas */
 }
@@ -66,7 +68,7 @@
   left: -10px;
   right: -10px;
   bottom: -10px;
-  background: linear-gradient(25deg, var(--color-button) 0%, var(--color-orange) 100%); 
+  background: linear-gradient(25deg, var(--color-button) 0%, var(--color-orange) 100%);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease-in-out;
@@ -80,7 +82,9 @@
 /* Efeito de sombra animada */
 .image-card:hover {
   transform: translateY(-10px) rotate3d(1, 1, 0, 5deg); /* Eleva e rotaciona a imagem */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.548), 0 0 40px var(--color-titulo-seconde); /* Sombra com efeito colorido */
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.548),
+    0 0 40px var(--color-titulo-seconde); /* Sombra com efeito colorido */
 }
 
 .about-image {
@@ -149,7 +153,9 @@
   /* Ajusta o efeito de sombra para corresponder ao novo layout */
   .image-card:hover {
     transform: translateY(-8px) rotate3d(1, 1, 0, 4deg);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5), 0 0 35px var(--color-titulo-seconde);
+    box-shadow:
+      0 10px 18px rgba(0, 0, 0, 0.5),
+      0 0 35px var(--color-titulo-seconde);
   }
 }
 
@@ -195,7 +201,9 @@
 
   .image-card:hover {
     transform: translateY(-4px) rotate3d(1, 1, 0, 2deg);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px var(--color-titulo-seconde);
+    box-shadow:
+      0 6px 12px rgba(0, 0, 0, 0.3),
+      0 0 25px var(--color-titulo-seconde);
   }
 }
 
@@ -224,7 +232,8 @@
   }
 
   /* Esconde o card e a imagem completamente */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }
@@ -254,7 +263,8 @@
   }
 
   /* Esconde o card e a imagem, se não estiverem escondidos */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }
@@ -284,7 +294,8 @@
   }
 
   /* Esconde o card e a imagem, se não estiverem escondidos */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }
@@ -314,7 +325,8 @@
   }
 
   /* Esconde o card e a imagem, se não estiverem escondidos */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }
@@ -344,7 +356,8 @@
   }
 
   /* Esconde o card e a imagem, se não estiverem escondidos */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }
@@ -374,7 +387,8 @@
   }
 
   /* Esconde o card e a imagem completamente */
-  .about-extra, .image-card {
+  .about-extra,
+  .image-card {
     display: none;
   }
 }

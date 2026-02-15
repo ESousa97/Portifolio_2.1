@@ -1,9 +1,9 @@
 // src/components/Skills.js
-import React from "react";
-import ModelNavigator from "../utils/ModelNavigator";
-import GithubLanguagesChart from "../Graphics/GithubLanguagesChart";
-import HeaderContentAnimation from "../Animation/Skills/SkillsAnimation";
-import "../styles/Skills.css";
+import React from 'react';
+import ModelNavigator from '../utils/ModelNavigator';
+import GithubLanguagesChart from '../Graphics/GithubLanguagesChart';
+import HeaderContentAnimation from '../Animation/Skills/SkillsAnimation';
+import '../styles/Skills.css';
 
 function Skills() {
   return (
@@ -19,7 +19,7 @@ function Skills() {
         <div className="model-navigator-container">
           <ModelNavigator />
         </div>
-        
+
         <div className="graph-container">
           <GithubLanguagesChart />
         </div>

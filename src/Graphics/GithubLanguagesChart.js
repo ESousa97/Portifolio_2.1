@@ -1,9 +1,8 @@
 // src/components/GithubLanguagesChart.js
-import React, { useState, useEffect, useRef } from "react";
-import GithubLanguagesChartAnimations from "../Animation/Graphics/GithubLanguagesChartAnimations";
-import "../styles/GithubLanguagesChart.css";
-
-const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+import React, { useState, useEffect, useRef } from 'react';
+import GithubLanguagesChartAnimations from '../Animation/Graphics/GithubLanguagesChartAnimations';
+import '../styles/GithubLanguagesChart.css';
+import env from '../config/env';
 
 function GithubLanguagesChart() {
   const [languagesData, setLanguagesData] = useState([]);
@@ -12,11 +11,11 @@ function GithubLanguagesChart() {
 
   useEffect(() => {
     async function fetchLanguages() {
+      const headers = env.githubToken ? { Authorization: `token ${env.githubToken}` } : {};
+
       try {
-        const response = await fetch("https://api.github.com/user/repos", {
-          headers: {
-            Authorization: `token ${GITHUB_TOKEN}`,
-          },
+        const response = await fetch('https://api.github.com/user/repos', {
+          headers,
         });
 
         if (!response.ok) {
@@ -28,10 +27,13 @@ function GithubLanguagesChart() {
 
         for (const repo of repos) {
           const langResponse = await fetch(repo.languages_url, {
-            headers: {
-              Authorization: `token ${GITHUB_TOKEN}`,
-            },
+            headers,
           });
+
+          if (!langResponse.ok) {
+            continue;
+          }
+
           const repoLanguages = await langResponse.json();
 
           for (const [lang, value] of Object.entries(repoLanguages)) {
@@ -45,7 +47,7 @@ function GithubLanguagesChart() {
             language: lang,
             percentage: ((value / total) * 100).toFixed(2),
           }))
-          .filter(lang => lang.percentage > 1);
+          .filter((lang) => lang.percentage > 1);
 
         setLanguagesData(languagePercentages);
       } catch (error) {
@@ -59,10 +61,10 @@ function GithubLanguagesChart() {
   return (
     <div ref={graphContainerRef} className="graph-card">
       <GithubLanguagesChartAnimations graphContainerRef={graphContainerRef} />
-  
+
       <h2 className="graph-title">Habilidades</h2>
       <p className="graph-subtitle">Ferramentas que tenho contato diariamente</p>
-  
+
       <div className="graph">
         {error ? (
           <p>{error}</p>
@@ -81,7 +83,7 @@ function GithubLanguagesChart() {
         )}
       </div>
     </div>
-  );   
+  );
 }
 
 export default GithubLanguagesChart;

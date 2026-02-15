@@ -1,14 +1,24 @@
 {
   "name": "portifolio_2.1",
   "version": "0.1.0",
+  "description": "Portfólio interativo em React com animações e visualização 3D.",
+  "author": "José Enoque Sousa",
+  "homepage": "https://enoquesousa.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ESousa97/Portifolio_2.1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ESousa97/Portifolio_2.1/issues"
+  },
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.5",
-    "emailjs-com": "^3.2.0",
     "embla-carousel": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
     "gsap": "^3.12.5",
@@ -27,9 +37,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "lint": "eslint src --ext .js,.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "audit": "npm audit --omit=dev",
+    "validate": "npm run lint && npm run test:ci && npm run build",
+    "prepare": "husky",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -50,7 +70,23 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1"
   }
 }

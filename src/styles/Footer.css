@@ -46,6 +46,11 @@ footer {
   text-decoration: underline;
 }
 
+.copy-action {
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 /* Estilos do formulário */
 .message-form form {
   display: flex;
@@ -99,14 +104,14 @@ footer {
 }
 
 .footer-social-icons a {
-  color: #fff;
+  color: var(--color-social-icon);
   margin: 0 10px;
   font-size: 24px;
   transition: color 0.3s ease;
 }
 
 .footer-social-icons a:hover {
-  color: #1DA1F2;
+  color: var(--color-social-icon-hover);
 }
 
 /* Responsividade para diferentes resoluções */
@@ -244,7 +249,6 @@ footer {
 
 /* 350px */
 @media (max-width: 350px) {
-
   footer {
     padding: 30px 35px;
   }
