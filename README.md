@@ -3,7 +3,7 @@
 Portfólio frontend em React com foco em experiência visual (GSAP + Three.js), seção de projetos, contato via EmailJS e gráfico de linguagens via GitHub API.
 
 [![CI](https://github.com/ESousa97/Portifolio_2.1/actions/workflows/ci.yml/badge.svg)](https://github.com/ESousa97/Portifolio_2.1/actions/workflows/ci.yml)
-[![Last Commit](https://img.shields.io/github/last-commit/ESousa97/Portifolio_2.1)](https://github.com/ESousa97/Portifolio_2.1/commits/main)
+[![Last Commit](https://img.shields.io/github/last-commit/ESousa97/Portifolio_2.1/master)](https://github.com/ESousa97/Portifolio_2.1/commits/master)
 [![Open Issues](https://img.shields.io/github/issues/ESousa97/Portifolio_2.1)](https://github.com/ESousa97/Portifolio_2.1/issues)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-025E8C?logo=dependabot)](./.github/dependabot.yml)
