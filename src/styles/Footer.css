@@ -254,7 +254,7 @@ footer {
   }
   .footer-section {
     min-width: 100%;
-    padding: 50px;
+    padding: 8px;
     text-align: center;
   }
   .contact-info h3,
@@ -276,10 +276,6 @@ footer {
   .footer-social-icons a {
     font-size: 14px;
     margin: 0 3px;
-  }
-  .footer-section {
-    padding: 8px;
-    text-align: center;
   }
   .footer-bottom p {
     font-size: 0.8rem;

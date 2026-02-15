@@ -12,7 +12,7 @@ Portfólio frontend em React com foco em experiência visual (GSAP + Three.js), 
 
 ## Demo
 
-- Produção: https://enoquesousa.vercel.app
+- Produção: https://portifolio21.vercel.app
 
 ## Stack
 
@@ -91,5 +91,5 @@ Projeto licenciado em [MIT](LICENSE).
 
 ## Autor
 
-- Portfólio: https://enoquesousa.vercel.app
+- Portfólio atual: https://enoquesousa.vercel.app
 - GitHub: https://github.com/ESousa97

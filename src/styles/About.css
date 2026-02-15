@@ -91,16 +91,12 @@
   max-width: 100%;
   border-radius: 1%; /* Mantém o estilo arredondado */
   transition: transform 0.3s ease-in-out; /* Animação suave ao hover */
+  will-change: transform; /* Para otimizar o efeito */
 }
 
 /* Efeito de zoom e rotação ao passar o mouse */
 .image-card:hover .about-image {
   transform: scale(1.1) rotate(5deg); /* Leve zoom e rotação */
-}
-
-/* Efeito de Parallax na rolagem */
-.about-image {
-  will-change: transform; /* Para otimizar o efeito */
 }
 
 /* Efeito de destaque em <strong> no texto */
